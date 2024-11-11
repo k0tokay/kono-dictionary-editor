@@ -1,0 +1,61 @@
+@use "colors";
+
+.edited {
+  span {
+    color: colors.$edited;
+  }
+}
+
+.dictTreeContainer {
+  width: 50%;
+  padding: 10px;
+  overflow-y: auto;
+  overflow-x: auto;
+  white-space: nowrap;
+  // height: 100vh;
+  .wordItemMain {
+    padding-bottom: 5px;
+    display: block;
+    span {
+      padding-left: 5px;
+      padding-right: 5px;
+      display: inline-block;
+    }
+    .id {
+      color: colors.$muted;
+      font-weight: bold;
+    }
+    .entry {
+      font-weight: bold;
+    }
+  }
+  .wordItemMain::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 10px solid;
+    margin-right: 5px;
+    color: transparent;
+  }
+  .wordItemMain.hasChildren::before {
+    color: colors.$muted;
+  }
+  
+  .wordItemMain.open::before {
+    transform: rotate(90deg);
+  }
+  .wordItemMain.hasChildren:hover {
+    cursor: pointer;
+  }
+
+  ul {
+    margin-left: 30px;
+    padding-left: 0px;
+  }
+  li {
+    list-style: none;
+  }
+}

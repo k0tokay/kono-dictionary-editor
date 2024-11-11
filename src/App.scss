@@ -1,0 +1,32 @@
+@use "colors";
+
+.mainWindow {
+  display: flex;
+  height: 90vh;
+}
+
+.menuBar {
+  //justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  color: colors.$basic;
+  border-bottom: 5px solid colors.$black;
+  padding: 5px;
+  .menuButton {
+    padding: 5px;
+    margin-right: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    border: 2px solid colors.$basic;
+    &:hover {
+      background-color: colors.$basic;
+      color: colors.$black;
+    }
+  }
+}
+
+.divider {
+  width: 5px;
+  background-color: colors.$black;
+  cursor: col-resize;
+}

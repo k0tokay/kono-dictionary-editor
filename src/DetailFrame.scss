@@ -1,0 +1,81 @@
+@use "colors";
+
+.edited {
+  label {
+    color: colors.$edited;
+  }
+}
+
+.detailsContainer {
+  overflow-y: auto;
+  input:read-only, textarea:read-only {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  .infoContainer {
+    padding: 10px;
+    .basicForm {
+      padding: 5px;
+      label {
+        display: block;
+        font-weight: bold;
+      }
+      input, textarea {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 1em;
+        margin-top: 5px;
+        padding: 7px;
+        background-color: colors.$black;
+        border: None;
+        &:focus {
+          outline: none;
+        }
+      }
+      textarea {
+        resize: vertical;
+        font-size: large; // なぜかlargeにしないと他のサイズと釣り合わない．
+      }
+    }
+    .tagForm {
+      padding: 5px;
+      p {
+        display: block;
+        font-weight: bold;
+        margin: 0;
+      }
+      .innerTagForm {
+        background-color: colors.$black;
+        min-height: 40px;
+        margin-top: 5px;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        .tagSpan {
+          border: colors.$basic 2px dashed;
+          padding: 3px;
+          padding-top: 0px;
+          padding-bottom: 0px;
+          margin: 3px;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+    .largeListForm {
+      padding: 5px;
+      p {
+        display: block;
+        font-weight: bold;
+        margin: 0;
+      }
+      .innerLargeListForm {
+        background-color: colors.$black;
+        margin-top: 5px;
+        min-height: 40px;
+      }
+    }
+  }
+}
