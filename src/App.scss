@@ -1,8 +1,15 @@
 @use "colors";
 
-.mainWindow {
+$menuheight: 50px;
+
+.window {
   display: flex;
-  height: 90vh;
+  flex-direction: column;
+  height: 100vh;
+  .mainWindow {
+    display: flex;
+    height: calc(100vh - #{$menuheight});
+  }
 }
 
 .menuBar {
@@ -12,6 +19,8 @@
   color: colors.$basic;
   border-bottom: 5px solid colors.$black;
   padding: 5px;
+  height: #{$menuheight};
+  box-sizing: border-box;
   .menuButton {
     padding: 5px;
     margin-right: 5px;

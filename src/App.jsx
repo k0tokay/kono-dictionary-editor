@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import initialData from './data/konomeno-v5.json';
 import './App.scss';
-import './Index.scss';
+import './index.scss';
 import WordItem from './TreeView';
 import RenderInfo from './DetailFrame';
 
