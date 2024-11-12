@@ -41,11 +41,24 @@ function BasicForm({ name, title, value, edited = false, updateData = (...args) 
   );
 }
 
+function TagWordDetails({ word }) {
+  return (
+    <div className='tagWordDetails'>
+      <div className='paddingBox'>
+        <div className='innerTagWordDetails'>
+          <span className='id'>{word.id}</span>
+          <span className='entry'>{word.entry}</span>
+          <p className='translations'>{word.translations}</p>
+        </div>
+      </div>
+    </div >
+  );
+}
 
 function TagForm({ name, title, tags, updateData = (...args) => { },
   isList = true, isWord = false, dict = null }) {
-  const tagList_tmp = isList ? tags : (tags ? [tags] : []);
-  const tagList = tagList_tmp.map(tag => (isWord && dict ? dict.words[tag].entry : tag));
+  const tagList = isList ? tags : (tags ? [tags] : []);
+  // const tagList = tagList_tmp.map(tag => (isWord && dict ? dict.words[tag].entry : tag));
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
@@ -55,15 +68,18 @@ function TagForm({ name, title, tags, updateData = (...args) => { },
     <p>{title}</p>
     <div className='innerTagForm'>
       {tagList.map((tag, i) => (
-        <span
-          className='tagSpan'
-          key={i}
-          contentEditable
-          suppressContentEditableWarning={true}
-          onKeyDown={handleKeyDown}
-        >
-          {tag}
-        </span>
+        <div>
+          {isWord && dict ? <TagWordDetails word={dict.words[tag]} key={"d_" + i} /> : null}
+          <span
+            className='tagSpan'
+            key={i}
+            contentEditable
+            suppressContentEditableWarning={true}
+            onKeyDown={handleKeyDown}
+          >
+            {isWord && dict ? dict.words[tag].entry : tag}
+          </span>
+        </div>
       ))}
     </div>
   </div>

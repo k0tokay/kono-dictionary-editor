@@ -52,14 +52,57 @@
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        .tagSpan {
-          border: colors.$basic 2px dashed;
-          padding: 3px;
-          padding-top: 0px;
-          padding-bottom: 0px;
-          margin: 3px;
-          &:focus {
-            outline: none;
+        div {
+          .tagSpan {
+            border: colors.$basic 2px dashed;
+            padding: 3px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            margin: 3px;
+            &:focus {
+              outline: none;
+            }
+          }
+          .tagWordDetails {
+            position: relative;
+            height: 0;
+            width: 0;
+            z-index: 1;
+            top: -80px;
+            .paddingBox {
+              display: none;
+              width: fit-content;
+              padding-bottom: 15px;
+              .innerTagWordDetails {
+                background-color: colors.$bg;
+                padding: 10px;
+                height: auto;
+                width: max-content;
+                border: 2px solid colors.$basic;
+                .id {
+                  color: colors.$muted;
+                  font-weight: bold;
+                  padding-right: 5px;
+                }
+                .entry {
+                  font-weight: bold;
+                }
+                .translations {
+                  font-weight: 400;
+                  overflow-x: auto;
+                  height: 20px;
+                  max-width: 100px;
+                }
+              }
+              &:hover {
+                display: block;
+              }
+            }
+          }
+          &:hover {
+            .paddingBox {
+              display: block;
+            }
           }
         }
       }
