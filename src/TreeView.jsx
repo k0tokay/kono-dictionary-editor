@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import "./TreeView.scss";
 
 function parentList(dict, id) {
@@ -13,7 +13,6 @@ function parentList(dict, id) {
 };
 
 function WordItem({ word, dict, showDetails, editedSet, isOpenSet, updateData }) {
-  // const [isOpen, setIsOpen] = useState(false);
   const isOpen = isOpenSet.has(word.id);
   const { id, entry, children } = word;
   const hasChildren = children.length > 0;
@@ -36,7 +35,7 @@ function WordItem({ word, dict, showDetails, editedSet, isOpenSet, updateData })
   return (
     <li>
       <span
-        className={`wordItemMain ${isOpen ? "open" : ""} ${hasChildren ? "hasChildren" : ""} ${upward(editedSet).has(word.id) ? "edited" : undefined}`}
+        className={`wordItemMain ${isOpen ? "open" : ""} ${hasChildren ? "hasChildren" : ""} ${upward(editedSet).has(word.id) ? "edited" : ""}`}
         onClick={handleClick}
       >
         <span className="id">{id}</span>

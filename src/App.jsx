@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import initialData from './data/konomeno-v5.json';
 import './App.scss';
 import './index.scss';
@@ -24,6 +24,8 @@ function App() {
   const [editedSet, setEditedSet] = useState(new Set([]));
   const [isOpenSet, setIsOpenSet] = useState(new Set([]));
 
+  const focusRef = useRef(null);
+
   // 変更を加えたとき
   const getDetailsData = ({ word, editedAttrSet, commandList }) => {
     setEditedSet({ ...editedSet, [word.id]: editedAttrSet });
@@ -32,10 +34,6 @@ function App() {
         saveData(word);
       } else if (Array.isArray(command) && command[0] === "tree_display") {
         const id = command[1];
-        const newSet = new Set([...isOpenSet, ...parentList(dictionaryData, id)]);
-        setIsOpenSet(newSet);
-        delete editedSet.id;
-        setEditedSet(editedSet);
       }
     })
   };
@@ -65,6 +63,18 @@ function App() {
     setEditedSet(editedSet);
     setDetails(<RenderInfo word={word} dict={dictionaryData} updateData={getDetailsData} />);
   };
+  // const onTreeitemFocus = (id) => (el) => {
+  //   const newSet = new Set([...isOpenSet, ...parentList(dictionaryData, // id)]);
+  //   setIsOpenSet(newSet);
+  //   delete editedSet.id;
+  //   setEditedSet(editedSet);
+  //   console.log(el);
+  // 
+  //   if (el && el === focusRef.current) {
+  //     focusRef.current = el;
+  //     el.scrollIntoView({ behavior: "smooth", block: "center" });
+  //   }
+  // };
 
   const [details, setDetails] = useState(<RenderInfo word={word} dict={dictionaryData} updateData={getDetailsData} />);
 
@@ -123,7 +133,8 @@ function App() {
         <div className="dictTreeContainer" style={{ width: `${leftWidth}%` }}>
           <ul>
             {categoryIndices.map(i => (
-              <WordItem key={i} word={dictionaryData.words[i]} dict={dictionaryData} showDetails={treeItemShowDetails} editedSet={editedSet} isOpenSet={isOpenSet} updateData={getTreeData} />
+              <WordItem key={i} word={dictionaryData.words[i]} dict={dictionaryData} showDetails={treeItemShowDetails} editedSet={editedSet} isOpenSet={isOpenSet} updateData={getTreeData}
+              />
             ))}
           </ul>
         </div>

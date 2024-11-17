@@ -34,8 +34,8 @@ function BasicForm({ name, title, value, edited = false, updateData,
   );
 
   return (
-    <div className={["basicForm", edited ? "edited" : ""].join(" ")}>
-      <label htmlFor={name}>{title}</label>
+    <div className="basicForm">
+      <label htmlFor={name} className={edited ? "edited" : ""}>{title}</label>
       {editArea}
     </div>
   );
@@ -59,37 +59,44 @@ function TagWordDetails({ word, onClick }) {
   );
 }
 
-function TagForm({ name, title, tags, updateData, onClick,
+function TagForm({ name, title, tags, updateData, onClick, edited = false,
   isList = true, isWord = false, dict = null }) {
-  const tagList = isList ? tags : (tags ? [tags] : []); // 上位語はlistになってないので
-  // const tagList = tagList_tmp.map(tag => (isWord && dict ? dict.words[tag].entry : tag));
+  const [tagList, setTagList] = useState(isList ? tags : (tags ? [tags] : [])); // 上位語はlistになってないので
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
     }
   }
   const handleChange = (e) => {
-    // eに関する何か
+    const newTag = e.target.textContent;
+    const key = e.target.id;
+    console.log(newTag);
+    const newTags = !isList ? (tagList.length !== 0 ? tagList[0] : null) : tagList;
+    updateData(name, title, newTags);
+  }
+  const addTag = () => {
+    setTagList([...tagList, ""]);
     const newTags = !isList ? (tagList.length !== 0 ? tagList[0] : null) : tagList;
     updateData(name, title, newTags);
   }
 
   return <div className='tagForm'>
     <div className='tagHeader'>
-      <p>{title}</p>
-      <button>追加</button>
+      <p className={edited ? "edited" : ""}>{title}</p>
+      <button onClick={addTag} >追加</button>
     </div>
     <div className='innerTagForm'>
       {tagList.map((tag, i) => (
         <div key={`tag_${i}`}>
-          {isWord && dict ? <TagWordDetails word={dict.words[tag]} onClick={onClick?.(tag)} /> : null}
+          {isWord && dict && dict.words[tag] ? <TagWordDetails word={dict.words[tag]} onClick={onClick?.(tag)} /> : null}
           <span
             className='tagSpan'
             contentEditable
             suppressContentEditableWarning={true}
             onKeyDown={handleKeyDown}
+            onInput={handleChange}
           >
-            {isWord && dict ? dict.words[tag].entry : tag}
+            {isWord && dict && dict.words[tag] ? dict.words[tag].entry : tag}
           </span>
         </div>
       ))}
@@ -169,8 +176,8 @@ function RenderInfo({ word, dict = null, updateData }) {
         <BasicForm name="entry" title="綴り" value={wordState.entry} updateData={getData} edited={editedSet.has("entry")} />
         <BasicForm name="translations" title="翻訳" value={wordState.translations} isList={true} isMultiline={true} updateData={getData} edited={editedSet.has("translations")} />
         <BasicForm name="simple_translations" title="簡易的な翻訳" value={wordState.simple_translations} isList={true} isMultiline={true} updateData={getData} edited={editedSet.has("simple_translations")} />
-        <TagForm name="parent" title="上位語" tags={wordState.parent} isList={false} isWord={true} dict={dict} onClick={handleTagClick} />
-        <TagForm name="children" title="下位語" tags={wordState.children} isList={true} isWord={true} dict={dict} onClick={handleTagClick} />
+        <TagForm name="parent" title="上位語" tags={wordState.parent} isList={false} isWord={true} dict={dict} onClick={handleTagClick} updateData={getData} edited={editedSet.has("parent")} />
+        <TagForm name="children" title="下位語" tags={wordState.children} isList={true} isWord={true} dict={dict} onClick={handleTagClick} updateData={getData} edited={editedSet.has("children")} />
         <TagForm name="arguments" title="引数" tags={wordState.arguments} isList={true} isWord={true} dict={dict} onClick={handleTagClick} />
         <TagForm name="tags" title="タグ" tags={wordState.tags} />
         <LargeListForm name="contents" title="内容" title_h="見出し" title_c="内容" contents={wordState.contents} />
