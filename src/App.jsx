@@ -2,14 +2,14 @@ import { useState, useEffect, useCallback } from 'react';
 import initialData from './data/konomeno-v5.json';
 import './App.scss';
 import './index.scss';
-import WordItem from './TreeView';
+import { parentList, WordItem } from './TreeView';
 import RenderInfo from './DetailFrame';
 
 function MenuBar({ menuItems }) {
   return (
     <div className="menuBar">
       {menuItems.map((item, i) => (
-        <button key={i} onClick={item.onClick} className="menuButton">
+        <button key={i} onClick={item.onClick}>
           {item.title}
         </button>
       ))}
@@ -22,13 +22,36 @@ function App() {
   const [dictionaryData, setDictionaryData] = useState(initialData);
   const [word, setWord] = useState(initialData.words[6]);
   const [editedSet, setEditedSet] = useState(new Set([]));
+  const [isOpenSet, setIsOpenSet] = useState(new Set([]));
 
-  const getData = (word) => {
-    setEditedSet(new Set([...editedSet, word.id]));
+  // 変更を加えたとき
+  const getDetailsData = ({ word, editedAttrSet, commandList }) => {
+    setEditedSet({ ...editedSet, [word.id]: editedAttrSet });
+    commandList.forEach(command => {
+      if (command === "save") {
+        saveData(word);
+      } else if (Array.isArray(command) && command[0] === "tree_display") {
+        const id = command[1];
+        const newSet = new Set([...isOpenSet, ...parentList(dictionaryData, id)]);
+        setIsOpenSet(newSet);
+        delete editedSet.id;
+        setEditedSet(editedSet);
+      }
+    })
+  };
+  const getTreeData = ({ word, isOpen }) => {
+    if (isOpen) {
+      setIsOpenSet(new Set([...isOpenSet, word.id]));
+    } else {
+      const newSet = new Set(isOpenSet);
+      newSet.delete(word.id);
+      setIsOpenSet(newSet);
+    }
   };
 
-  const getSaveData = (word) => {
-    const i = dictionaryData.words.findIndex(w => w && w.id === word.id);
+  // 保存を押したとき
+  const saveData = (word) => {
+    const i = word.id;
     const updateWord = (i, word) => {
       setDictionaryData(prevData => ({
         ...prevData,
@@ -38,15 +61,15 @@ function App() {
       }));
     };
     updateWord(i, word);
-    editedSet.delete(i);
+    delete editedSet.i;
     setEditedSet(editedSet);
-    setDetails(<RenderInfo word={word} dict={dictionaryData} updateData={getData} saveData={getSaveData} />);
+    setDetails(<RenderInfo word={word} dict={dictionaryData} updateData={getDetailsData} />);
   };
 
-  const [details, setDetails] = useState(<RenderInfo word={word} dict={dictionaryData} updateData={getData} saveData={getSaveData} />);
+  const [details, setDetails] = useState(<RenderInfo word={word} dict={dictionaryData} updateData={getDetailsData} />);
 
   const treeItemShowDetails = (word) => {
-    setDetails(<RenderInfo word={word} dict={dictionaryData} updateData={getData} saveData={getSaveData} />);
+    setDetails(<RenderInfo word={word} dict={dictionaryData} updateData={getDetailsData} />);
   }
 
   const handleMouseMove = useCallback((e) => {
@@ -66,7 +89,7 @@ function App() {
     document.body.style.userSelect = 'none';
   }, [handleMouseMove, handleMouseUp]);
 
-  const categoryIndeces = dictionaryData.words
+  const categoryIndices = dictionaryData.words
     .map((word, i) => (word && word.category === "カテゴリ" ? i : -1))
     .filter(i => i !== -1);
 
@@ -74,7 +97,10 @@ function App() {
     {
       title: "保存",
       onClick: () => {
-        saveData(wordState);
+        editedSet.forEach(i => {
+          const word = dictionaryData.words[i];
+          getSaveData(word);
+        });
         setEditedSet(new Set([]));
       }
     }, {
@@ -96,8 +122,8 @@ function App() {
       <div className="mainWindow">
         <div className="dictTreeContainer" style={{ width: `${leftWidth}%` }}>
           <ul>
-            {categoryIndeces.map(i => (
-              <WordItem key={i} word={dictionaryData.words[i]} dict={dictionaryData} showDetails={treeItemShowDetails} editedSet={editedSet} />
+            {categoryIndices.map(i => (
+              <WordItem key={i} word={dictionaryData.words[i]} dict={dictionaryData} showDetails={treeItemShowDetails} editedSet={editedSet} isOpenSet={isOpenSet} updateData={getTreeData} />
             ))}
           </ul>
         </div>

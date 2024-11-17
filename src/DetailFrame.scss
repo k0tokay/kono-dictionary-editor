@@ -27,7 +27,7 @@
         margin-top: 5px;
         padding: 7px;
         background-color: colors.$black;
-        border: None;
+        border: none;
         &:focus {
           outline: none;
         }
@@ -39,10 +39,16 @@
     }
     .tagForm {
       padding: 5px;
-      p {
-        display: block;
-        font-weight: bold;
-        margin: 0;
+      .tagHeader {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        p {
+          display: inline-block;
+          font-weight: bold;
+          margin: 0;
+          flex: 1;
+        }
       }
       .innerTagForm {
         background-color: colors.$black;
@@ -79,6 +85,9 @@
                 height: auto;
                 width: max-content;
                 border: 2px solid colors.$basic;
+                &:hover {
+                  cursor: pointer;
+                }
                 .id {
                   color: colors.$muted;
                   font-weight: bold;
@@ -90,8 +99,12 @@
                 .translations {
                   font-weight: 400;
                   overflow-x: auto;
+                  overflow-y: hidden;
                   height: 20px;
                   max-width: 100px;
+                  display: block;
+                  margin-bottom: 5px;
+                  // margin: 0;
                 }
               }
               &:hover {
