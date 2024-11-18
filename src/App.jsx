@@ -1,9 +1,18 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import initialData from './data/konomeno-v5.json';
 import './App.scss';
 import './index.scss';
 import { parentList, WordItem } from './TreeView';
 import RenderInfo from './DetailFrame';
+import RightClickMenu from './Basic';
+
+const rec = (n, f) => {
+  if (n === 0) {
+    return x => x;
+  } else {
+    return x => f(rec(n - 1, f)(x));
+  }
+};
 
 function MenuBar({ menuItems }) {
   return (
@@ -21,19 +30,30 @@ function App() {
   const [leftWidth, setLeftWidth] = useState(50);
   const [dictionaryData, setDictionaryData] = useState(initialData);
   const [word, setWord] = useState(initialData.words[6]);
-  const [editedSet, setEditedSet] = useState(new Set([]));
+  const [editedSet, setEditedSet] = useState(new Object({}));
   const [isOpenSet, setIsOpenSet] = useState(new Set([]));
 
-  const focusRef = useRef(null);
+  // 右クリックメニューの状態
+  const [menuState, setMenuState] = useState({
+    isMenuVisible: false,
+    x: 0,
+    y: 0,
+    items: [],
+  });
 
   // 変更を加えたとき
   const getDetailsData = ({ word, editedAttrSet, commandList }) => {
     setEditedSet({ ...editedSet, [word.id]: editedAttrSet });
+
+    setWord(word);
     commandList.forEach(command => {
       if (command === "save") {
         saveData(word);
       } else if (Array.isArray(command) && command[0] === "tree_display") {
         const id = command[1];
+        const newSet = new Set([...isOpenSet, ...parentList(dictionaryData, id)]);
+        setIsOpenSet(newSet);
+        setEditedSet(editedSet);
       }
     })
   };
@@ -50,37 +70,18 @@ function App() {
   // 保存を押したとき
   const saveData = (word) => {
     const i = word.id;
-    const updateWord = (i, word) => {
-      setDictionaryData(prevData => ({
-        ...prevData,
-        words: prevData.words.map((item, index) =>
-          index === i ? word : item
-        )
-      }));
+    const newData = {
+      ...dictionaryData,
+      words: dictionaryData.words.map((item, index) =>
+        index === i ? word : item
+      )
     };
-    updateWord(i, word);
-    delete editedSet.i;
-    setEditedSet(editedSet);
-    setDetails(<RenderInfo word={word} dict={dictionaryData} updateData={getDetailsData} />);
+    setDictionaryData(newData);
+    const newSet = { ...editedSet };
+    delete newSet[i];
+    setEditedSet(newSet);
   };
-  // const onTreeitemFocus = (id) => (el) => {
-  //   const newSet = new Set([...isOpenSet, ...parentList(dictionaryData, // id)]);
-  //   setIsOpenSet(newSet);
-  //   delete editedSet.id;
-  //   setEditedSet(editedSet);
-  //   console.log(el);
-  // 
-  //   if (el && el === focusRef.current) {
-  //     focusRef.current = el;
-  //     el.scrollIntoView({ behavior: "smooth", block: "center" });
-  //   }
-  // };
-
-  const [details, setDetails] = useState(<RenderInfo word={word} dict={dictionaryData} updateData={getDetailsData} />);
-
-  const treeItemShowDetails = (word) => {
-    setDetails(<RenderInfo word={word} dict={dictionaryData} updateData={getDetailsData} />);
-  }
+  const treeItemShowDetails = setWord;
 
   const handleMouseMove = useCallback((e) => {
     const newWidth = (e.clientX / window.innerWidth) * 100;
@@ -107,11 +108,11 @@ function App() {
     {
       title: "保存",
       onClick: () => {
-        editedSet.forEach(i => {
+        Object.keys(editedSet).forEach(i => {
           const word = dictionaryData.words[i];
-          getSaveData(word);
+          saveData(word);
         });
-        setEditedSet(new Set([]));
+        // setEditedSet(new Object({}));
       }
     }, {
       title: "ダウンロード",
@@ -126,8 +127,42 @@ function App() {
     }
   ];
 
+  // 右クリックメニューの表示
+  const handleContextMenu = (e) => {
+    e.preventDefault();
+    if (e.target.className === "tagSpan") {
+      setMenuState({
+        isMenuVisible: true,
+        x: e.pageX,
+        y: e.pageY,
+        items: [
+          {
+            title: "削除",
+            onClick: () => {
+              const pos = Number(e.target.id);
+              const tagForm = rec(3, x => x.parentElement)(e.target)
+              const attr = tagForm.getAttribute("name");
+              const newWord = { ...word };
+              newWord[attr] = newWord[attr].filter((_, i) => i !== pos); // tagsがlistでない場合に対応していない
+              setWord(newWord);
+              setMenuState((prev) => ({ ...prev, isMenuVisible: false }));
+            },
+          },
+        ],
+      });
+    }
+  };
+
+  const handleClick = () => {
+    // 右クリックメニューを非表示
+    setMenuState((prev) => ({ ...prev, isMenuVisible: false }));
+  };
+
   return (
-    <div className="window">
+    <div className="window"
+      onContextMenu={handleContextMenu}
+      onClick={handleClick}
+    >
       <MenuBar menuItems={menuItems} />
       <div className="mainWindow">
         <div className="dictTreeContainer" style={{ width: `${leftWidth}%` }}>
@@ -140,9 +175,15 @@ function App() {
         </div>
         <div className="divider" onMouseDown={handleMouseDown}></div>
         <div className="detailsContainer" style={{ width: `${100 - leftWidth}%` }}>
-          {details}
+          <RenderInfo word={word} dict={dictionaryData} updateData={getDetailsData} editedSet={word.id in editedSet ? editedSet[word.id] : new Set([])} />
         </div>
       </div>
+      <RightClickMenu
+        items={menuState.items}
+        x={menuState.x}
+        y={menuState.y}
+        isMenuVisible={menuState.isMenuVisible}
+      />
     </div>
   );
 }

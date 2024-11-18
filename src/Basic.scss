@@ -1,0 +1,15 @@
+@use "colors";
+
+.rightClickMenu {
+  position: absolute;
+  z-index: 1000;
+  width: fit-content;
+  background-color: colors.$bg;
+  border: 2px solid colors.$basic;
+  padding: 8px;
+
+  .RCMenuItem {
+    // padding: 10px 14px;
+    cursor: pointer;
+  }
+}
