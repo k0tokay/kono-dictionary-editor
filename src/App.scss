@@ -18,6 +18,7 @@ button {
   background-color: transparent;
   cursor: pointer;
   border: 2px solid colors.$basic;
+  color: colors.$basic;
   &:hover {
     background-color: colors.$basic;
     color: colors.$black;
