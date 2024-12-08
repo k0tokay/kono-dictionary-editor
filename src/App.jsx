@@ -76,6 +76,15 @@ function App() {
         index === i ? word : item
       )
     };
+
+    // parentの編集の反映
+    const pidOld = dictionaryData.words[i].parent;
+    const pidNew = word.parent;
+    if (pidOld !== pidNew) {
+      newData.words[pidOld].children = newData.words[pidOld].children.filter(id => id !== i);
+      newData.words[pidNew].children.push(i);
+    }
+
     setDictionaryData(newData);
     const newSet = { ...editedSet };
     delete newSet[i];
@@ -127,11 +136,37 @@ function App() {
     }
   ];
 
+  // 単語の追加や削除
+  const addWord = (id) => {
+    const p_category = dictionaryData.words[id].category;
+    const category = p_category === "カテゴリ" ? dictionaryData.words[id] : p_category;
+    const newWord = {
+      id: dictionaryData.words.length,
+      entry: "",
+      translations: "",
+      simple_translations: [],
+      category: category,
+      parent: id,
+      children: [],
+      arguments: [],
+      tags: [],
+      contents: [],
+      variations: []
+    };
+    const newData = {
+      ...dictionaryData,
+      words: [...dictionaryData.words, newWord]
+    };
+    newData.words[id].children.push(newWord.id);
+    setDictionaryData(newData);
+    setWord(newWord);
+  };
+
   // 右クリックメニューの表示
   const handleContextMenu = (e) => {
     e.preventDefault();
+    const pos = Number(e.target.id);
     if (e.target.classList.contains('tagSpan')) {
-      const pos = Number(e.target.id);
       const tagForm = rec(3, x => x.parentElement)(e.target)
       const attr = tagForm.getAttribute("name");
       const newWord = { ...word };
@@ -174,6 +209,28 @@ function App() {
               setMenuState((prev) => ({ ...prev, isMenuVisible: false }));
             },
           },
+        ],
+      });
+    } else if (e.target.classList.contains('entry')) {
+      const idElement = e.target.previousElementSibling;
+      const id = idElement ? Number(idElement.textContent) : null;
+      setMenuState({
+        isMenuVisible: true,
+        x: e.pageX,
+        y: e.pageY,
+        items: [
+          {
+            title: "追加",
+            onClick: () => {
+              addWord(id);
+              setMenuState((prev) => ({ ...prev, isMenuVisible: false }));
+            },
+          }, {
+            title: "削除",
+            onClick: () => {
+
+            }
+          }
         ],
       });
     }

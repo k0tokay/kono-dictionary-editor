@@ -274,6 +274,11 @@ function RenderInfo({ word, dict, updateData, editedSet }) {
       onClick: () => {
         updateData({ word: word, editedAttrSet: editedSet, commandList: ["save"] });
       }
+    }, {
+      title: "削除",
+      onClick: () => {
+        updateData({ word: word, editedAttrSet: editedSet, commandList: ["delete"] });
+      }
     }
   ];
 
@@ -301,7 +306,7 @@ function RenderInfo({ word, dict, updateData, editedSet }) {
         <BasicForm name="simple_translations" title="簡易的な翻訳" value={word.simple_translations} isList={true} isMultiline={true} updateData={getData} edited={editedSet.has("simple_translations")} />
         <TagForm name="parent" title="上位語" tags={word.parent} isList={false} isWord={true} dict={dict} onClick={handleTagClick} updateData={getData} edited={editedSet.has("parent")} />
         <TagForm name="children" title="下位語" tags={word.children} isList={true} isWord={true} dict={dict} onClick={handleTagClick} updateData={getData} edited={editedSet.has("children")} />
-        <TagForm name="arguments" title="引数" tags={word.arguments} isList={true} isWord={true} dict={dict} onClick={handleTagClick} />
+        <TagForm name="arguments" title="引数" tags={word.arguments} isList={true} isWord={true} dict={dict} onClick={handleTagClick} updateData={getData} edited={editedSet.has("arguments")} />
         <TagForm name="tags" title="タグ" tags={word.tags} updateData={getData} edited={editedSet.has("tags")} />
         <LargeListForm name="contents" title="内容" title_h="見出し" title_c="内容" contents={word.contents} updateData={getData} edited={editedSet.has("contents")} isMultiline={true} />
         <LargeListForm name="variations" title="変化形" title_h="種類" title_c="変化形" contents={word.variations} updateData={getData} edited={editedSet.has("variations")} isMultiline={false} />
