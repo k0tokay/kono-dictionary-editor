@@ -4,7 +4,7 @@ import './App.scss';
 import './index.scss';
 import { parentList, WordItem } from './TreeView';
 import RenderInfo from './DetailFrame';
-import RightClickMenu from './Basic';
+import { RightClickMenu } from './Basic';
 
 const rec = (n, f) => {
   if (n === 0) {
@@ -130,20 +130,46 @@ function App() {
   // 右クリックメニューの表示
   const handleContextMenu = (e) => {
     e.preventDefault();
-    if (e.target.className === "tagSpan") {
+    if (e.target.classList.contains('tagSpan')) {
+      const pos = Number(e.target.id);
+      const tagForm = rec(3, x => x.parentElement)(e.target)
+      const attr = tagForm.getAttribute("name");
+      const newWord = { ...word };
+      const isList = Array.isArray(newWord[attr]);
+      const itemsForList = [
+        {
+          title: "左へ",
+          onClick: () => {
+            const newTag = newWord[attr][pos - 1];
+            newWord[attr][pos - 1] = newWord[attr][pos];
+            newWord[attr][pos] = newTag;
+            setWord(newWord);
+            setMenuState((prev) => ({ ...prev, isMenuVisible: false }));
+          },
+        }, {
+          title: "右へ",
+          onClick: () => {
+            const newTag = newWord[attr][pos + 1];
+            newWord[attr][pos + 1] = newWord[attr][pos];
+            newWord[attr][pos] = newTag;
+            setWord(newWord);
+            setMenuState((prev) => ({ ...prev, isMenuVisible: false }));
+          },
+        }
+      ];
       setMenuState({
         isMenuVisible: true,
         x: e.pageX,
         y: e.pageY,
         items: [
-          {
+          ...(isList ? itemsForList : []), {
             title: "削除",
             onClick: () => {
-              const pos = Number(e.target.id);
-              const tagForm = rec(3, x => x.parentElement)(e.target)
-              const attr = tagForm.getAttribute("name");
-              const newWord = { ...word };
-              newWord[attr] = newWord[attr].filter((_, i) => i !== pos); // tagsがlistでない場合に対応していない
+              if (isList) {
+                newWord[attr] = newWord[attr].filter((_, i) => i !== pos); // tagsがlistでない場合に対応していない
+              } else {
+                newWord[attr] = null; // あってる？
+              }
               setWord(newWord);
               setMenuState((prev) => ({ ...prev, isMenuVisible: false }));
             },

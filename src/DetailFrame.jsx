@@ -1,16 +1,22 @@
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { search } from './Basic';
 import './DetailFrame.scss';
 
+const punctuations = ['，', ',', '、'];
+const puncRegex = new RegExp(`[${punctuations.join('')}]`)
+const splitPunc = (text) => text.split(puncRegex).map(x => x.trim()).filter(x => x !== "");
+
 function BasicForm({ name, title, value, edited = false, updateData,
-  isReadOnly = false, isList = false, isMultiline = false }) {
+  isReadOnly = false, isList = false, isMultiline = false, buttons = [] }) {
   //const [text, setText] = useState("");
   const text = value;
   // useEffect(() => {
   //   setText(value);
   // }, [value]);
   const handleChange = (e) => {
-    //setText(e.target.value);
-    updateData(name, title, e.target.value);
+    const value = e.target.value;
+    const data = isList ? splitPunc(value) : value;
+    updateData(name, title, data);
   }
 
   const editArea = isMultiline ? (
@@ -36,7 +42,18 @@ function BasicForm({ name, title, value, edited = false, updateData,
 
   return (
     <div className="basicForm">
-      <label htmlFor={name} className={edited ? "edited" : ""}>{title}</label>
+      <div className='basicHeader'>
+        <label htmlFor={name} className={edited ? "edited" : ""}>{title}</label>
+        {buttons.map((button, index) => (
+          <button
+            key={index}
+            onClick={button.onClick}
+            className={button.className || ''} // クラス名が渡されていれば追加
+          >
+            {button.label}
+          </button>
+        ))}
+      </div>
       {editArea}
     </div>
   );
@@ -77,8 +94,38 @@ function TagForm({ name, title, tags, updateData, onClick, edited = false,
     const newTag = e.target.textContent;
     const key = Number(e.target.id);
     const newTagList = tagList.map((tag, i) => (i === key ? newTag : tag));
-    const newTags = !isList ? (newTagList.length !== 0 ? newTagList[0] : null) : newTagList;
-    updateData(name, title, newTags);
+    if (!isWord) {
+      const newTags = !isList ? (newTagList.length !== 0 ? newTagList[0] : null) : newTagList;
+      updateData(name, title, newTags);
+    } else {
+      const data = [];
+      for (let i = 0; i < newTagList.length; i++) {
+        const tag = newTagList[i];
+        const num = Number(tag); // 実際はもともとint型だと思う
+        if (Number.isInteger(num) && num > 0) {
+          if (dict && dict.words[num]) {
+            data.push(num);
+            newTagList[i] = dict.words[num].entry;
+          } else {
+            data.push(tag);
+          }
+        } else {
+          const ids = search(dict, null, tag, null).map(x => x.id);
+          if (ids.length >= 1) {
+            data.push(ids[0]);
+          } else {
+            data.push(tag);
+          }
+        }
+      }
+      const newTags = !isList ? (data.length !== 0 ? data[0] : null) : data;
+      updateData(name, title, newTags);
+    }
+  }
+  const isValid = (wordId) => {
+    if (!isWord) return true;
+    const num = Number(wordId);
+    return Number.isInteger(num) && num >= 0 && dict && dict.words[num];
   }
   const handleChange_01 = (e) => {
     updateData(name, title, tags); // 編集済み属性をつけるだけ
@@ -100,7 +147,7 @@ function TagForm({ name, title, tags, updateData, onClick, edited = false,
           {isWord && dict && dict.words[tag] ? <TagWordDetails word={dict.words[tag]} onClick={onClick?.(tag)} /> : null}
           <span
             id={i}
-            className='tagSpan'
+            className={'tagSpan' + (isWord && !isValid(tag) ? ' notValid' : '')}
             contentEditable
             suppressContentEditableWarning={true}
             onKeyDown={handleKeyDown}
@@ -116,23 +163,75 @@ function TagForm({ name, title, tags, updateData, onClick, edited = false,
   </div>
 }
 
-function LargeForm({ name, title_h, title_c, content }) {
+function LargeForm({ name, title_h, title_c, content, updateData, isMultiline = true }) {
   const { title, text } = content;
+  const getData = (name_hc, title, value) => {
+    if (name_hc === `${name}_h`) {
+      const newContent = { ...content, title: value };
+      updateData(name, title, newContent);
+    } else if (name_hc === `${name}_c`) {
+      const newContent = { ...content, text: value };
+      updateData(name, title, newContent);
+    }
+  }
+  const buttons = [
+    {
+      label: "上へ",
+      onClick: () => { updateData(name, title, content, ["up"]) }
+    }, {
+      label: "下へ",
+      onClick: () => { updateData(name, title, content, ["down"]) }
+    }, {
+      label: "削除",
+      onClick: () => { updateData(name, title, content, ["delete"]) }
+    }
+  ]
   return (
     <div>
-      <BasicForm name={`${name}_h`} title={title_h} value={title} />
-      <BasicForm name={`${name}_c`} title={title_c} value={text} isMultiline={true} />
+      <BasicForm name={`${name}_h`} title={title_h} value={title} buttons={buttons} updateData={getData} />
+      <BasicForm name={`${name}_c`} title={title_c} value={text} isMultiline={isMultiline} updateData={getData} />
     </div>
   );
 }
 
-function LargeListForm({ name, title, title_h, title_c, contents }) {
+function LargeListForm({ name, title, title_h, title_c, contents, edited = false, updateData, isMultiline = true }) {
+  const addList = () => {
+    const newContents = [...contents, { title: "", text: "" }];
+    updateData(name, title, newContents);
+  }
+  const getData = (index) => (name, title, value, commandList) => {
+    const newContents = [...contents];
+    newContents[index] = value;
+    if (commandList && commandList.length > 0) {
+      for (const command of commandList) {
+        if (command === "up") {
+          if (index > 0) {
+            const tmp = newContents[index - 1];
+            newContents[index - 1] = newContents[index];
+            newContents[index] = tmp;
+          }
+        } else if (command === "down") {
+          if (index < newContents.length - 1) {
+            const tmp = newContents[index + 1];
+            newContents[index + 1] = newContents[index];
+            newContents[index] = tmp;
+          }
+        } else if (command === "delete") {
+          newContents.splice(index, 1);
+        }
+      }
+    }
+    updateData(name, title, newContents);
+  }
   return (
     <div className="largeListForm">
-      <p>{title}</p>
+      <div className='listHeader'>
+        <p className={edited ? "edited" : ""}>{title}</p>
+        <button onClick={addList} >追加</button>
+      </div>
       <div className='innerLargeListForm'>
-        {contents.map(content =>
-          <LargeForm name={name} title_h={title_h} title_c={title_c} content={content} />
+        {contents.map((content, i) =>
+          <LargeForm key={i} name={name} title_h={title_h} title_c={title_c} content={content} updateData={getData(i)} isMultiline={isMultiline} />
         )}
       </div>
     </div>
@@ -156,7 +255,7 @@ function RenderInfo({ word, dict, updateData, editedSet }) {
   // const [editedSet, setEditedSet] = useState(new Set([]));
   // useEffect(() => {
   //   setWordState(word);
-  //   setEditedSet(new Set([]));
+  //   setEditedSset(new Set([]));
   // }, [word]);
   const getData = (name, title, value) => {
     const newWord = { ...word, [name]: value };
@@ -178,6 +277,20 @@ function RenderInfo({ word, dict, updateData, editedSet }) {
     }
   ];
 
+  // ショートカットキー
+  useEffect(() => {
+    const handleShortcut = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+        e.preventDefault();
+        updateData({ word: word, editedAttrSet: editedSet, commandList: ["save"] });
+      }
+    };
+
+    window.addEventListener('keydown', handleShortcut);
+
+    return () => window.removeEventListener('keydown', handleShortcut);
+  }, []);
+
   return (
     <div>
       <MenuBar menuItems={menuItems} />
@@ -190,8 +303,8 @@ function RenderInfo({ word, dict, updateData, editedSet }) {
         <TagForm name="children" title="下位語" tags={word.children} isList={true} isWord={true} dict={dict} onClick={handleTagClick} updateData={getData} edited={editedSet.has("children")} />
         <TagForm name="arguments" title="引数" tags={word.arguments} isList={true} isWord={true} dict={dict} onClick={handleTagClick} />
         <TagForm name="tags" title="タグ" tags={word.tags} updateData={getData} edited={editedSet.has("tags")} />
-        <LargeListForm name="contents" title="内容" title_h="見出し" title_c="内容" contents={word.contents} />
-        <LargeListForm name="variations" title="変化形" title_h="種類" title_c="変化形" contents={word.variations} />
+        <LargeListForm name="contents" title="内容" title_h="見出し" title_c="内容" contents={word.contents} updateData={getData} edited={editedSet.has("contents")} isMultiline={true} />
+        <LargeListForm name="variations" title="変化形" title_h="種類" title_c="変化形" contents={word.variations} updateData={getData} edited={editedSet.has("variations")} isMultiline={false} />
       </div>
     </div>
   );

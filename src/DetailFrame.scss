@@ -14,9 +14,16 @@
     padding: 10px;
     .basicForm {
       padding: 5px;
-      label {
-        display: block;
-        font-weight: bold;
+      .basicHeader {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        label {
+          display: inline-block;
+          font-weight: bold;
+          margin: 0;
+          flex: 1;
+        }
       }
       input, textarea {
         width: 100%;
@@ -66,6 +73,10 @@
             &:focus {
               outline: none;
             }
+          }
+          .notValid {
+            border: colors.$notvalid 2px dashed;
+            color: colors.$notvalid;
           }
           .tagWordDetails {
             position: relative;
@@ -120,15 +131,25 @@
     }
     .largeListForm {
       padding: 5px;
-      p {
-        display: block;
-        font-weight: bold;
-        margin: 0;
+      .listHeader {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        p {
+          display: inline-block;
+          font-weight: bold;
+          margin: 0;
+          flex: 1;
+        }
       }
       .innerLargeListForm {
-        background-color: colors.$black;
+        // background-color: colors.$black;
         margin-top: 5px;
         min-height: 40px;
+        .basicForm {
+          padding-right: 0px;
+          padding-left: 0px;
+        }
       }
     }
   }
