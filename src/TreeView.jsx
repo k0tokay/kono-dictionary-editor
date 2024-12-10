@@ -52,4 +52,18 @@ function WordItem({ word, dict, showDetails, editedSet, isOpenSet, updateData })
   );
 }
 
-export { parentList, WordItem };
+function WordTree({ dict, updateData, editedSet, showDetails, isOpenSet }) {
+  const categoryIndices = dict.words
+    .map((word, i) => (word && word.category === "カテゴリ" ? i : -1))
+    .filter(i => i !== -1);
+  return <div className="wordTree">
+    <ul>
+      {categoryIndices.map(i => (
+        <WordItem key={i} word={dict.words[i]} dict={dict} showDetails={showDetails} editedSet={editedSet} isOpenSet={isOpenSet} updateData={updateData}
+        />
+      ))}
+    </ul>
+  </div>
+}
+
+export { parentList, WordTree };

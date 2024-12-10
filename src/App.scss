@@ -38,6 +38,40 @@ button {
 
 .divider {
   width: 5px;
-  background-color: colors.$black;
+  background-color: colors.$bg;
   cursor: col-resize;
+}
+.leftContainer, .rightContainer {
+  // padding: 10px;
+  overflow-y: auto;
+  overflow-x: auto;
+  white-space: nowrap;
+  background-color: colors.$black;
+  .pageTab {
+    margin: 10px;
+    margin-bottom: 0px;
+    overflow-x: auto;
+    .tab {
+      border: None;
+      background-color: colors.$black;
+      color: colors.$basic;
+      padding: 10px;
+      margin: 0px;
+      min-width: 60px;
+      &.active {
+        background-color: colors.$bg;
+        font-weight: bold;
+      }
+    }
+    .addTab {
+      float: right;
+    }
+  }
+}
+.innerLeftContainer, .innerRightContainer {
+  margin: 10px;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  background-color: colors.$bg;
 }

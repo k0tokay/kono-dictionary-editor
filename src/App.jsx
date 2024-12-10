@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import initialData from './data/konomeno-v5.json';
 import './App.scss';
 import './index.scss';
-import { parentList, WordItem } from './TreeView';
+import { parentList, WordTree } from './TreeView';
 import RenderInfo from './DetailFrame';
 import { RightClickMenu } from './Basic';
 
@@ -20,6 +20,18 @@ function MenuBar({ menuItems }) {
       {menuItems.map((item, i) => (
         <button key={i} onClick={item.onClick}>
           {item.title}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function PageTab({ tabs, activeTab, setActiveTab }) {
+  return (
+    <div className="pageTab">
+      {tabs.map((tab, i) => (
+        <button key={i} onClick={() => setActiveTab(tab)} className={"tab " + (tab === activeTab ? "active" : "")}>
+          {tab}
         </button>
       ))}
     </div>
@@ -108,10 +120,6 @@ function App() {
     document.addEventListener('mouseup', handleMouseUp);
     document.body.style.userSelect = 'none';
   }, [handleMouseMove, handleMouseUp]);
-
-  const categoryIndices = dictionaryData.words
-    .map((word, i) => (word && word.category === "カテゴリ" ? i : -1))
-    .filter(i => i !== -1);
 
   const menuItems = [
     {
@@ -241,6 +249,53 @@ function App() {
     setMenuState((prev) => ({ ...prev, isMenuVisible: false }));
   };
 
+  // ページ一覧
+  const pages = [
+    {
+      title: "単語",
+      component: <WordTree dict={dictionaryData} editedSet={editedSet} isOpenSet={isOpenSet} updateData={getTreeData} showDetails={treeItemShowDetails} />
+    }, {
+      title: "詳細",
+      component: <RenderInfo word={word} dict={dictionaryData} updateData={getDetailsData} editedSet={word.id in editedSet ? editedSet[word.id] : new Set([])} />
+    }, {
+      title: "検索",
+      component: <div>検索</div>
+    }
+  ]
+
+  const [pageTabState, setPageTabState] = useState({
+    "単語": {
+      active: true,
+      left: true,
+      display: true
+    },
+    "詳細": {
+      active: true,
+      left: false,
+      display: true
+    },
+    "検索": {
+      active: false,
+      left: false,
+      display: true
+    }
+  });
+  const leftTabs = Object.keys(pageTabState).filter(key => pageTabState[key].left && pageTabState[key].display);
+  const rightTabs = Object.keys(pageTabState).filter(key => !pageTabState[key].left && pageTabState[key].display);
+  const activeLeftTab = leftTabs.find(key => pageTabState[key].active);
+  const activeRightTab = rightTabs.find(key => pageTabState[key].active);
+  const leftComponent = pages.find(page => page.title === activeLeftTab).component;
+  const rightComponent = pages.find(page => page.title === activeRightTab).component;
+
+  const setActiveTab = (left) => (tab) => {
+    const newPageTabState = { ...pageTabState };
+    Object.keys(newPageTabState).forEach(key => {
+      const onSameSide = newPageTabState[key].left === left;
+      newPageTabState[key].active = onSameSide ? key === tab : newPageTabState[key].active;
+    });
+    setPageTabState(newPageTabState);
+  }
+
   return (
     <div className="window"
       onContextMenu={handleContextMenu}
@@ -248,17 +303,18 @@ function App() {
     >
       <MenuBar menuItems={menuItems} />
       <div className="mainWindow">
-        <div className="dictTreeContainer" style={{ width: `${leftWidth}%` }}>
-          <ul>
-            {categoryIndices.map(i => (
-              <WordItem key={i} word={dictionaryData.words[i]} dict={dictionaryData} showDetails={treeItemShowDetails} editedSet={editedSet} isOpenSet={isOpenSet} updateData={getTreeData}
-              />
-            ))}
-          </ul>
+        <div className="leftContainer" style={{ width: `${leftWidth}%` }}>
+          <PageTab tabs={leftTabs} activeTab={activeLeftTab} setActiveTab={setActiveTab(true)} />
+          <div className="innerLeftContainer">
+            {leftComponent}
+          </div>
         </div>
         <div className="divider" onMouseDown={handleMouseDown}></div>
-        <div className="detailsContainer" style={{ width: `${100 - leftWidth}%` }}>
-          <RenderInfo word={word} dict={dictionaryData} updateData={getDetailsData} editedSet={word.id in editedSet ? editedSet[word.id] : new Set([])} />
+        <div className="rightContainer" style={{ width: `${100 - leftWidth}%` }}>
+          <PageTab tabs={rightTabs} activeTab={activeRightTab} setActiveTab={setActiveTab(false)} />
+          <div className="innerRightContainer">
+            {rightComponent}
+          </div>
         </div>
       </div>
       <RightClickMenu
