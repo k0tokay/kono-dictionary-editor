@@ -12,7 +12,7 @@ function parentList(dict, id) {
   return parentRec(id);
 };
 
-function WordItem({ word, dict, showDetails, editedSet, isOpenSet, updateData }) {
+function WordItem({ word, dict, showDetails, editedSet, isOpenSet, updateData, focusId }) {
   const isOpen = isOpenSet.has(word.id);
   const { id, entry, children } = word;
   const hasChildren = children.length > 0;
@@ -35,7 +35,7 @@ function WordItem({ word, dict, showDetails, editedSet, isOpenSet, updateData })
   return (
     <li>
       <span
-        className={`wordItemMain ${isOpen ? "open" : ""} ${hasChildren ? "hasChildren" : ""} ${upward(editedSet).has(word.id) ? "edited" : ""}`}
+        className={`wordItemMain ${isOpen ? "open" : ""} ${hasChildren ? "hasChildren" : ""} ${focusId === word.id ? "focus" : ""} ${upward(editedSet).has(word.id) ? "edited" : ""}`}
         onClick={handleClick}
       >
         <span className="id">{id}</span>
@@ -44,7 +44,7 @@ function WordItem({ word, dict, showDetails, editedSet, isOpenSet, updateData })
       {isOpen && hasChildren && (
         <ul className="wordItemChildren">
           {children.map(i => (
-            <WordItem key={i} word={dict.words[i]} dict={dict} showDetails={showDetails} editedSet={editedSet} isOpenSet={isOpenSet} updateData={updateData} />
+            <WordItem key={i} word={dict.words[i]} dict={dict} showDetails={showDetails} editedSet={editedSet} isOpenSet={isOpenSet} updateData={updateData} focusId={focusId} />
           ))}
         </ul>
       )}
@@ -52,15 +52,14 @@ function WordItem({ word, dict, showDetails, editedSet, isOpenSet, updateData })
   );
 }
 
-function WordTree({ dict, updateData, editedSet, showDetails, isOpenSet }) {
+function WordTree({ dict, updateData, editedSet, showDetails, isOpenSet, focusId }) {
   const categoryIndices = dict.words
     .map((word, i) => (word && word.category === "カテゴリ" ? i : -1))
     .filter(i => i !== -1);
   return <div className="wordTree">
     <ul>
       {categoryIndices.map(i => (
-        <WordItem key={i} word={dict.words[i]} dict={dict} showDetails={showDetails} editedSet={editedSet} isOpenSet={isOpenSet} updateData={updateData}
-        />
+        <WordItem key={i} word={dict.words[i]} dict={dict} showDetails={showDetails} editedSet={editedSet} isOpenSet={isOpenSet} updateData={updateData} focusId={focusId} />
       ))}
     </ul>
   </div>

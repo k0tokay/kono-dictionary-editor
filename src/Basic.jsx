@@ -37,13 +37,26 @@ function search(dict, id, entry, translations) {
       continue;
     }
 
-    const entryMatches =
-      entry === null ||
-      (entry instanceof RegExp ? entry.test(words[i].entry) : words[i].entry === entry);
+    const match = (query, item) => {
+      if (query === null) {
+        return true;
+      } else if (typeof query === 'string') {
+        try {
+          const regex = new RegExp(query);
+          return regex.test(item);
+        } catch (e) {
+          return item === query;
+        }
+      } else if (query instanceof RegExp) {
+        return query.test(item);
+      } else {
+        return false;
+      }
+    };
 
-    const translationsMatches =
-      translations === null ||
-      (translations instanceof RegExp ? translations.test(words[i].translations) : words[i].translations === translations);
+    const entryMatches = match(entry, words[i].entry);
+
+    const translationsMatches = match(translations, words[i].translations);
 
     if (entryMatches && translationsMatches) {
       result.push(words[i]);

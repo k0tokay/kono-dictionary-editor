@@ -10,144 +10,144 @@ input:read-only, textarea:read-only {
 }
 .infoContainer {
   padding: 10px;
-  .basicForm {
-    padding: 5px;
-    .basicHeader {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      label {
-        display: inline-block;
-        font-weight: bold;
-        margin: 0;
-        flex: 1;
-      }
-    }
-    input, textarea {
-      width: 100%;
-      box-sizing: border-box;
-      font-size: 1em;
-      margin-top: 5px;
-      padding: 7px;
-      background-color: colors.$black;
-      border: none;
-      &:focus {
-        outline: none;
-      }
-    }
-    textarea {
-      resize: vertical;
-      font-size: large; // なぜかlargeにしないと他のサイズと釣り合わない．
+}
+.basicForm {
+  padding: 5px;
+  .basicHeader {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    label {
+      display: inline-block;
+      font-weight: bold;
+      margin: 0;
+      flex: 1;
     }
   }
-  .tagForm {
-    padding: 5px;
-    .tagHeader {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      p {
-        display: inline-block;
-        font-weight: bold;
-        margin: 0;
-        flex: 1;
-      }
+  input, textarea {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1em;
+    margin-top: 5px;
+    padding: 7px;
+    background-color: colors.$black;
+    border: none;
+    &:focus {
+      outline: none;
     }
-    .innerTagForm {
-      background-color: colors.$black;
-      min-height: 40px;
-      margin-top: 5px;
-      padding: 4px;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      div {
-        .tagSpan {
-          border: colors.$basic 2px dashed;
-          padding: 3px;
-          padding-top: 0px;
-          padding-bottom: 0px;
-          margin: 3px;
-          &:focus {
-            outline: none;
-          }
+  }
+  textarea {
+    resize: vertical;
+    font-size: large; // なぜかlargeにしないと他のサイズと釣り合わない．
+  }
+}
+.tagForm {
+  padding: 5px;
+  .tagHeader {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    p {
+      display: inline-block;
+      font-weight: bold;
+      margin: 0;
+      flex: 1;
+    }
+  }
+  .innerTagForm {
+    background-color: colors.$black;
+    min-height: 40px;
+    margin-top: 5px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    div {
+      .tagSpan {
+        border: colors.$basic 2px dashed;
+        padding: 3px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin: 3px;
+        &:focus {
+          outline: none;
         }
-        .notValid {
-          border: colors.$notvalid 2px dashed;
-          color: colors.$notvalid;
-        }
-        .tagWordDetails {
-          position: relative;
-          height: 0;
-          width: 0;
-          z-index: 1;
-          top: -80px;
-          .paddingBox {
-            display: none;
-            width: fit-content;
-            padding-bottom: 15px;
-            .innerTagWordDetails {
-              background-color: colors.$bg;
-              padding: 10px;
-              height: auto;
-              width: max-content;
-              border: 2px solid colors.$basic;
-              &:hover {
-                cursor: pointer;
-              }
-              .id {
-                color: colors.$muted;
-                font-weight: bold;
-                padding-right: 5px;
-              }
-              .entry {
-                font-weight: bold;
-              }
-              .translations {
-                font-weight: 400;
-                overflow-x: auto;
-                overflow-y: hidden;
-                height: 20px;
-                max-width: 100px;
-                display: block;
-                margin-bottom: 5px;
-                // margin: 0;
-              }
-            }
+      }
+      .notValid {
+        border: colors.$notvalid 2px dashed;
+        color: colors.$notvalid;
+      }
+      .tagWordDetails {
+        position: relative;
+        height: 0;
+        width: 0;
+        z-index: 1;
+        top: -80px;
+        .paddingBox {
+          display: none;
+          width: fit-content;
+          padding-bottom: 15px;
+          .innerTagWordDetails {
+            background-color: colors.$bg;
+            padding: 10px;
+            height: auto;
+            width: max-content;
+            border: 2px solid colors.$basic;
             &:hover {
+              cursor: pointer;
+            }
+            .id {
+              color: colors.$muted;
+              font-weight: bold;
+              padding-right: 5px;
+            }
+            .entry {
+              font-weight: bold;
+            }
+            .translations {
+              font-weight: 400;
+              overflow-x: auto;
+              overflow-y: hidden;
+              height: 20px;
+              max-width: 100px;
               display: block;
+              margin-bottom: 5px;
+              // margin: 0;
             }
           }
-        }
-        &:hover {
-          .paddingBox {
+          &:hover {
             display: block;
           }
         }
       }
+      &:hover {
+        .paddingBox {
+          display: block;
+        }
+      }
     }
   }
-  .largeListForm {
-    padding: 5px;
-    .listHeader {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      p {
-        display: inline-block;
-        font-weight: bold;
-        margin: 0;
-        flex: 1;
-      }
+}
+.largeListForm {
+  padding: 5px;
+  .listHeader {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    p {
+      display: inline-block;
+      font-weight: bold;
+      margin: 0;
+      flex: 1;
     }
-    .innerLargeListForm {
-      // background-color: colors.$black;
-      margin-top: 5px;
-      min-height: 40px;
-      .basicForm {
-        padding-right: 0px;
-        padding-left: 0px;
-      }
+  }
+  .innerLargeListForm {
+    // background-color: colors.$black;
+    margin-top: 5px;
+    min-height: 40px;
+    .basicForm {
+      padding-right: 0px;
+      padding-left: 0px;
     }
   }
 }

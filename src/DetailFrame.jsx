@@ -315,4 +315,4 @@ function RenderInfo({ word, dict, updateData, editedSet }) {
   );
 }
 
-export default RenderInfo;
+export { BasicForm, RenderInfo };

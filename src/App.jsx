@@ -3,8 +3,9 @@ import initialData from './data/konomeno-v5.json';
 import './App.scss';
 import './index.scss';
 import { parentList, WordTree } from './TreeView';
-import RenderInfo from './DetailFrame';
+import { RenderInfo } from './DetailFrame';
 import { RightClickMenu } from './Basic';
+import { SearchFrame, EmptyFrame } from './OtherFrames';
 
 const rec = (n, f) => {
   if (n === 0) {
@@ -53,6 +54,12 @@ function App() {
     items: [],
   });
 
+  const treeDisplay = (id) => {
+    const newSet = new Set([...isOpenSet, ...parentList(dictionaryData, id)]);
+    setIsOpenSet(newSet);
+    setEditedSet(editedSet);
+  }
+
   // 変更を加えたとき
   const getDetailsData = ({ word, editedAttrSet, commandList }) => {
     setEditedSet({ ...editedSet, [word.id]: editedAttrSet });
@@ -63,9 +70,8 @@ function App() {
         saveData(word);
       } else if (Array.isArray(command) && command[0] === "tree_display") {
         const id = command[1];
-        const newSet = new Set([...isOpenSet, ...parentList(dictionaryData, id)]);
-        setIsOpenSet(newSet);
-        setEditedSet(editedSet);
+        treeDisplay(id);
+        setWord(dictionaryData.words[id]);
       }
     })
   };
@@ -241,6 +247,24 @@ function App() {
           }
         ],
       });
+    } else if (e.target.classList.contains("tab")) {
+      setMenuState({
+        isMenuVisible: true,
+        x: e.pageX,
+        y: e.pageY,
+        items: [
+          {
+            title: "左へ",
+            onClick: () => { }
+          }, {
+            title: "右へ",
+            onClick: () => { }
+          }, {
+            title: "閉じる",
+            onClick: () => { }
+          }
+        ]
+      });
     }
   };
 
@@ -253,13 +277,13 @@ function App() {
   const pages = [
     {
       title: "単語",
-      component: <WordTree dict={dictionaryData} editedSet={editedSet} isOpenSet={isOpenSet} updateData={getTreeData} showDetails={treeItemShowDetails} />
+      component: <WordTree dict={dictionaryData} editedSet={editedSet} isOpenSet={isOpenSet} updateData={getTreeData} showDetails={treeItemShowDetails} focusId={word.id} />
     }, {
       title: "詳細",
       component: <RenderInfo word={word} dict={dictionaryData} updateData={getDetailsData} editedSet={word.id in editedSet ? editedSet[word.id] : new Set([])} />
     }, {
       title: "検索",
-      component: <div>検索</div>
+      component: <SearchFrame dict={dictionaryData} updateData={(word) => { treeDisplay(word.id); setWord(word) }} />
     }
   ]
 
@@ -284,8 +308,8 @@ function App() {
   const rightTabs = Object.keys(pageTabState).filter(key => !pageTabState[key].left && pageTabState[key].display);
   const activeLeftTab = leftTabs.find(key => pageTabState[key].active);
   const activeRightTab = rightTabs.find(key => pageTabState[key].active);
-  const leftComponent = pages.find(page => page.title === activeLeftTab).component;
-  const rightComponent = pages.find(page => page.title === activeRightTab).component;
+  const leftComponent = (pages.find(page => page.title === activeLeftTab)?.component) || EmptyFrame;
+  const rightComponent = (pages.find(page => page.title === activeRightTab)?.component) || EmptyFrame;
 
   const setActiveTab = (left) => (tab) => {
     const newPageTabState = { ...pageTabState };
