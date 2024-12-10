@@ -276,6 +276,11 @@ function RenderInfo({ word, dict, updateData, editedSet }) {
         updateData({ word: word, editedAttrSet: editedSet, commandList: ["save"] });
       }
     }, {
+      title: "追加",
+      onClick: () => {
+        updateData({ word: word, editedAttrSet: editedSet, commandList: ["add"] });
+      }
+    }, {
       title: "削除",
       onClick: () => {
         updateData({ word: word, editedAttrSet: editedSet, commandList: ["delete"] });

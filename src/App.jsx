@@ -82,6 +82,8 @@ function App() {
         }
       } else if (command === "delete") {
         openDeleteMenu(word.id);
+      } else if (command === "add") {
+        addWord(word.id);
       }
     })
   };
