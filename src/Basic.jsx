@@ -25,7 +25,7 @@ function RightClickMenu({ items, x = 0, y = 0, isMenuVisible = false }) {
 };
 
 function search(dict, id, entry, translations) {
-  if (Number.isInteger(id) && dict.words[id]) {
+  if (Number(id) && dict.words[id]) {
     return [dict.words[id]];
   }
 

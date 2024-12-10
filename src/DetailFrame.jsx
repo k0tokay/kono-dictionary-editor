@@ -283,20 +283,6 @@ function RenderInfo({ word, dict, updateData, editedSet }) {
     }
   ];
 
-  // ショートカットキー
-  useEffect(() => {
-    const handleShortcut = (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.key === 's') {
-        e.preventDefault();
-        updateData({ word: word, editedAttrSet: editedSet, commandList: ["save"] });
-      }
-    };
-
-    window.addEventListener('keydown', handleShortcut);
-
-    return () => window.removeEventListener('keydown', handleShortcut);
-  }, []);
-
   return (
     <div>
       <MenuBar menuItems={menuItems} />

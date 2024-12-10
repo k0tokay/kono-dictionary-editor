@@ -246,6 +246,19 @@ function App() {
     setDictionaryData(newData);
   };
 
+  const openSearchTab = () => {
+    const newPageTabState = { ...pageTabState };
+    if (pageTabState.left.display.includes("検索")) {
+      newPageTabState.left.active = "検索";
+    } else if (!pageTabState.right.display.includes("検索")) {
+      newPageTabState.right.display.push("検索");
+      newPageTabState.right.active = "検索";
+    } else {
+      newPageTabState.right.active = "検索";
+    }
+    setPageTabState(newPageTabState);
+  };
+
   // 右クリックメニューの表示
   const handleContextMenu = (e) => {
     e.preventDefault();
@@ -455,6 +468,26 @@ function App() {
     }
     setPageTabState(newPageTabState);
   }
+
+  // ショートカットキー
+  useEffect(() => {
+    const handleShortcut = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+        e.preventDefault();
+        saveData(Object.entries(wordList).map(([_, word]) => word));
+      } else if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+        e.preventDefault();
+        openSearchTab();
+      }
+    };
+
+    window.addEventListener('keydown', handleShortcut);
+
+    // クリーンアップ関数 (アンマウント時にリスナーを削除)
+    return () => {
+      window.removeEventListener('keydown', handleShortcut);
+    };
+  }, [wordList]); // wordList に依存 (依存関係を考慮)
 
   return (
     <div className="window"

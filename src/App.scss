@@ -1,6 +1,7 @@
 @use "colors";
 
 $menuheight: 50px;
+$font-size: 14px;
 
 .window {
   display: flex;
@@ -10,6 +11,8 @@ $menuheight: 50px;
     display: flex;
     height: calc(100vh - #{$menuheight});
   }
+
+  font-size: $font-size;
 }
 
 button {
@@ -23,6 +26,7 @@ button {
     background-color: colors.$basic;
     color: colors.$black;
   }
+  font-size: $font-size;
 }
 
 .menuBar {
@@ -74,4 +78,5 @@ button {
   display: flex;
   flex-direction: column;
   background-color: colors.$bg;
+  min-width: max-content;
 }
