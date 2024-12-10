@@ -56,3 +56,26 @@
     // max-width: 100px;
   }
 }
+
+.emptyFrame {
+  min-height: calc(100vh - 50px);
+  background-color: colors.$black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wordDeleteFrameContainer {
+  padding: 10px;
+  min-height: 100vh;
+  .buttonContainer {
+    padding-top: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: flex;
+    button {
+      margin: 0;
+      flex: 1;
+    }
+  }
+}

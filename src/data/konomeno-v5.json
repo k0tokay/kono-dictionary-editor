@@ -15,7 +15,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 1,
@@ -33,7 +35,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 2,
@@ -53,7 +57,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 3,
@@ -81,7 +87,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 4,
@@ -115,7 +123,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 5,
@@ -138,7 +148,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 6,
@@ -158,7 +170,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 7,
@@ -177,7 +191,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 8,
@@ -197,7 +213,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 9,
@@ -223,7 +241,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 10,
@@ -244,7 +264,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 11,
@@ -268,7 +290,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 12,
@@ -293,7 +317,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 13,
@@ -307,14 +333,17 @@
       "children": [
         32,
         33,
-        34
+        34,
+        514
       ],
       "arguments": [],
       "tags": [
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 14,
@@ -334,7 +363,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 15,
@@ -353,7 +384,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 16,
@@ -373,7 +406,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 17,
@@ -393,7 +428,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 18,
@@ -416,7 +453,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 19,
@@ -438,7 +477,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 20,
@@ -458,7 +499,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 21,
@@ -478,7 +521,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 22,
@@ -497,7 +542,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 23,
@@ -519,7 +566,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 24,
@@ -539,7 +588,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 25,
@@ -559,7 +610,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 26,
@@ -576,7 +629,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 27,
@@ -603,14 +658,18 @@
         270,
         286,
         297,
-        326
+        326,
+        508,
+        566
       ],
       "arguments": [],
       "tags": [
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 28,
@@ -630,7 +689,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 29,
@@ -654,7 +715,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 30,
@@ -678,7 +741,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 31,
@@ -700,7 +765,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 32,
@@ -723,7 +790,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 33,
@@ -745,7 +814,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 34,
@@ -765,7 +836,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 35,
@@ -790,7 +863,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 36,
@@ -811,7 +886,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 37,
@@ -831,7 +908,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 38,
@@ -853,7 +932,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 39,
@@ -870,7 +951,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 40,
@@ -899,13 +982,7 @@
         284,
         285,
         360,
-        361,
-        90,
-        119,
-        149,
-        197,
-        265,
-        325
+        361
       ],
       "arguments": [
         6,
@@ -915,7 +992,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 41,
@@ -932,7 +1011,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 42,
@@ -951,7 +1032,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 43,
@@ -970,7 +1053,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 44,
@@ -990,7 +1075,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 45,
@@ -1013,7 +1100,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 46,
@@ -1036,7 +1125,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 47,
@@ -1059,7 +1150,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 48,
@@ -1076,7 +1169,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 49,
@@ -1103,7 +1198,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 50,
@@ -1128,7 +1225,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 51,
@@ -1147,7 +1246,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 52,
@@ -1167,7 +1268,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 53,
@@ -1192,7 +1295,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 54,
@@ -1218,7 +1323,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 55,
@@ -1241,7 +1348,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 56,
@@ -1258,7 +1367,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 57,
@@ -1283,7 +1394,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 58,
@@ -1304,7 +1417,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 59,
@@ -1326,7 +1441,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 60,
@@ -1354,7 +1471,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 61,
@@ -1394,7 +1513,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 62,
@@ -1413,7 +1534,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 63,
@@ -1433,7 +1556,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 64,
@@ -1452,7 +1577,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 65,
@@ -1471,7 +1598,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 66,
@@ -1490,7 +1619,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 67,
@@ -1509,7 +1640,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 68,
@@ -1528,7 +1661,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 69,
@@ -1547,7 +1682,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 70,
@@ -1573,14 +1710,19 @@
         209,
         210,
         266,
-        296
+        296,
+        540,
+        543,
+        536
       ],
       "arguments": [],
       "tags": [
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 71,
@@ -1600,7 +1742,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 72,
@@ -1614,7 +1758,13 @@
       ],
       "parent": 70,
       "children": [
-        172
+        172,
+        541,
+        542,
+        550,
+        551,
+        552,
+        553
       ],
       "arguments": [],
       "tags": [
@@ -1623,7 +1773,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 73,
@@ -1642,7 +1794,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 74,
@@ -1662,7 +1816,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 75,
@@ -1686,7 +1842,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 76,
@@ -1702,7 +1860,8 @@
       "parent": 27,
       "children": [
         147,
-        178
+        178,
+        548
       ],
       "arguments": [],
       "tags": [
@@ -1710,7 +1869,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 77,
@@ -1725,14 +1886,18 @@
       "parent": 27,
       "children": [
         260,
-        277
+        277,
+        513,
+        549
       ],
       "arguments": [],
       "tags": [
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 78,
@@ -1758,7 +1923,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 79,
@@ -1777,7 +1944,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 80,
@@ -1802,7 +1971,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 81,
@@ -1821,7 +1992,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 82,
@@ -1846,7 +2019,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 83,
@@ -1866,7 +2041,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 84,
@@ -1886,7 +2063,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 85,
@@ -1903,7 +2082,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 86,
@@ -1921,7 +2102,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 87,
@@ -1940,7 +2123,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 88,
@@ -1962,7 +2147,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 89,
@@ -1981,32 +2168,11 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
-    {
-      "id": 90,
-      "entry": "kuistnac",
-      "category": "関係",
-      "translations": [
-        "学生",
-        "x2はx1の学生である"
-      ],
-      "simple_translations": [
-        "学生",
-        "生徒"
-      ],
-      "parent": 40,
-      "children": [],
-      "arguments": [
-        87,
-        50
-      ],
-      "tags": [
-        "T3"
-      ],
-      "contents": [],
-      "variations": []
-    },
+    null,
     null,
     {
       "id": 92,
@@ -2030,7 +2196,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 93,
@@ -2048,7 +2216,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 94,
@@ -2069,7 +2239,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 95,
@@ -2089,7 +2261,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 96,
@@ -2109,7 +2283,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 97,
@@ -2129,7 +2305,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 98,
@@ -2149,7 +2327,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 99,
@@ -2171,7 +2351,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 100,
@@ -2199,7 +2381,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 101,
@@ -2225,7 +2409,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 102,
@@ -2242,7 +2428,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 103,
@@ -2263,7 +2451,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 104,
@@ -2283,7 +2473,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 105,
@@ -2303,7 +2495,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 106,
@@ -2323,7 +2517,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 107,
@@ -2340,7 +2536,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 108,
@@ -2357,7 +2555,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 109,
@@ -2377,7 +2577,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 110,
@@ -2397,7 +2599,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 111,
@@ -2414,7 +2618,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 112,
@@ -2434,7 +2640,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 113,
@@ -2454,7 +2662,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 114,
@@ -2474,7 +2684,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 115,
@@ -2491,7 +2703,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 116,
@@ -2508,7 +2722,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 117,
@@ -2528,7 +2744,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 118,
@@ -2551,31 +2769,11 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
-    {
-      "id": 119,
-      "entry": "antalto",
-      "category": "関係",
-      "translations": [
-        "友達",
-        "x2はx1の友達である"
-      ],
-      "simple_translations": [
-        "友達"
-      ],
-      "parent": 40,
-      "children": [],
-      "arguments": [
-        50,
-        50
-      ],
-      "tags": [
-        "T3"
-      ],
-      "contents": [],
-      "variations": []
-    },
+    null,
     {
       "id": 120,
       "entry": "luitos",
@@ -2600,7 +2798,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 121,
@@ -2619,7 +2819,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 122,
@@ -2639,7 +2841,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 123,
@@ -2660,7 +2864,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 124,
@@ -2683,7 +2889,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 125,
@@ -2704,7 +2912,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 126,
@@ -2728,7 +2938,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 127,
@@ -2747,7 +2959,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 128,
@@ -2766,7 +2980,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 129,
@@ -2789,7 +3005,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 130,
@@ -2808,7 +3026,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 131,
@@ -2827,7 +3047,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 132,
@@ -2847,7 +3069,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 133,
@@ -2866,7 +3090,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 134,
@@ -2885,7 +3111,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 135,
@@ -2905,7 +3133,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 136,
@@ -2924,7 +3154,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 137,
@@ -2945,7 +3177,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 138,
@@ -2962,7 +3196,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 139,
@@ -2984,7 +3220,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 140,
@@ -3003,7 +3241,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 141,
@@ -3023,7 +3263,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 142,
@@ -3045,7 +3287,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 143,
@@ -3064,7 +3308,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 144,
@@ -3083,7 +3329,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 145,
@@ -3102,7 +3350,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 146,
@@ -3123,7 +3373,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 147,
@@ -3142,7 +3394,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 148,
@@ -3163,29 +3417,11 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
-    {
-      "id": 149,
-      "entry": "astoys",
-      "category": "関係",
-      "translations": [
-        "住民",
-        "x1はx2の住民である"
-      ],
-      "simple_translations": [],
-      "parent": 40,
-      "children": [],
-      "arguments": [
-        148,
-        50
-      ],
-      "tags": [
-        "T5"
-      ],
-      "contents": [],
-      "variations": []
-    },
+    null,
     {
       "id": 150,
       "entry": "ai",
@@ -3201,7 +3437,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 151,
@@ -3222,7 +3460,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 152,
@@ -3241,7 +3481,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 153,
@@ -3260,7 +3502,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 154,
@@ -3279,7 +3523,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 155,
@@ -3299,7 +3545,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 156,
@@ -3325,7 +3573,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 157,
@@ -3344,7 +3594,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 158,
@@ -3364,7 +3616,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 159,
@@ -3384,7 +3638,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 160,
@@ -3405,7 +3661,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 161,
@@ -3427,7 +3685,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 162,
@@ -3450,7 +3710,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 163,
@@ -3470,7 +3732,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 164,
@@ -3489,7 +3753,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 165,
@@ -3514,7 +3780,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 166,
@@ -3534,7 +3802,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 167,
@@ -3553,7 +3823,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 168,
@@ -3572,7 +3844,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 169,
@@ -3592,7 +3866,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 170,
@@ -3611,7 +3887,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 171,
@@ -3629,7 +3907,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 172,
@@ -3648,7 +3928,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 173,
@@ -3668,7 +3950,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 174,
@@ -3687,7 +3971,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 175,
@@ -3706,7 +3992,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 176,
@@ -3725,7 +4013,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 177,
@@ -3748,7 +4038,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 178,
@@ -3767,7 +4059,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 179,
@@ -3786,7 +4080,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 180,
@@ -3805,7 +4101,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 181,
@@ -3826,7 +4124,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 182,
@@ -3845,7 +4145,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 183,
@@ -3866,7 +4168,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 184,
@@ -3887,7 +4191,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 185,
@@ -3909,7 +4215,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 186,
@@ -3930,7 +4238,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 187,
@@ -3950,7 +4260,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 188,
@@ -3973,7 +4285,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 189,
@@ -3992,7 +4306,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 190,
@@ -4011,7 +4327,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 191,
@@ -4030,7 +4348,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 192,
@@ -4051,7 +4371,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 193,
@@ -4070,7 +4392,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 194,
@@ -4087,7 +4411,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 195,
@@ -4106,7 +4432,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 196,
@@ -4128,30 +4456,11 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
-    {
-      "id": 197,
-      "entry": "meftnon",
-      "category": "関係",
-      "translations": [
-        "メイド"
-      ],
-      "simple_translations": [
-        "メイド"
-      ],
-      "parent": 40,
-      "children": [],
-      "arguments": [
-        23,
-        50
-      ],
-      "tags": [
-        "T4"
-      ],
-      "contents": [],
-      "variations": []
-    },
+    null,
     {
       "id": 198,
       "entry": "cino",
@@ -4172,7 +4481,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 199,
@@ -4191,7 +4502,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 200,
@@ -4210,7 +4523,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 201,
@@ -4229,7 +4544,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 202,
@@ -4249,7 +4566,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 203,
@@ -4268,7 +4587,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 204,
@@ -4287,7 +4608,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 205,
@@ -4308,7 +4631,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 206,
@@ -4328,7 +4653,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 207,
@@ -4347,7 +4674,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 208,
@@ -4366,7 +4695,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 209,
@@ -4385,7 +4716,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 210,
@@ -4404,7 +4737,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 211,
@@ -4424,7 +4759,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 212,
@@ -4443,7 +4780,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 213,
@@ -4462,7 +4801,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 214,
@@ -4481,7 +4822,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 215,
@@ -4500,7 +4843,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 216,
@@ -4519,7 +4864,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 217,
@@ -4531,18 +4878,20 @@
       "simple_translations": [],
       "parent": 109,
       "children": [
-        222,
         224,
         225,
         239,
-        245
+        245,
+        222
       ],
       "arguments": [],
       "tags": [
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 218,
@@ -4559,11 +4908,13 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 219,
-      "entry": "造語待ち",
+      "entry": "flentos",
       "category": "関係",
       "translations": [
         "意味役割",
@@ -4588,7 +4939,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": 0,
+      "is_instance": null
     },
     {
       "id": 220,
@@ -4612,7 +4965,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 221,
@@ -4634,14 +4989,17 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 222,
       "entry": "nanoy",
       "category": "概念",
       "translations": [
-        "愛する"
+        "愛する",
+        "好く"
       ],
       "simple_translations": [
         "愛する"
@@ -4653,7 +5011,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": 0
     },
     null,
     {
@@ -4673,7 +5033,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 225,
@@ -4692,7 +5054,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 226,
@@ -4712,7 +5076,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 227,
@@ -4732,7 +5098,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 228,
@@ -4753,7 +5121,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 229,
@@ -4775,7 +5145,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 230,
@@ -4802,7 +5174,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     null,
     null,
@@ -4823,14 +5197,20 @@
         241,
         242,
         243,
-        404
+        404,
+        512,
+        522,
+        563,
+        565
       ],
       "arguments": [],
       "tags": [
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 235,
@@ -4852,7 +5232,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 236,
@@ -4871,7 +5253,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 237,
@@ -4894,7 +5278,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 238,
@@ -4916,7 +5302,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 239,
@@ -4935,7 +5323,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 240,
@@ -4955,7 +5345,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 241,
@@ -4972,7 +5364,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 242,
@@ -4992,7 +5386,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 243,
@@ -5011,7 +5407,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 244,
@@ -5028,7 +5426,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 245,
@@ -5047,7 +5447,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 246,
@@ -5066,7 +5468,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 247,
@@ -5085,7 +5489,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 248,
@@ -5105,7 +5511,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 249,
@@ -5125,7 +5533,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 250,
@@ -5145,7 +5555,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 251,
@@ -5168,7 +5580,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 252,
@@ -5190,7 +5604,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 253,
@@ -5211,7 +5627,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 254,
@@ -5228,7 +5646,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 255,
@@ -5247,7 +5667,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 256,
@@ -5266,7 +5688,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 257,
@@ -5285,7 +5709,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 258,
@@ -5308,7 +5734,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 259,
@@ -5330,7 +5758,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 260,
@@ -5352,7 +5782,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 261,
@@ -5371,7 +5803,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 262,
@@ -5390,7 +5824,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 263,
@@ -5412,7 +5848,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 264,
@@ -5435,30 +5873,11 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
-    {
-      "id": 265,
-      "entry": "khinolis",
-      "category": "関係",
-      "translations": [
-        "影"
-      ],
-      "simple_translations": [
-        "影"
-      ],
-      "parent": 40,
-      "children": [],
-      "arguments": [
-        12,
-        37
-      ],
-      "tags": [
-        "T1"
-      ],
-      "contents": [],
-      "variations": []
-    },
+    null,
     {
       "id": 266,
       "entry": "kina",
@@ -5479,7 +5898,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 267,
@@ -5499,7 +5920,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 268,
@@ -5518,7 +5941,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 269,
@@ -5537,7 +5962,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 270,
@@ -5557,7 +5984,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 271,
@@ -5576,7 +6005,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 272,
@@ -5595,7 +6026,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 273,
@@ -5612,7 +6045,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 274,
@@ -5629,7 +6064,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 275,
@@ -5646,7 +6083,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 276,
@@ -5664,7 +6103,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 277,
@@ -5684,7 +6125,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 278,
@@ -5701,7 +6144,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 279,
@@ -5721,7 +6166,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 280,
@@ -5741,7 +6188,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 281,
@@ -5762,7 +6211,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 282,
@@ -5792,7 +6243,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 283,
@@ -5814,7 +6267,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 284,
@@ -5836,7 +6291,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 285,
@@ -5853,7 +6310,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 286,
@@ -5868,14 +6327,17 @@
       "parent": 27,
       "children": [
         287,
-        288
+        288,
+        510
       ],
       "arguments": [],
       "tags": [
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 287,
@@ -5899,7 +6361,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 288,
@@ -5923,7 +6387,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 289,
@@ -5942,7 +6408,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 290,
@@ -5963,7 +6431,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 291,
@@ -5982,7 +6452,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 292,
@@ -6001,7 +6473,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 293,
@@ -6020,7 +6494,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 294,
@@ -6039,7 +6515,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 295,
@@ -6057,7 +6535,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 296,
@@ -6080,7 +6560,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 297,
@@ -6099,7 +6581,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 298,
@@ -6116,7 +6600,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 299,
@@ -6138,7 +6624,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 300,
@@ -6160,7 +6648,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 301,
@@ -6179,7 +6669,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 302,
@@ -6198,7 +6690,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 303,
@@ -6219,7 +6713,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 304,
@@ -6239,7 +6735,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 305,
@@ -6259,7 +6757,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 306,
@@ -6281,7 +6781,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 307,
@@ -6298,7 +6800,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 308,
@@ -6315,7 +6819,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 309,
@@ -6332,7 +6838,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 310,
@@ -6349,7 +6857,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 311,
@@ -6366,7 +6876,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 312,
@@ -6383,7 +6895,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 313,
@@ -6400,7 +6914,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 314,
@@ -6417,7 +6933,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 315,
@@ -6434,7 +6952,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 316,
@@ -6451,7 +6971,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 317,
@@ -6470,7 +6992,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 318,
@@ -6487,7 +7011,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 319,
@@ -6506,7 +7032,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 320,
@@ -6523,7 +7051,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 321,
@@ -6540,7 +7070,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 322,
@@ -6559,7 +7091,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 323,
@@ -6578,7 +7112,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 324,
@@ -6597,31 +7133,11 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
-    {
-      "id": 325,
-      "entry": "lapkoin",
-      "category": "関係",
-      "translations": [
-        "ハイライト"
-      ],
-      "simple_translations": [
-        "ハイライト"
-      ],
-      "parent": 40,
-      "children": [],
-      "arguments": [
-        12,
-        37
-      ],
-      "tags": [
-        "T3",
-        "?"
-      ],
-      "contents": [],
-      "variations": []
-    },
+    null,
     {
       "id": 326,
       "entry": "luifon",
@@ -6639,7 +7155,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 327,
@@ -6658,7 +7176,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 328,
@@ -6678,7 +7198,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 329,
@@ -6695,7 +7217,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 330,
@@ -6712,7 +7236,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 331,
@@ -6729,7 +7255,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 332,
@@ -6746,7 +7274,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 333,
@@ -6764,7 +7294,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 334,
@@ -6784,7 +7316,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 335,
@@ -6802,7 +7336,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 336,
@@ -6820,7 +7356,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 337,
@@ -6837,7 +7375,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 338,
@@ -6856,7 +7396,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 339,
@@ -6876,7 +7418,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 340,
@@ -6894,7 +7438,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 341,
@@ -6913,7 +7459,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 342,
@@ -6933,7 +7481,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 343,
@@ -6956,7 +7506,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 344,
@@ -6978,7 +7530,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 345,
@@ -6998,7 +7552,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 346,
@@ -7017,7 +7573,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 347,
@@ -7034,7 +7592,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": true
     },
     {
       "id": 348,
@@ -7054,7 +7614,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 349,
@@ -7073,7 +7635,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 350,
@@ -7095,7 +7659,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 351,
@@ -7114,7 +7680,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 352,
@@ -7132,7 +7700,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 353,
@@ -7149,7 +7719,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 354,
@@ -7166,7 +7738,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 355,
@@ -7186,7 +7760,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 356,
@@ -7205,7 +7781,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 357,
@@ -7227,7 +7805,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 358,
@@ -7249,7 +7829,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 359,
@@ -7271,7 +7853,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 360,
@@ -7291,7 +7875,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 361,
@@ -7312,7 +7898,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": false,
+      "is_instance": null
     },
     {
       "id": 362,
@@ -7323,13 +7911,17 @@
       ],
       "simple_translations": [],
       "parent": 139,
-      "children": [],
+      "children": [
+        506
+      ],
       "arguments": [],
       "tags": [
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 363,
@@ -7351,7 +7943,9 @@
         "T2"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 364,
@@ -7371,7 +7965,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 365,
@@ -7390,7 +7986,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 366,
@@ -7410,7 +8008,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 367,
@@ -7429,7 +8029,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 368,
@@ -7449,7 +8051,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 369,
@@ -7469,7 +8073,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 370,
@@ -7489,7 +8095,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 371,
@@ -7508,7 +8116,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 372,
@@ -7527,7 +8137,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 373,
@@ -7546,7 +8158,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 374,
@@ -7565,7 +8179,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 375,
@@ -7582,7 +8198,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 376,
@@ -7599,7 +8217,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 377,
@@ -7618,7 +8238,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 378,
@@ -7637,7 +8259,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 379,
@@ -7656,7 +8280,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 380,
@@ -7675,7 +8301,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 381,
@@ -7692,7 +8320,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 382,
@@ -7709,7 +8339,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 383,
@@ -7726,7 +8358,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 384,
@@ -7743,7 +8377,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 385,
@@ -7760,7 +8396,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 386,
@@ -7777,7 +8415,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 387,
@@ -7794,7 +8434,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 388,
@@ -7811,7 +8453,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 389,
@@ -7828,7 +8472,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 390,
@@ -7845,7 +8491,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 391,
@@ -7867,7 +8515,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 392,
@@ -7891,7 +8541,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 393,
@@ -7910,7 +8562,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 394,
@@ -7929,7 +8583,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 395,
@@ -7949,7 +8605,9 @@
         "?"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 396,
@@ -7968,7 +8626,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 397,
@@ -7987,7 +8647,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 398,
@@ -8006,7 +8668,9 @@
         "T1"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 399,
@@ -8027,7 +8691,9 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 400,
@@ -8044,7 +8710,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 401,
@@ -8061,7 +8729,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 402,
@@ -8080,7 +8750,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 403,
@@ -8097,7 +8769,9 @@
         "T5"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 404,
@@ -8117,7 +8791,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": false
     },
     {
       "id": 405,
@@ -8144,7 +8820,9 @@
           "text": ""
         }
       ],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 406,
@@ -8167,7 +8845,9 @@
           "text": ""
         }
       ],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 407,
@@ -8184,7 +8864,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 408,
@@ -8207,7 +8889,9 @@
           "text": ""
         }
       ],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 409,
@@ -8231,7 +8915,9 @@
           "text": ""
         }
       ],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 410,
@@ -8248,7 +8934,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 411,
@@ -8269,7 +8957,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 412,
@@ -8287,7 +8977,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 413,
@@ -8305,7 +8997,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 414,
@@ -8321,7 +9015,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 415,
@@ -8337,7 +9033,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 416,
@@ -8357,7 +9055,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 417,
@@ -8373,7 +9073,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 418,
@@ -8388,7 +9090,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 419,
@@ -8405,7 +9109,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 420,
@@ -8422,7 +9128,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 421,
@@ -8438,7 +9146,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 422,
@@ -8466,7 +9176,9 @@
           "text": ""
         }
       ],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 423,
@@ -8482,7 +9194,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 424,
@@ -8508,7 +9222,9 @@
           "text": ""
         }
       ],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 425,
@@ -8529,7 +9245,9 @@
           "text": ""
         }
       ],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 426,
@@ -8549,7 +9267,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 427,
@@ -8588,7 +9308,9 @@
           "text": ""
         }
       ],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 428,
@@ -8604,7 +9326,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 429,
@@ -8619,7 +9343,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 430,
@@ -8636,7 +9362,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 431,
@@ -8664,7 +9392,9 @@
           "text": ""
         }
       ],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 432,
@@ -8681,7 +9411,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 433,
@@ -8705,7 +9437,9 @@
           "text": ""
         }
       ],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 434,
@@ -8723,7 +9457,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 435,
@@ -8740,7 +9476,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 436,
@@ -8773,7 +9511,9 @@
           "text": ""
         }
       ],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 437,
@@ -8788,7 +9528,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 438,
@@ -8803,7 +9545,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 439,
@@ -8822,7 +9566,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 440,
@@ -8842,12 +9588,15 @@
       "simple_translations": [],
       "parent": 494,
       "children": [
-        441
+        441,
+        560
       ],
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 441,
@@ -8863,7 +9612,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 442,
@@ -8884,7 +9635,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 443,
@@ -8899,7 +9652,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 444,
@@ -8918,7 +9673,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 445,
@@ -8934,7 +9691,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 446,
@@ -8958,7 +9717,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 447,
@@ -8974,7 +9735,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 448,
@@ -8996,12 +9759,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": [
-        {
-          "title": "",
-          "form": ""
-        }
-      ]
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 449,
@@ -9016,7 +9776,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 450,
@@ -9045,7 +9807,9 @@
           "text": ""
         }
       ],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 451,
@@ -9061,7 +9825,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 452,
@@ -9077,7 +9843,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 453,
@@ -9099,7 +9867,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 454,
@@ -9114,7 +9884,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 455,
@@ -9132,7 +9904,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 456,
@@ -9148,7 +9922,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 457,
@@ -9172,7 +9948,9 @@
         "T4"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 458,
@@ -9188,7 +9966,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 459,
@@ -9203,7 +9983,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 460,
@@ -9220,7 +10002,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 461,
@@ -9235,7 +10019,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 462,
@@ -9253,12 +10039,15 @@
       "parent": 497,
       "children": [
         463,
-        464
+        464,
+        561
       ],
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 463,
@@ -9274,7 +10063,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 464,
@@ -9290,7 +10081,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 465,
@@ -9305,7 +10098,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 466,
@@ -9320,7 +10115,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 467,
@@ -9340,7 +10137,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 468,
@@ -9356,7 +10155,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 469,
@@ -9375,7 +10176,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 470,
@@ -9395,7 +10198,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 471,
@@ -9411,7 +10216,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 472,
@@ -9428,7 +10235,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 473,
@@ -9448,7 +10257,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 474,
@@ -9464,7 +10275,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 475,
@@ -9485,7 +10298,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 476,
@@ -9505,7 +10320,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 477,
@@ -9523,7 +10340,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 478,
@@ -9543,7 +10362,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 479,
@@ -9562,12 +10383,15 @@
       "parent": 505,
       "children": [
         480,
-        481
+        481,
+        554
       ],
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 480,
@@ -9583,7 +10407,9 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 481,
@@ -9600,12 +10426,14 @@
         "T3"
       ],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 482,
       "entry": "A",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 4,
@@ -9617,12 +10445,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 483,
       "entry": "B",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 4,
@@ -9634,12 +10464,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 484,
       "entry": "C",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 4,
@@ -9651,27 +10483,32 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 485,
       "entry": "D",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 4,
       "children": [
-        416
+        416,
+        559
       ],
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 486,
       "entry": "F",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 4,
@@ -9683,12 +10520,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 487,
       "entry": "fo",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 486,
@@ -9698,12 +10537,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 488,
       "entry": "FL",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 4,
@@ -9713,12 +10554,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 489,
       "entry": "H",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 4,
@@ -9728,12 +10571,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 490,
       "entry": "J",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 4,
@@ -9745,12 +10590,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 491,
       "entry": "K",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 4,
@@ -9764,12 +10611,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 492,
       "entry": "KH",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 4,
@@ -9779,12 +10628,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 493,
       "entry": "KL",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 4,
@@ -9795,12 +10646,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 494,
       "entry": "L",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 4,
@@ -9813,12 +10666,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 495,
       "entry": "li",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 494,
@@ -9828,12 +10683,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 496,
       "entry": "M",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 4,
@@ -9842,17 +10699,20 @@
         450,
         453,
         455,
-        456
+        456,
+        558
       ],
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 497,
       "entry": "N",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 4,
@@ -9864,12 +10724,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 498,
       "entry": "ne",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 497,
@@ -9880,12 +10742,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 499,
       "entry": "P",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 4,
@@ -9896,12 +10760,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 500,
       "entry": "pa",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 499,
@@ -9911,12 +10777,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 501,
       "entry": "S",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 4,
@@ -9929,12 +10797,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 502,
       "entry": "ST",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 4,
@@ -9945,12 +10815,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 503,
       "entry": "sta",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 502,
@@ -9960,12 +10832,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 504,
       "entry": "su",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 501,
@@ -9975,12 +10849,14 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     },
     {
       "id": 505,
       "entry": "T",
-      "category": "",
+      "category": "音節",
       "translations": [],
       "simple_translations": [],
       "parent": 4,
@@ -9992,8 +10868,1157 @@
       "arguments": [],
       "tags": [],
       "contents": [],
-      "variations": []
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 506,
+      "entry": "flomek",
+      "category": "概念",
+      "translations": [
+        "文",
+        "文章"
+      ],
+      "simple_translations": [],
+      "parent": 362,
+      "children": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    null,
+    {
+      "id": 508,
+      "entry": "lonentalto",
+      "category": "概念",
+      "translations": [
+        "人形"
+      ],
+      "simple_translations": [],
+      "parent": 27,
+      "children": [
+        509
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 509,
+      "entry": "moftalto",
+      "category": "概念",
+      "translations": [
+        "ぬいぐるみ"
+      ],
+      "simple_translations": [],
+      "parent": 508,
+      "children": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 510,
+      "entry": "造語待ち",
+      "category": "概念",
+      "translations": [
+        "調味料"
+      ],
+      "simple_translations": [],
+      "parent": 286,
+      "children": [
+        511,
+        557
+      ],
+      "arguments": [],
+      "tags": [
+        "T6"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": 0
+    },
+    {
+      "id": 511,
+      "entry": "stelafad",
+      "category": "概念",
+      "translations": [
+        "食塩"
+      ],
+      "simple_translations": [],
+      "parent": 510,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T6"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": 0
+    },
+    {
+      "id": 512,
+      "entry": "lealidov",
+      "category": "概念",
+      "translations": [
+        "潜る"
+      ],
+      "simple_translations": [],
+      "parent": 234,
+      "children": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 513,
+      "entry": "walhent",
+      "category": "概念",
+      "translations": [
+        "プール"
+      ],
+      "simple_translations": [],
+      "parent": 77,
+      "children": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 514,
+      "entry": "liflom",
+      "category": "概念",
+      "translations": [
+        "ロール"
+      ],
+      "simple_translations": [],
+      "parent": 13,
+      "children": [
+        519,
+        520,
+        521,
+        523,
+        525
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 515,
+      "entry": "kuistnac",
+      "category": "概念",
+      "translations": [
+        "生徒",
+        "学生"
+      ],
+      "simple_translations": [],
+      "parent": 533,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T5"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": 0
+    },
+    {
+      "id": 516,
+      "entry": "meftnon",
+      "category": "概念",
+      "translations": [
+        "メイド"
+      ],
+      "simple_translations": [],
+      "parent": 526,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T5"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": 0
+    },
+    {
+      "id": 517,
+      "entry": "antalto",
+      "category": "概念",
+      "translations": [
+        "友達"
+      ],
+      "simple_translations": [],
+      "parent": 525,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T5"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": 0
+    },
+    {
+      "id": 518,
+      "entry": "astoys",
+      "category": "概念",
+      "translations": [
+        "住民"
+      ],
+      "simple_translations": [],
+      "parent": 525,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T5"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": 0
+    },
+    {
+      "id": 519,
+      "entry": "khinolis",
+      "category": "概念",
+      "translations": [
+        "影"
+      ],
+      "simple_translations": [],
+      "parent": 514,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T1"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 520,
+      "entry": "lapkoin",
+      "category": "概念",
+      "translations": [
+        "ハイライト"
+      ],
+      "simple_translations": [],
+      "parent": 514,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T3"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 521,
+      "entry": "astalkof",
+      "category": "概念",
+      "translations": [
+        "日記"
+      ],
+      "simple_translations": [],
+      "parent": 514,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T1"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 522,
+      "entry": "aikansav",
+      "category": "概念",
+      "translations": [
+        "会う"
+      ],
+      "simple_translations": [],
+      "parent": 234,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T1"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 523,
+      "entry": "aikon",
+      "category": "概念",
+      "translations": [
+        "注目",
+        "焦点",
+        "アイコン"
+      ],
+      "simple_translations": [],
+      "parent": 514,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T3"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 524,
+      "entry": "cotan",
+      "category": "概念",
+      "translations": [
+        "弟",
+        "妹"
+      ],
+      "simple_translations": [],
+      "parent": 526,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T2"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": 0
+    },
+    {
+      "id": 525,
+      "entry": "cidoma",
+      "category": "概念",
+      "translations": [
+        "役職",
+        "人間のロール"
+      ],
+      "simple_translations": [],
+      "parent": 514,
+      "children": [
+        518,
+        517,
+        526,
+        529,
+        555
+      ],
+      "arguments": [],
+      "tags": [
+        "T6"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": 0
+    },
+    {
+      "id": 526,
+      "entry": "meftcoto",
+      "category": "概念",
+      "translations": [
+        "親戚",
+        "家族",
+        "家庭内の人"
+      ],
+      "simple_translations": [],
+      "parent": 525,
+      "children": [
+        524,
+        516,
+        527,
+        528
+      ],
+      "arguments": [],
+      "tags": [
+        "T6"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": 0
+    },
+    {
+      "id": 527,
+      "entry": "coban",
+      "category": "概念",
+      "translations": [
+        "兄",
+        "姉"
+      ],
+      "simple_translations": [],
+      "parent": 526,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T2"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 528,
+      "entry": "moban",
+      "category": "概念",
+      "translations": [
+        "親"
+      ],
+      "simple_translations": [],
+      "parent": 526,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T1"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 529,
+      "entry": "noiglis",
+      "category": "概念",
+      "translations": [
+        "世代",
+        "年齢層"
+      ],
+      "simple_translations": [],
+      "parent": 525,
+      "children": [
+        530,
+        531,
+        532
+      ],
+      "arguments": [],
+      "tags": [
+        "T6"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 530,
+      "entry": "nacmea",
+      "category": "概念",
+      "translations": [
+        "少年",
+        "少女",
+        "子供"
+      ],
+      "simple_translations": [],
+      "parent": 529,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T2"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 531,
+      "entry": "stoyn",
+      "category": "概念",
+      "translations": [
+        "大人"
+      ],
+      "simple_translations": [],
+      "parent": 529,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T3"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 532,
+      "entry": "ckvnask",
+      "category": "概念",
+      "translations": [
+        "老人"
+      ],
+      "simple_translations": [],
+      "parent": 529,
+      "children": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 533,
+      "entry": "kuistflom",
+      "category": "概念",
+      "translations": [
+        "学校の役職"
+      ],
+      "simple_translations": [],
+      "parent": 555,
+      "children": [
+        534,
+        515
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": 0
+    },
+    {
+      "id": 534,
+      "entry": "tcanoyn",
+      "category": "概念",
+      "translations": [
+        "先生",
+        "教師",
+        "教授"
+      ],
+      "simple_translations": [],
+      "parent": 533,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T3"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": 0
+    },
+    null,
+    {
+      "id": 536,
+      "entry": "ylodais",
+      "category": "概念",
+      "translations": [
+        "関節"
+      ],
+      "simple_translations": [],
+      "parent": 70,
+      "children": [
+        537,
+        539,
+        538
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": 0
+    },
+    {
+      "id": 537,
+      "entry": "cotokko",
+      "category": "概念",
+      "translations": [
+        "肘"
+      ],
+      "simple_translations": [],
+      "parent": 536,
+      "children": [
+        544,
+        545
+      ],
+      "arguments": [],
+      "tags": [
+        "T3"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": 0
+    },
+    {
+      "id": 538,
+      "entry": "lakko",
+      "category": "概念",
+      "translations": [
+        "膝"
+      ],
+      "simple_translations": [],
+      "parent": 536,
+      "children": [
+        546,
+        547
+      ],
+      "arguments": [],
+      "tags": [
+        "T3"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": 0
+    },
+    {
+      "id": 539,
+      "entry": "mitolakko",
+      "category": "概念",
+      "translations": [
+        "小さい膝(脛骨粗面)"
+      ],
+      "simple_translations": [],
+      "parent": 536,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T3"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 540,
+      "entry": "nocto",
+      "category": "概念",
+      "translations": [
+        "首"
+      ],
+      "simple_translations": [],
+      "parent": 70,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T3"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 541,
+      "entry": "myntces",
+      "category": "概念",
+      "translations": [
+        "骨盤"
+      ],
+      "simple_translations": [],
+      "parent": 72,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T3"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 542,
+      "entry": "mynfolka",
+      "category": "概念",
+      "translations": [
+        "胸郭"
+      ],
+      "simple_translations": [],
+      "parent": 72,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T3"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 543,
+      "entry": "katoc",
+      "category": "概念",
+      "translations": [
+        "胸"
+      ],
+      "simple_translations": [],
+      "parent": 70,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T3"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 544,
+      "entry": "latocotokko",
+      "category": "概念",
+      "translations": [
+        "右肘"
+      ],
+      "simple_translations": [],
+      "parent": 537,
+      "children": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 545,
+      "entry": "letocotokko",
+      "category": "概念",
+      "translations": [
+        "左肘"
+      ],
+      "simple_translations": [],
+      "parent": 537,
+      "children": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 546,
+      "entry": "letolakko",
+      "category": "概念",
+      "translations": [
+        "左膝"
+      ],
+      "simple_translations": [],
+      "parent": 538,
+      "children": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 547,
+      "entry": "latolakko",
+      "category": "概念",
+      "translations": [
+        "右膝"
+      ],
+      "simple_translations": [],
+      "parent": 538,
+      "children": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 548,
+      "entry": "laitces",
+      "category": "概念",
+      "translations": [
+        "車"
+      ],
+      "simple_translations": [],
+      "parent": 76,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T3"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": 0
+    },
+    {
+      "id": 549,
+      "entry": "kuistesov",
+      "category": "概念",
+      "translations": [
+        "校舎",
+        "キャンパス"
+      ],
+      "simple_translations": [],
+      "parent": 77,
+      "children": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 550,
+      "entry": "destoytomp",
+      "category": "概念",
+      "translations": [
+        "腓骨"
+      ],
+      "simple_translations": [],
+      "parent": 72,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T3"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 551,
+      "entry": "tokstoytomp",
+      "category": "概念",
+      "translations": [
+        "脛骨"
+      ],
+      "simple_translations": [],
+      "parent": 72,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T3"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 552,
+      "entry": "lactotomp",
+      "category": "概念",
+      "translations": [
+        "上腕骨"
+      ],
+      "simple_translations": [],
+      "parent": 72,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T3"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 553,
+      "entry": "macnotomp",
+      "category": "概念",
+      "translations": [
+        "大腿骨"
+      ],
+      "simple_translations": [],
+      "parent": 72,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T3"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 554,
+      "entry": "tomp",
+      "category": "音節",
+      "translations": [
+        "骨"
+      ],
+      "simple_translations": [],
+      "parent": 479,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T3",
+        "T4"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 555,
+      "entry": "kontemon",
+      "category": "概念",
+      "translations": [
+        "職業"
+      ],
+      "simple_translations": [],
+      "parent": 525,
+      "children": [
+        533
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": 0
+    },
+    null,
+    {
+      "id": 557,
+      "entry": "lakkadoli",
+      "category": "概念",
+      "translations": [
+        "唐辛子"
+      ],
+      "simple_translations": [],
+      "parent": 510,
+      "children": [],
+      "arguments": [],
+      "tags": [
+        "T3"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 558,
+      "entry": "my",
+      "category": "音節",
+      "translations": [
+        "身体",
+        "肉体"
+      ],
+      "simple_translations": [],
+      "parent": 496,
+      "children": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 559,
+      "entry": "de",
+      "category": "音節",
+      "translations": [
+        "下",
+        "付属"
+      ],
+      "simple_translations": [],
+      "parent": 485,
+      "children": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 560,
+      "entry": "las",
+      "category": "音節",
+      "translations": [
+        "数"
+      ],
+      "simple_translations": [],
+      "parent": 440,
+      "children": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 561,
+      "entry": "noy",
+      "category": "音節",
+      "translations": [
+        "作る",
+        "行く"
+      ],
+      "simple_translations": [],
+      "parent": 462,
+      "children": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    null,
+    {
+      "id": 563,
+      "entry": "tast",
+      "category": "概念",
+      "translations": [
+        "作業する"
+      ],
+      "simple_translations": [],
+      "parent": 234,
+      "children": [
+        564
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 564,
+      "entry": "kantodan",
+      "category": "概念",
+      "translations": [
+        "働く"
+      ],
+      "simple_translations": [],
+      "parent": 563,
+      "children": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 565,
+      "entry": "toneloi",
+      "category": "概念",
+      "translations": [
+        "電話する"
+      ],
+      "simple_translations": [],
+      "parent": 234,
+      "children": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
+    },
+    {
+      "id": 566,
+      "entry": "pikon",
+      "category": "概念",
+      "translations": [
+        "照明"
+      ],
+      "simple_translations": [],
+      "parent": 27,
+      "children": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": null,
+      "is_instance": null
     }
   ],
-  "examples": []
+  "examples": [
+    {
+      "id": 2,
+      "sentence": "nacmea kon tae lealidov na litamnovc cal walhent",
+      "translation": "",
+      "supplement": "",
+      "tags": [],
+      "words": [],
+      "offer": {
+        "catalog": "zpdicDaily",
+        "number": 234
+      }
+    },
+    {
+      "id": 1,
+      "sentence": "bafnolale san fetam lukacan kagle",
+      "translation": "",
+      "supplement": "",
+      "tags": [],
+      "words": [
+        {
+          "id": 49
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 99
+        },
+        {
+          "id": 192
+        },
+        {
+          "id": 54
+        },
+        {
+          "id": 133
+        }
+      ],
+      "offer": {
+        "catalog": "zpdicDaily",
+        "number": 156
+      }
+    }
+  ]
 }

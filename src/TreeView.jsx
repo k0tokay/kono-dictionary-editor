@@ -4,6 +4,9 @@ import "./TreeView.scss";
 function parentList(dict, id) {
   const parentRec = (id) => {
     const word = dict.words[id];
+    if (!word) {
+      return [];
+    }
     if (word.parent == null) {
       return [id];
     }

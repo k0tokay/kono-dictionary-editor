@@ -47,9 +47,24 @@ function SearchFrame({ dict, updateData }) {
 function EmptyFrame() {
   return (
     <div className="emptyFrame">
-      <span>選択されていません</span>
+      ∅
     </div>
   );
 }
 
-export { SearchFrame, EmptyFrame };
+function WordDeleteFrame({ word, updateData }) {
+  const [newParent, setNewParent] = useState("");
+  return (
+    <div className="wordDeleteFrameContainer">
+      <BasicForm name={"id"} title={"ID"} value={word.id} isReadOnly={true} />
+      <BasicForm name={"entry"} title={"綴り"} value={word.entry} isReadOnly={true} />
+      <BasicForm name={"translations"} title={"翻訳"} value={word.translations} isReadOnly={true} isMultiline={true} />
+      <BasicForm name={"newParent"} title={"子の新しい親"} value={newParent} updateData={(name, title, value) => setNewParent(value)} />
+      <div className="buttonContainer">
+        <button onClick={() => updateData(newParent)}>削除</button>
+      </div>
+    </div>
+  );
+}
+
+export { SearchFrame, EmptyFrame, WordDeleteFrame };

@@ -5,7 +5,7 @@ import './index.scss';
 import { parentList, WordTree } from './TreeView';
 import { RenderInfo } from './DetailFrame';
 import { RightClickMenu } from './Basic';
-import { SearchFrame, EmptyFrame } from './OtherFrames';
+import { SearchFrame, EmptyFrame, WordDeleteFrame } from './OtherFrames';
 
 const rec = (n, f) => {
   if (n === 0) {
@@ -43,6 +43,7 @@ function App() {
   const [leftWidth, setLeftWidth] = useState(50);
   const [dictionaryData, setDictionaryData] = useState(initialData);
   const [word, setWord] = useState(initialData.words[6]);
+  const [wordList, setWordList] = useState(new Object({}));
   const [editedSet, setEditedSet] = useState(new Object({}));
   const [isOpenSet, setIsOpenSet] = useState(new Set([]));
 
@@ -63,15 +64,24 @@ function App() {
   // 変更を加えたとき
   const getDetailsData = ({ word, editedAttrSet, commandList }) => {
     setEditedSet({ ...editedSet, [word.id]: editedAttrSet });
-
     setWord(word);
+    const newWordList = { ...wordList };
+    newWordList[word.id] = word;
+    setWordList(newWordList);
     commandList.forEach(command => {
       if (command === "save") {
-        saveData(word);
+        saveData([word]);
       } else if (Array.isArray(command) && command[0] === "tree_display") {
         const id = command[1];
         treeDisplay(id);
-        setWord(dictionaryData.words[id]);
+        // setWord(dictionaryData.words[id]);
+        if (id in wordList) {
+          setWord(wordList[id]);
+        } else {
+          setWord(dictionaryData.words[id]);
+        }
+      } else if (command === "delete") {
+        openDeleteMenu(word.id);
       }
     })
   };
@@ -86,28 +96,30 @@ function App() {
   };
 
   // 保存を押したとき
-  const saveData = (word) => {
-    const i = word.id;
-    const newData = {
-      ...dictionaryData,
-      words: dictionaryData.words.map((item, index) =>
-        index === i ? word : item
-      )
-    };
-
-    // parentの編集の反映
-    const pidOld = dictionaryData.words[i].parent;
-    const pidNew = word.parent;
-    if (pidOld !== pidNew) {
-      newData.words[pidOld].children = newData.words[pidOld].children.filter(id => id !== i);
-      newData.words[pidNew].children.push(i);
-    }
-
-    setDictionaryData(newData);
+  const saveData = (words) => {
+    const newData = structuredClone(dictionaryData); // structuredCloneが必要
     const newSet = { ...editedSet };
-    delete newSet[i];
+    const newWordList = { ...wordList };
+
+    words.forEach((word) => {
+      const i = word.id;
+      newData.words[i] = word;
+
+      // parentの編集の反映
+      const pidOld = dictionaryData.words[i].parent;
+      const pidNew = word.parent;
+      if (pidOld !== pidNew) {
+        newData.words[pidOld].children = newData.words[pidOld].children.filter(id => id !== i);
+        newData.words[pidNew].children.push(i);
+      }
+      delete newSet[i];
+      delete newWordList[i];
+    });
+    setDictionaryData(newData);
     setEditedSet(newSet);
-  };
+    setWordList(newWordList);
+    console.log(newData);
+  }
   const treeItemShowDetails = setWord;
 
   const handleMouseMove = useCallback((e) => {
@@ -131,10 +143,11 @@ function App() {
     {
       title: "保存",
       onClick: () => {
-        Object.keys(editedSet).forEach(i => {
-          const word = dictionaryData.words[i];
-          saveData(word);
-        });
+        // Object.keys(editedSet).forEach(i => {
+        //   const word = dictionaryData.words[i];
+        //   saveData(word);
+        // });
+        saveData(Object.entries(wordList).map(([_, word]) => word));
         // setEditedSet(new Object({}));
       }
     }, {
@@ -175,6 +188,63 @@ function App() {
     setDictionaryData(newData);
     setWord(newWord);
   };
+  const openDeleteMenu = (id) => {
+    if (!pageTabState.left.display.includes("削除") || !pageTabState.right.display.includes("削除")) {
+      const newPageTabState = { ...pageTabState };
+      newPageTabState.right.display.push("削除");
+      setPageTabState(newPageTabState);
+    }
+    if (pageTabState.left.display.includes("削除")) {
+      const newPageTabState = { ...pageTabState };
+      newPageTabState.left.active = "削除";
+      setPageTabState(newPageTabState);
+    } else {
+      const newPageTabState = { ...pageTabState };
+      newPageTabState.right.active = "削除";
+      setPageTabState(newPageTabState);
+    }
+    setWord(dictionaryData.words[id]);
+  };
+  const deleteWord = (id, nid) => {
+    const newData = {
+      ...dictionaryData,
+      words: dictionaryData.words.map((item, index) =>
+        index === id ? null : item
+      )
+    };
+    const pid = dictionaryData.words[id].parent;
+    // cidの新しい親を設定
+    if (nid) {
+      dictionaryData.words[id].children.forEach(cid => {
+        newData.words[cid].parent = nid;
+        newData.words[nid].children.push(cid);
+      });
+    } else {
+      const rmrf = (id) => {
+        const children = dictionaryData.words[id].children;
+        children.forEach(cid => {
+          rmrf(cid);
+        });
+        newData.words[id] = null;
+      }
+      rmrf(id);
+    }
+    // pidの子から削除
+    newData.words[pid].children = newData.words[pid].children.filter(i => i !== id);
+    // agumentsから削除
+    for (let i = 0; i < newData.words.length; i++) {
+      const word = newData.words[i];
+      if (word === null) {
+        continue;
+      }
+      word.arguments = word.arguments.filter(arg => arg !== id);
+    }
+    setWord(dictionaryData.words[pid]);
+    const newWordList = { ...wordList };
+    delete newWordList[id];
+    setWordList(newWordList);
+    setDictionaryData(newData);
+  };
 
   // 右クリックメニューの表示
   const handleContextMenu = (e) => {
@@ -185,6 +255,7 @@ function App() {
       const attr = tagForm.getAttribute("name");
       const newWord = { ...word };
       const isList = Array.isArray(newWord[attr]);
+      const isReadOnly = e.target.getAttribute("contenteditable") === "false";
       const itemsForList = [
         {
           title: "左へ",
@@ -211,7 +282,7 @@ function App() {
         x: e.pageX,
         y: e.pageY,
         items: [
-          ...(isList ? itemsForList : []), {
+          ...(isList ? itemsForList : []), isReadOnly ? {} : {
             title: "削除",
             onClick: () => {
               if (isList) {
@@ -220,6 +291,9 @@ function App() {
                 newWord[attr] = null; // あってる？
               }
               setWord(newWord);
+              const newWordList = { ...wordList };
+              newWordList[word.id] = newWord;
+              setWordList(newWordList);
               setMenuState((prev) => ({ ...prev, isMenuVisible: false }));
             },
           },
@@ -242,26 +316,84 @@ function App() {
           }, {
             title: "削除",
             onClick: () => {
-
+              openDeleteMenu(id);
+              setMenuState((prev) => ({ ...prev, isMenuVisible: false }));
             }
           }
         ],
       });
     } else if (e.target.classList.contains("tab")) {
+      const tab = e.target.textContent;
+      const newPageTabState = { ...pageTabState };
+      const isLeft = pageTabState.left.display.includes(tab);
       setMenuState({
         isMenuVisible: true,
         x: e.pageX,
         y: e.pageY,
         items: [
           {
+            title: isLeft ? "右フレームへ" : "左フレームへ",
+            onClick: () => {
+              if (isLeft) {
+                newPageTabState.left.display = newPageTabState.left.display.filter(t => t !== tab);
+                newPageTabState.right.display.push(tab);
+                if (pageTabState.left.active === tab) {
+                  newPageTabState.left.active = newPageTabState.left.display[0];
+                }
+                if (pageTabState.right.active === undefined) {
+                  newPageTabState.right.active = tab;
+                }
+              } else {
+                newPageTabState.right.display = newPageTabState.right.display.filter(t => t !== tab);
+                newPageTabState.left.display.push(tab);
+                if (pageTabState.right.active === tab) {
+                  newPageTabState.right.active = newPageTabState.right.display[0];
+                }
+                if (pageTabState.left.active === undefined) {
+                  newPageTabState.left.active = tab;
+                }
+              }
+              setPageTabState(newPageTabState);
+            }
+          }, {
             title: "左へ",
-            onClick: () => { }
+            onClick: () => {
+              if (isLeft) {
+                const index = newPageTabState.left.display.indexOf(tab);
+                newPageTabState.left.display[index] = newPageTabState.left.display[index - 1];
+                newPageTabState.left.display[index - 1] = tab;
+              } else {
+                const index = newPageTabState.right.display.indexOf(tab);
+                newPageTabState.right.display[index] = newPageTabState.right.display[index - 1];
+                newPageTabState.right.display[index - 1] = tab;
+              }
+            }
           }, {
             title: "右へ",
-            onClick: () => { }
+            onClick: () => {
+              if (isLeft) {
+                const index = newPageTabState.left.display.indexOf(tab);
+                newPageTabState.left.display[index] = newPageTabState.left.display[index + 1];
+                newPageTabState.left.display[index + 1] = tab;
+              } else {
+                const index = newPageTabState.right.display.indexOf(tab);
+                newPageTabState.right.display[index] = newPageTabState.right.display[index + 1];
+                newPageTabState.right.display[index + 1] = tab;
+              }
+            }
           }, {
             title: "閉じる",
-            onClick: () => { }
+            onClick: () => {
+              newPageTabState.left.display = newPageTabState.left.display.filter(t => t !== tab);
+              newPageTabState.right.display = newPageTabState.right.display.filter(t => t !== tab);
+              if (pageTabState.left.active === tab) {
+                newPageTabState.left.active = newPageTabState.left.display[0];
+              }
+              if (pageTabState.right.active === tab) {
+                newPageTabState.right.active = newPageTabState.right.display[0];
+              }
+              setPageTabState(newPageTabState);
+            }
           }
         ]
       });
@@ -280,43 +412,47 @@ function App() {
       component: <WordTree dict={dictionaryData} editedSet={editedSet} isOpenSet={isOpenSet} updateData={getTreeData} showDetails={treeItemShowDetails} focusId={word.id} />
     }, {
       title: "詳細",
-      component: <RenderInfo word={word} dict={dictionaryData} updateData={getDetailsData} editedSet={word.id in editedSet ? editedSet[word.id] : new Set([])} />
+      component: <RenderInfo word={word.id in wordList ? wordList[word.id] : word} dict={dictionaryData} updateData={getDetailsData} editedSet={word.id in editedSet ? editedSet[word.id] : new Set([])} />
     }, {
       title: "検索",
       component: <SearchFrame dict={dictionaryData} updateData={(word) => { treeDisplay(word.id); setWord(word) }} />
+    }, {
+      title: "削除",
+      component: <WordDeleteFrame word={word} updateData={(nid) => {
+        deleteWord(word.id, nid);
+        const newPageTabState = { ...pageTabState };
+        if (pageTabState.left.display.includes("削除")) {
+          newPageTabState.left.display = newPageTabState.left.display.filter(t => t !== "削除");
+          newPageTabState.left.active = newPageTabState.left.display[0];
+        } else {
+          newPageTabState.right.display = newPageTabState.right.display.filter(t => t !== "削除");
+          newPageTabState.right.active = newPageTabState.right.display[0];
+        }
+        setPageTabState(newPageTabState);
+      }} />
     }
   ]
 
   const [pageTabState, setPageTabState] = useState({
-    "単語": {
-      active: true,
-      left: true,
-      display: true
+    left: {
+      display: ["単語"],
+      active: "単語",
     },
-    "詳細": {
-      active: true,
-      left: false,
-      display: true
-    },
-    "検索": {
-      active: false,
-      left: false,
-      display: true
+    right: {
+      display: ["詳細", "検索"],
+      active: "詳細",
     }
   });
-  const leftTabs = Object.keys(pageTabState).filter(key => pageTabState[key].left && pageTabState[key].display);
-  const rightTabs = Object.keys(pageTabState).filter(key => !pageTabState[key].left && pageTabState[key].display);
-  const activeLeftTab = leftTabs.find(key => pageTabState[key].active);
-  const activeRightTab = rightTabs.find(key => pageTabState[key].active);
-  const leftComponent = (pages.find(page => page.title === activeLeftTab)?.component) || EmptyFrame;
-  const rightComponent = (pages.find(page => page.title === activeRightTab)?.component) || EmptyFrame;
+  const leftComponent = (pages.find(page => page.title === pageTabState.left.active)?.component) || <EmptyFrame />;
+  const rightComponent = (pages.find(page => page.title === pageTabState.right.active)?.component) || <EmptyFrame />;
 
   const setActiveTab = (left) => (tab) => {
     const newPageTabState = { ...pageTabState };
-    Object.keys(newPageTabState).forEach(key => {
-      const onSameSide = newPageTabState[key].left === left;
-      newPageTabState[key].active = onSameSide ? key === tab : newPageTabState[key].active;
-    });
+    if (left) {
+      newPageTabState.left.active = tab;
+    } else {
+      newPageTabState.right.active = tab;
+    }
     setPageTabState(newPageTabState);
   }
 
@@ -328,14 +464,14 @@ function App() {
       <MenuBar menuItems={menuItems} />
       <div className="mainWindow">
         <div className="leftContainer" style={{ width: `${leftWidth}%` }}>
-          <PageTab tabs={leftTabs} activeTab={activeLeftTab} setActiveTab={setActiveTab(true)} />
+          <PageTab tabs={pageTabState.left.display} activeTab={pageTabState.left.active} setActiveTab={setActiveTab(true)} />
           <div className="innerLeftContainer">
             {leftComponent}
           </div>
         </div>
         <div className="divider" onMouseDown={handleMouseDown}></div>
         <div className="rightContainer" style={{ width: `${100 - leftWidth}%` }}>
-          <PageTab tabs={rightTabs} activeTab={activeRightTab} setActiveTab={setActiveTab(false)} />
+          <PageTab tabs={pageTabState.right.display} activeTab={pageTabState.right.active} setActiveTab={setActiveTab(false)} />
           <div className="innerRightContainer">
             {rightComponent}
           </div>
