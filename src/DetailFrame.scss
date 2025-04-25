@@ -1,4 +1,5 @@
-@import "./index.scss";
+@use "sass:color";
+@use "./index.scss" as *;
 
 $form-margin: 12px;
 
@@ -7,7 +8,7 @@ $form-margin: 12px;
 }
 
 .renderInfo {
-  min-width: 100%;
+  width: 100%;
 }
 .infoContainer {
   width: 100%;
@@ -38,8 +39,7 @@ input:read-only, textarea:read-only {
 }
 
 .basicForm, .tagForm, .largeListForm {
-  display: flex;
-  flex-direction: column;
+  @extend .card;
   width: 100%;
   border-right: 1px solid rgba(#fff, 0.05);
   border-bottom: 1px solid rgba(#fff, 0.05);
@@ -59,7 +59,7 @@ input:read-only, textarea:read-only {
       .tagSpan {
         display: inline-block;
         // background: $bg; // 何色にすべきか
-        border-bottom: 1px solid darken($fg-main, 50%);
+        border-bottom: 1px solid color.adjust($bg, $lightness: 40%);
         padding: 2px 6px;
         margin: 2px;
         &:focus {

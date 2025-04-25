@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $accent-color: #2f9681; // teal
 $bg-dark: #181a1b;
 $bg-elevated: #242424;
@@ -14,6 +16,8 @@ $focus: #d89de9;
 
 $menuheight: 50px;
 $font-size: 14px;
+
+$gap-md: 5px;
 
 
 * {
@@ -35,7 +39,7 @@ button {
   cursor: pointer;
   font-weight: 600;
   transition: background 0.15s;
-  &:hover { background: mix($bg-elevated, #fff, 25%); }
+  &:hover { background: color.adjust($bg, $lightness: 25%);}
   &.primary { background: $accent-color; color: #fff; }
 }
 
@@ -86,4 +90,19 @@ a {
   color: $basic;
   height: #{$menuheight};
   box-sizing: border-box;
+}
+
+@mixin flex-column($grow: 0) {
+  display: flex;
+  flex-direction: column;
+  flex: $grow;
+}
+
+.card {
+  background: $bg-elevated;
+  padding: $gap-md;
+  border-radius: $radius;
+  display: flex;
+  flex-direction: column;
+  gap: $gap-md;
 }

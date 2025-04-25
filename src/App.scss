@@ -1,4 +1,4 @@
-@import "./index.scss";
+@use "./index.scss" as *;
 
 .window {
   height: 100%;
@@ -24,8 +24,7 @@
 }
 
 .leftContainer, .rightContainer {
-  display: flex;
-  flex-direction: column;
+  @include flex-column(1);
   height: calc(100vh - #{$menuheight});
   background-color: $black; // ページがないときの背景色
   .pageTab {
@@ -43,8 +42,7 @@
 }
 
 .innerLeftContainer, .innerRightContainer {
-  display: flex;
-  flex: 1; // flexで残りを埋める
+  @include flex-column(1);
   overflow: auto;
   margin: 0px;
   background-color: $bg; // ページがあるときの背景色
