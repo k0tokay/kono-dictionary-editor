@@ -29,7 +29,7 @@ function MenuBar({ menuItems }) {
 
 function PageTab({ tabs, activeTab, setActiveTab }) {
   return (
-    <div className="pageTab">
+    <div className="menuBar pageTab">
       {tabs.map((tab, i) => (
         <button key={i} onClick={() => setActiveTab(tab)} className={"tab " + (tab === activeTab ? "active" : "")}>
           {tab}

@@ -1,40 +1,61 @@
-@use "colors";
+@import "./index.scss";
+
+$tree-line-width: 2px;
 
 .wordTree {
-  min-height: 100vh;
-  // width: fit-content;
-  // background-color: colors.$bg;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: auto;
+  padding: 12px 16px;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 1rem;
+    position: relative;
+  }
+  ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 5px;
+    width: $tree-line-width;
+    background: rgba($fg-main, 0.1);
+  }
 }
 .wordItemMain {
   padding-bottom: 5px;
-  display: block;
+  display: flex;
+  gap: 6px;
+  padding: 4px 8px 4px 12px;
+  border-radius: $radius;
+  cursor: pointer;
+  position: relative;
   span {
     padding-left: 5px;
     padding-right: 5px;
     display: inline-block;
   }
   .id {
-    color: colors.$muted;
+    color: lighten($color: $bg, $amount: 40%);
     font-weight: bold;
   }
   .entry {
     font-weight: bold;
   }
   &::before {
-    content: '';
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-    border-left: 10px solid;
-    margin-right: 5px;
-    color: transparent;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 12px;
+    height: $tree-line-width;
+    background: rgba($fg-main, 0.1);
   }
   &.hasChildren::before {
-    color: colors.$muted;
+    color: $muted;
   }
-  
   &.open::before {
     transform: rotate(90deg);
   }
@@ -42,11 +63,19 @@
     cursor: pointer;
   }
   &.edited {
-    color: colors.$edited;
+    color: $edited;
   }
   &.focus {
-    color: colors.$focus;
+    background: $accent-color;
+    border-radius: 0px;
+    color: #fff;
+    .id {
+      color: lighten($color: $accent-color, $amount: 40%);
+    }
   }
+}
+.wordItemChildren {
+  margin-left: 1rem;
 }
 ul {
   margin-left: 30px;

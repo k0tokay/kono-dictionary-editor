@@ -27,14 +27,13 @@ function SearchFrame({ dict, updateData }) {
   return (
     <div className="searchFrameContainer">
       <div className="searchFormContainer">
-        <span>検索フォーム</span>
         <BasicForm name={"id"} title={"ID"} value={id} updateData={(name, title, value) => setId(value)} />
         <BasicForm name={"entry"} title={"綴り"} value={entry} updateData={(name, title, value) => setEntry(value)} />
         <BasicForm name={"translations"} title={"翻訳"} value={translations} updateData={(name, title, value) => setTranslations(value)} isMultiline={true} />
       </div>
       <div className="searchResultContainer">
-        <span>検索結果</span>
-        <div className="searchResult">
+        <span className='formHeader'>検索結果</span>
+        <div className="textForm searchResult">
           {result.map((word, i) => (
             <SearchesultTag key={i} word={word} updateData={updateData} />
           ))}

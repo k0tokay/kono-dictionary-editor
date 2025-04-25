@@ -34,3 +34,5 @@ tmp*.py
 
 # unnecessary dictionary files
 saimeno-v4-simp.json
+
+**/tmp

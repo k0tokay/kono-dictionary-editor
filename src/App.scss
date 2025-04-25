@@ -1,70 +1,39 @@
-@use "colors";
-
-$menuheight: 50px;
-$font-size: 14px;
+@import "./index.scss";
 
 .window {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  height: 100vh;
   .mainWindow {
+    flex: 1;
     display: flex;
-    height: calc(100vh - #{$menuheight});
-  }
-
-  font-size: $font-size;
-}
-
-button {
-  padding: 5px;
-  margin-left: 5px;
-  background-color: transparent;
-  cursor: pointer;
-  border: 2px solid colors.$basic;
-  color: colors.$basic;
-  &:hover {
-    background-color: colors.$basic;
-    color: colors.$black;
+    overflow: hidden;
   }
   font-size: $font-size;
-}
-
-.menuBar {
-  //justify-content: space-between;
-  align-items: center;
-  padding: 5px;
-  color: colors.$basic;
-  border-bottom: 5px solid colors.$black;
-  padding: 5px;
-  height: #{$menuheight};
-  box-sizing: border-box;
 }
 
 .divider {
-  width: 5px;
-  background-color: colors.$bg;
+  width: 4px;
   cursor: col-resize;
+  background-color: $bg;
+  border-left: 1px solid rgba($fg-main, 0.1);
+  &:hover {
+    width: 4px;
+    background: $accent-color;
+  }
 }
+
 .leftContainer, .rightContainer {
-  // padding: 10px;
-  overflow-y: auto;
-  overflow-x: auto;
-  white-space: nowrap;
-  background-color: colors.$black;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - #{$menuheight});
+  background-color: $black; // ページがないときの背景色
   .pageTab {
-    margin: 10px;
-    margin-bottom: 0px;
-    overflow-x: auto;
+    //background: $bg-elevated;    
     .tab {
-      border: None;
-      background-color: colors.$black;
-      color: colors.$basic;
-      padding: 10px;
-      margin: 0px;
-      min-width: 60px;
       &.active {
-        background-color: colors.$bg;
-        font-weight: bold;
+        background: $accent-color;
+        color: #fff;
       }
     }
     .addTab {
@@ -72,11 +41,12 @@ button {
     }
   }
 }
+
 .innerLeftContainer, .innerRightContainer {
-  margin: 10px;
-  margin-top: 0px;
   display: flex;
-  flex-direction: column;
-  background-color: colors.$bg;
-  min-width: max-content;
+  flex: 1; // flexで残りを埋める
+  overflow: auto;
+  margin: 0px;
+  background-color: $bg; // ページがあるときの背景色
+  width: 100%;
 }

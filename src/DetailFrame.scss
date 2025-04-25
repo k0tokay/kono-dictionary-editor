@@ -1,82 +1,74 @@
-@use "colors";
+@import "./index.scss";
+
+$form-margin: 12px;
 
 .edited {
-  color: colors.$edited;
+  color: $edited;
+}
+
+.renderInfo {
+  min-width: 100%;
+}
+.infoContainer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.textForm {
+  margin: $form-margin;
+  margin-top: 0;
+}
+
+.formHeader {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  justify-content: space-between;
+  margin-left: $form-margin;
+  margin-right: $form-margin;
+  font-weight: 600;
+  > p, > label, > span {
+    font-weight: 600;
+  }
 }
 
 input:read-only, textarea:read-only {
   cursor: not-allowed;
   pointer-events: none;
 }
-.infoContainer {
-  padding: 10px;
+
+.basicForm, .tagForm, .largeListForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-right: 1px solid rgba(#fff, 0.05);
+  border-bottom: 1px solid rgba(#fff, 0.05);
 }
-.basicForm {
-  padding: 5px;
-  .basicHeader {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    label {
-      display: inline-block;
-      font-weight: bold;
-      margin: 0;
-      flex: 1;
-    }
-  }
-  input, textarea {
-    width: 100%;
-    box-sizing: border-box;
-    font-size: 1em;
-    margin-top: 5px;
-    padding: 7px;
-    background-color: colors.$black;
-    border: none;
-    &:focus {
-      outline: none;
-    }
-  }
-  textarea {
-    resize: vertical;
-    //font-size: large; // なぜかlargeにしないと他のサイズと釣り合わない．
-    // ↑いけた
-  }
-}
+
 .tagForm {
-  padding: 5px;
-  .tagHeader {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    p {
-      display: inline-block;
-      font-weight: bold;
-      margin: 0;
-      flex: 1;
-    }
-  }
   .innerTagForm {
-    background-color: colors.$black;
     min-height: 40px;
     margin-top: 5px;
     padding: 4px;
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; // 改行
+    max-height: 200px;
+    overflow: auto;
     div {
       .tagSpan {
-        border: colors.$basic 2px dashed;
-        padding: 3px;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        margin: 3px;
+        display: inline-block;
+        // background: $bg; // 何色にすべきか
+        border-bottom: 1px solid darken($fg-main, 50%);
+        padding: 2px 6px;
+        margin: 2px;
         &:focus {
           outline: none;
         }
       }
       .notValid {
-        border: colors.$notvalid 2px dashed;
-        color: colors.$notvalid;
+        border: $notvalid 2px dashed;
+        color: $notvalid;
       }
       .tagWordDetails {
         position: relative;
@@ -89,16 +81,16 @@ input:read-only, textarea:read-only {
           width: fit-content;
           padding-bottom: 15px;
           .innerTagWordDetails {
-            background-color: colors.$bg;
+            background-color: $bg;
             padding: 10px;
             height: auto;
             width: max-content;
-            border: 2px solid colors.$basic;
+            border: 2px solid $basic;
             &:hover {
               cursor: pointer;
             }
             .id {
-              color: colors.$muted;
+              color: $muted;
               font-weight: bold;
               padding-right: 5px;
             }
@@ -113,7 +105,6 @@ input:read-only, textarea:read-only {
               max-width: 100px;
               display: block;
               margin-bottom: 5px;
-              // margin: 0;
             }
           }
           &:hover {
@@ -130,20 +121,12 @@ input:read-only, textarea:read-only {
   }
 }
 .largeListForm {
-  padding: 5px;
   .listHeader {
     display: flex;
     align-items: center;
-    width: 100%;
-    p {
-      display: inline-block;
-      font-weight: bold;
-      margin: 0;
-      flex: 1;
-    }
+    justify-content: space-between;
   }
   .innerLargeListForm {
-    // background-color: colors.$black;
     margin-top: 5px;
     min-height: 40px;
     .basicForm {

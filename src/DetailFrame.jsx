@@ -24,6 +24,7 @@ function BasicForm({ name, title, value, edited = false, updateData,
     <textarea
       name={name}
       id={name}
+      className="textForm"
       rows="3"
       value={text}
       onChange={handleChange}
@@ -34,6 +35,7 @@ function BasicForm({ name, title, value, edited = false, updateData,
       type="text"
       id={name}
       name={name}
+      className="textForm"
       value={text}
       onChange={handleChange}
       readOnly={isReadOnly}
@@ -43,7 +45,7 @@ function BasicForm({ name, title, value, edited = false, updateData,
 
   return (
     <div className="basicForm">
-      <div className='basicHeader'>
+      <div className='formHeader basicHeader'>
         <label htmlFor={name} className={edited ? "edited" : ""}>{title}</label>
         {buttons.map((button, index) => (
           <button
@@ -138,11 +140,11 @@ function TagForm({ name, title, tags, updateData, onClick, edited = false,
   }
 
   return <div className='tagForm' name={name} title={title}>
-    <div className='tagHeader'>
+    <div className='formHeader tagHeader'>
       <p className={edited ? "edited" : ""}>{title}</p>
       {!isReadOnly && <button onClick={addTag}>追加</button>}
     </div>
-    <div className='innerTagForm'>
+    <div className='textForm innerTagForm'>
       {tagList.map((tag, i) => (
         <div key={`tag_${i}`}>
           {isWord && dict && dict.words[tag] ? <TagWordDetails word={dict.words[tag]} onClick={onClick?.(tag)} /> : null}
@@ -226,7 +228,7 @@ function LargeListForm({ name, title, title_h, title_c, contents, edited = false
   }
   return (
     <div className="largeListForm">
-      <div className='listHeader'>
+      <div className='formHeader listHeader'>
         <p className={edited ? "edited" : ""}>{title}</p>
         <button onClick={addList} >追加</button>
       </div>
@@ -289,7 +291,7 @@ function RenderInfo({ word, dict, updateData, editedSet }) {
   ];
 
   return (
-    <div>
+    <div className="renderInfo">
       <MenuBar menuItems={menuItems} />
       <div className='infoContainer'>
         <BasicForm name="id" title="ID" value={word.id} isReadOnly={true} />
