@@ -17,8 +17,8 @@ function parentList(dict, id) {
 
 function WordItem({ word, dict, showDetails, editedSet, isOpenSet, updateData, focusId }) {
   const isOpen = isOpenSet.has(word.id);
-  const { id, entry, children } = word;
-  const hasChildren = children.length > 0;
+  const { id, entry, lower_covers } = word;
+  const hasChildren = lower_covers.length > 0;
 
   const upward = (editedSet) => {
     const editedWordSet = new Set(Object.keys(editedSet).map(Number));
@@ -46,7 +46,7 @@ function WordItem({ word, dict, showDetails, editedSet, isOpenSet, updateData, f
       </span>
       {isOpen && hasChildren && (
         <ul className="wordItemChildren">
-          {children.map(i => (
+          {lower_covers.map(i => (
             <WordItem key={i} word={dict.words[i]} dict={dict} showDetails={showDetails} editedSet={editedSet} isOpenSet={isOpenSet} updateData={updateData} focusId={focusId} />
           ))}
         </ul>

@@ -15,6 +15,23 @@ const rec = (n, f) => {
   }
 };
 
+
+// 追加
+const REL_KEYS = {
+  upper: 'upper_covers',   // 直接上位
+  lower: 'lower_covers',   // 直接下位
+};
+function hasPath(start, target, dict, seen = new Set()) {
+  if (start === target) return true;
+  if (seen.has(start)) return false;
+  seen.add(start);
+  for (const nxt of dict.words[start].lower_covers) {
+    if (hasPath(nxt, target, dict, seen)) return true;
+  }
+  return false;
+}
+
+
 function MenuBar({ menuItems }) {
   return (
     <div className="menuBar">
@@ -165,31 +182,52 @@ function App() {
     }
   ];
 
-  // 単語の追加や削除
-  const addWord = (id) => {
-    const p_category = dictionaryData.words[id].category;
-    const category = p_category === "カテゴリ" ? dictionaryData.words[id] : p_category;
+  // 単語の追加
+  const addWord = (parentId) => {
+    const p_category = dictionaryData.words[parentId].category;
+    const category = p_category === "カテゴリ"
+      ? dictionaryData.words[parentId].entry
+      : p_category;
+
+    // 新単語オブジェクト（poset フォーマット）
     const newWord = {
       id: dictionaryData.words.length,
       entry: "",
-      translations: "",
+      translations: [],
       simple_translations: [],
-      category: category,
-      parent: id,
-      children: [],
+      category,
+      upper_covers: [parentId],   // 親へのリンク
+      lower_covers: [],           // 子はまだなし
       arguments: [],
       tags: [],
       contents: [],
-      variations: []
+      variations: [],
+      is_function: false,
     };
+
+    // データ複製＋新単語追加
     const newData = {
       ...dictionaryData,
       words: [...dictionaryData.words, newWord]
     };
-    newData.words[id].children.push(newWord.id);
+
+    // 親側の下位リンク（lower_covers）に自分を追加
+    newData.words[parentId].lower_covers = [
+      ...newData.words[parentId].lower_covers,
+      newWord.id
+    ];
+
+    // 整合性チェック（循環や双方向漏れを防止
+    const ok = reconcileCovers(newWord, newData);
+    if (!ok) {
+      // alert("追加後のリンクが不正になるためキャンセルしました");
+      return;
+    }
+
     setDictionaryData(newData);
     setWord(newWord);
   };
+
   const openDeleteMenu = (id) => {
     if (!pageTabState.left.display.includes("削除") || !pageTabState.right.display.includes("削除")) {
       const newPageTabState = { ...pageTabState };
@@ -207,45 +245,52 @@ function App() {
     }
     setWord(dictionaryData.words[id]);
   };
+
   const deleteWord = (id, nid) => {
+    // 1) 深いコピーして単語自体を null に
     const newData = {
       ...dictionaryData,
-      words: dictionaryData.words.map((item, index) =>
-        index === id ? null : item
-      )
+      words: dictionaryData.words.map((w, i) => (i === id ? null : w))
     };
-    const pid = dictionaryData.words[id].parent;
-    // cidの新しい親を設定
-    if (nid) {
-      dictionaryData.words[id].children.forEach(cid => {
-        newData.words[cid].parent = nid;
-        newData.words[nid].children.push(cid);
+
+    // 2) 古いリンクをすべて外す
+    const oldWord = dictionaryData.words[id];
+    oldWord.upper_covers.forEach(pid => {
+      newData.words[pid].lower_covers =
+        newData.words[pid].lower_covers.filter(x => x !== id);
+    });
+    oldWord.lower_covers.forEach(cid => {
+      newData.words[cid].upper_covers =
+        newData.words[cid].upper_covers.filter(x => x !== id);
+    });
+
+    // 3) 子語の再配置
+    if (nid != null && nid != "") {
+      oldWord.lower_covers.forEach(cid => {
+        // 循環チェック：子 → nid への経路が既にないか
+        if (hasPath(cid, nid, newData)) {
+          alert(`移動すると ${cid} から ${nid} への循環が発生するためキャンセルしました`);
+          return;
+        }
+        // 安全なら双方向リンクを追加
+        newData.words[cid].upper_covers.push(nid);
+        newData.words[nid].lower_covers.push(cid);
       });
     } else {
-      const rmrf = (id) => {
-        const children = dictionaryData.words[id].children;
-        children.forEach(cid => {
-          rmrf(cid);
-        });
-        newData.words[id] = null;
-      }
+      // 4) 完全削除：子孫を再帰的に null
+      const rmrf = wid => {
+        const w = dictionaryData.words[wid];
+        w.lower_covers.forEach(child => rmrf(child));
+        newData.words[wid] = null;
+      };
       rmrf(id);
     }
-    // pidの子から削除
-    newData.words[pid].children = newData.words[pid].children.filter(i => i !== id);
-    // agumentsから削除
-    for (let i = 0; i < newData.words.length; i++) {
-      const word = newData.words[i];
-      if (word === null) {
-        continue;
-      }
-      word.arguments = word.arguments.filter(arg => arg !== id);
-    }
-    setWord(dictionaryData.words[pid]);
-    const newWordList = { ...wordList };
-    delete newWordList[id];
-    setWordList(newWordList);
+
+    // 5) state 更新
     setDictionaryData(newData);
+    // 削除後のフォーカス単語（新親 or ルートにフォールバック）
+    const fallback = nid != null && nid != "" ? nid : (oldWord.upper_covers[0] ?? 0);
+    setWord(newData.words[fallback]);
   };
 
   const openSearchTab = () => {

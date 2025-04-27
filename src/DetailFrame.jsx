@@ -8,15 +8,10 @@ const splitPunc = (text) => text.split(puncRegex).map(x => x.trim()).filter(x =>
 
 function BasicForm({ name, title, value, edited = false, updateData,
   isReadOnly = false, isList = false, isMultiline = false, buttons = [] }) {
-  //const [text, setText] = useState("");
   const text = value;
-  // useEffect(() => {
-  //   setText(value);
-  // }, [value]);
   const handleChange = (e) => {
     const value = e.target.value;
     const data = isList ? splitPunc(value) : value;
-    // console.log(data);
     updateData(name, title, data);
   }
 
@@ -51,7 +46,7 @@ function BasicForm({ name, title, value, edited = false, updateData,
           <button
             key={index}
             onClick={button.onClick}
-            className={button.className || ''} // クラス名が渡されていれば追加
+            className={button.className || ''}
           >
             {button.label}
           </button>
@@ -65,33 +60,29 @@ function BasicForm({ name, title, value, edited = false, updateData,
 function TagWordDetails({ word, onClick }) {
 
   return (
-    <div className='tagWordDetails'>
+    <div className={"tagWordDetails" + (word.translations && word.translations.length > 0 ? "" : " noTranslations")}>
       <div className='paddingBox'>
         <div
-          className='innerTagWordDetails'
+          className="innerTagWordDetails"
           onClick={onClick}
         >
           <span className='id'>{word.id}</span>
           <span className='entry'>{word.entry}</span>
-          <span className='translations'>{word.translations}</span>
+          {word.translations && word.translations.length > 0 ? <span className='translations'>{word.translations}</span> : null}
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 
 function TagForm({ name, title, tags, updateData, onClick, edited = false,
   isList = true, isWord = false, dict = null, isReadOnly = false }) {
-  //const [tagList, setTagList] = useState(isList ? tags : (tags ? [tags] : [])); // 上位語はlistになってないので
   const tagList = isList ? tags : (tags !== null ? [tags] : []);
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
     }
   }
-  // useEffect(() => {
-  //   setTagList(isList ? tags : (tags ? [tags] : []));
-  // }, [tags]);
 
   const handleChange = (e) => {
     const newTag = e.target.textContent;
@@ -104,7 +95,7 @@ function TagForm({ name, title, tags, updateData, onClick, edited = false,
       const data = [];
       for (let i = 0; i < newTagList.length; i++) {
         const tag = newTagList[i];
-        const num = Number(tag); // 実際はもともとint型だと思う
+        const num = Number(tag);
         if (Number.isInteger(num) && num > 0) {
           if (dict && dict.words[num]) {
             data.push(num);
@@ -131,7 +122,7 @@ function TagForm({ name, title, tags, updateData, onClick, edited = false,
     return Number.isInteger(num) && num >= 0 && dict && dict.words[num];
   }
   const handleChange_01 = (e) => {
-    updateData(name, title, tags); // 編集済み属性をつけるだけ
+    updateData(name, title, tags);
   }
   const addTag = () => {
     const newTagList = isList ? [...tagList, ""] : (tagList.length === 0 ? [""] : tagList);
@@ -156,7 +147,6 @@ function TagForm({ name, title, tags, updateData, onClick, edited = false,
             onKeyDown={handleKeyDown}
             onBlur={handleChange}
             onInput={handleChange_01}
-          //onContextMenu={handleContextMenu}
           >
             {isWord && dict && dict.words[tag] ? dict.words[tag].entry : tag}
           </span>
@@ -254,15 +244,8 @@ function MenuBar({ menuItems }) {
 }
 
 function RenderInfo({ word, dict, updateData, editedSet }) {
-  // const [wordState, setWordState] = useState(word);
-  // const [editedSet, setEditedSet] = useState(new Set([]));
-  // useEffect(() => {
-  //   setWordState(word);
-  //   setEditedSset(new Set([]));
-  // }, [word]);
   const getData = (name, title, value) => {
     const newWord = { ...word, [name]: value };
-    // setWordState(newWord);
     const newSet = new Set([...editedSet, name]);
     updateData({ word: newWord, editedAttrSet: newSet, commandList: [] });
   }
@@ -275,7 +258,9 @@ function RenderInfo({ word, dict, updateData, editedSet }) {
     {
       title: "保存",
       onClick: () => {
-        updateData({ word: word, editedAttrSet: editedSet, commandList: ["save"] });
+        if (reconcileCovers(word, dict)) {
+          updateData({ word: word, editedAttrSet: editedSet, commandList: ["save"] });
+        }
       }
     }, {
       title: "追加",
@@ -298,8 +283,26 @@ function RenderInfo({ word, dict, updateData, editedSet }) {
         <BasicForm name="entry" title="綴り" value={word.entry} updateData={getData} edited={editedSet.has("entry")} />
         <BasicForm name="translations" title="翻訳" value={word.translations} isList={true} isMultiline={true} updateData={getData} edited={editedSet.has("translations")} />
         <BasicForm name="simple_translations" title="簡易的な翻訳" value={word.simple_translations} isList={true} isMultiline={true} updateData={getData} edited={editedSet.has("simple_translations")} />
-        <TagForm name="parent" title="上位語" tags={word.parent} isList={false} isWord={true} dict={dict} onClick={handleTagClick} updateData={getData} edited={editedSet.has("parent")} />
-        <TagForm name="children" title="下位語" tags={word.children} isList={true} isWord={true} dict={dict} onClick={handleTagClick} updateData={getData} edited={editedSet.has("children")} isReadOnly={true} />
+        <TagForm
+          name="uppper_covers"
+          title="上位語"
+          tags={word.upper_covers}
+          isWord={true}
+          dict={dict}
+          onClick={handleTagClick}
+          updateData={getData}
+          edited={editedSet.has("upper_covers")}
+        />
+        <TagForm
+          name="lower_covers"
+          title="下位語"
+          tags={word.lower_covers}
+          isWord={true}
+          dict={dict}
+          onClick={handleTagClick}
+          updateData={getData}
+          edited={editedSet.has("lower_covers")}
+        />
         <TagForm name="arguments" title="引数" tags={word.arguments} isList={true} isWord={true} dict={dict} onClick={handleTagClick} updateData={getData} edited={editedSet.has("arguments")} />
         <TagForm name="tags" title="タグ" tags={word.tags} updateData={getData} edited={editedSet.has("tags")} />
         <LargeListForm name="contents" title="内容" title_h="見出し" title_c="内容" contents={word.contents} updateData={getData} edited={editedSet.has("contents")} isMultiline={true} />

@@ -4,10 +4,8 @@
 $tree-line-width: 2px;
 
 .wordTree {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  overflow: auto;
+  @include flex-column(1);
+  min-width: 500px;
   padding: 12px 16px;
   ul {
     list-style: none;

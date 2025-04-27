@@ -9,6 +9,7 @@ $form-margin: 12px;
 
 .renderInfo {
   width: 100%;
+  min-width: 500px;
 }
 .infoContainer {
   width: 100%;
@@ -54,7 +55,6 @@ input:read-only, textarea:read-only {
     align-items: center;
     flex-wrap: wrap; // 改行
     max-height: 200px;
-    overflow: auto;
     div {
       .tagSpan {
         display: inline-block;
@@ -75,7 +75,10 @@ input:read-only, textarea:read-only {
         height: 0;
         width: 0;
         z-index: 1;
-        top: -80px;
+        top: -67px;
+        &.noTranslations {
+          top: -43px;
+        }
         .paddingBox {
           display: none;
           width: fit-content;
@@ -85,7 +88,8 @@ input:read-only, textarea:read-only {
             padding: 10px;
             height: auto;
             width: max-content;
-            border: 2px solid $basic;
+            border: 1px solid rgba(#fff, 0.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             &:hover {
               cursor: pointer;
             }
