@@ -2,8 +2,8 @@ import { useState, useEffect, useCallback } from 'react';
 import initialData from '../../data/konomeno-v5.json';
 import './App.scss';
 import '../../styles/index.scss';
-import { parentList, WordTree } from '../TreeView/TreeView';
-import { RenderInfo } from '../DetailFrame/DetailFrame';
+import { WordTree } from '../TreeView/TreeView';
+import DetailsFrame from '../DetailFrame/DetailFrame';
 import { RightClickMenu } from '../ContextMenu/ContextMenu';
 import { SearchFrame, EmptyFrame, WordDeleteFrame } from '../OtherFrames/OtherFrames';
 import { reconcileCovers } from '../../utils/utils';
@@ -22,16 +22,6 @@ const REL_KEYS = {
   upper: 'upper_covers',   // 直接上位
   lower: 'lower_covers',   // 直接下位
 };
-function hasPath(start, target, dict, seen = new Set()) {
-  if (start === target) return true;
-  if (seen.has(start)) return false;
-  seen.add(start);
-  for (const nxt of dict.words[start].lower_covers) {
-    if (hasPath(nxt, target, dict, seen)) return true;
-  }
-  return false;
-}
-
 
 function MenuBar({ menuItems }) {
   return (
@@ -74,7 +64,7 @@ function App() {
   });
 
   const treeDisplay = (id) => {
-    const newSet = new Set([...isOpenSet, ...parentList(dictionaryData, id)]);
+    const newSet = new Set([...isOpenSet, ...ancestorList(dictionaryData, id)]);
     setIsOpenSet(newSet);
     setEditedSet(editedSet);
   }
@@ -470,10 +460,10 @@ function App() {
   const pages = [
     {
       title: "単語",
-      component: <WordTree dict={dictionaryData} editedSet={editedSet} isOpenSet={isOpenSet} updateData={getTreeData} showDetails={treeItemShowDetails} focusId={word.id} />
+      component: <WordTree />
     }, {
       title: "詳細",
-      component: <RenderInfo word={word.id in wordList ? wordList[word.id] : word} dict={dictionaryData} updateData={getDetailsData} editedSet={word.id in editedSet ? editedSet[word.id] : new Set([])} />
+      component: <DetailsFrame />
     }, {
       title: "検索",
       component: <SearchFrame dict={dictionaryData} updateData={(word) => { treeDisplay(word.id); setWord(word) }} />

@@ -1,316 +1,123 @@
-import { useState, useEffect } from 'react';
+// src/components/DetailFrame/DetailFrame.jsx
+import React from 'react';
+import { useDictState, useDictDispatch } from '../../store/DictionaryContext';
 import { search } from '../../utils/utils.js';
+import { BasicForm, TagForm, LargeListForm, MenuBar } from '../CommonForms';
 import './DetailFrame.scss';
-import { reconcileCovers } from '../../utils/utils';
 
 const punctuations = ['，', ',', '、'];
-const puncRegex = new RegExp(`[${punctuations.join('')}]`)
-const splitPunc = (text) => text.split(puncRegex).map(x => x.trim()).filter(x => x !== "");
+const splitPunc = (text) =>
+  text.split(new RegExp(`[${punctuations.join('')}]`))
+    .map(x => x.trim())
+    .filter(x => x !== "");
 
-function BasicForm({ name, title, value, edited = false, updateData,
-  isReadOnly = false, isList = false, isMultiline = false, buttons = [] }) {
-  const text = value;
-  const handleChange = (e) => {
-    const value = e.target.value;
-    const data = isList ? splitPunc(value) : value;
-    updateData(name, title, data);
-  }
+// ──────────────────────────────────────────
+// DetailFrame 本体
+// ──────────────────────────────────────────
 
-  const editArea = isMultiline ? (
-    <textarea
-      name={name}
-      id={name}
-      className="textForm"
-      rows="3"
-      value={text}
-      onChange={handleChange}
-      readOnly={isReadOnly}
-    ></textarea>
-  ) : (
-    <input
-      type="text"
-      id={name}
-      name={name}
-      className="textForm"
-      value={text}
-      onChange={handleChange}
-      readOnly={isReadOnly}
-      required
-    />
-  );
+export default function DetailFrame() {
+  const { words, focusId, editedSet } = useDictState();
+  const dispatch = useDictDispatch();
+  const word = words[focusId];
+  const dict = { words };
+  // console.log("DetailFrame", focusId, word, dict);
 
-  return (
-    <div className="basicForm">
-      <div className='formHeader basicHeader'>
-        <label htmlFor={name} className={edited ? "edited" : ""}>{title}</label>
-        {buttons.map((button, index) => (
-          <button
-            key={index}
-            onClick={button.onClick}
-            className={button.className || ''}
-          >
-            {button.label}
-          </button>
-        ))}
-      </div>
-      {editArea}
-    </div>
-  );
-}
+  // フィールド更新
+  const handleChange = (field, value) => {
+    dispatch({ type: 'UPDATE_FIELD', payload: { id: focusId, field, value } });
+  };
 
-function TagWordDetails({ word, onClick }) {
+  // 追加／削除はすべて context reducer へ
+  const handleAdd = () => dispatch({ type: 'ADD_WORD', payload: focusId });
+  const handleDelete = () => dispatch({ type: 'DELETE_WORD', payload: { id: focusId, moveTo: null } });
 
-  return (
-    <div className={"tagWordDetails" + (word.translations && word.translations.length > 0 ? "" : " noTranslations")}>
-      <div className='paddingBox'>
-        <div
-          className="innerTagWordDetails"
-          onClick={onClick}
-        >
-          <span className='id'>{word.id}</span>
-          <span className='entry'>{word.entry}</span>
-          {word.translations && word.translations.length > 0 ? <span className='translations'>{word.translations}</span> : null}
-        </div>
-      </div>
-    </div >
-  );
-}
-
-function TagForm({ name, title, tags, updateData, onClick, edited = false,
-  isList = true, isWord = false, dict = null, isReadOnly = false }) {
-  const tagList = isList ? tags : (tags !== null ? [tags] : []);
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-    }
-  }
-
-  const handleChange = (e) => {
-    const newTag = e.target.textContent;
-    const key = Number(e.target.id);
-    const newTagList = tagList.map((tag, i) => (i === key ? newTag : tag));
-    if (!isWord) {
-      const newTags = !isList ? (newTagList.length !== 0 ? newTagList[0] : null) : newTagList;
-      updateData(name, title, newTags);
-    } else {
-      const data = [];
-      for (let i = 0; i < newTagList.length; i++) {
-        const tag = newTagList[i];
-        const num = Number(tag);
-        if (Number.isInteger(num) && num > 0) {
-          if (dict && dict.words[num]) {
-            data.push(num);
-            newTagList[i] = dict.words[num].entry;
-          } else {
-            data.push(tag);
-          }
-        } else {
-          const ids = search(dict, null, tag, null).map(x => x.id);
-          if (ids.length >= 1) {
-            data.push(ids[0]);
-          } else {
-            data.push(tag);
-          }
-        }
-      }
-      const newTags = !isList ? (data.length !== 0 ? data[0] : null) : data;
-      updateData(name, title, newTags);
-    }
-  }
-  const isValid = (wordId) => {
-    if (!isWord) return true;
-    const num = Number(wordId);
-    return Number.isInteger(num) && num >= 0 && dict && dict.words[num];
-  }
-  const handleChange_01 = (e) => {
-    updateData(name, title, tags);
-  }
-  const addTag = () => {
-    const newTagList = isList ? [...tagList, ""] : (tagList.length === 0 ? [""] : tagList);
-    const newTags = !isList ? (newTagList.length !== 0 ? newTagList[0] : null) : newTagList;
-    updateData(name, title, newTags);
-  }
-
-  return <div className='tagForm' name={name} title={title}>
-    <div className='formHeader tagHeader'>
-      <p className={edited ? "edited" : ""}>{title}</p>
-      {!isReadOnly && <button onClick={addTag}>追加</button>}
-    </div>
-    <div className='textForm innerTagForm'>
-      {tagList.map((tag, i) => (
-        <div key={`tag_${i}`}>
-          {isWord && dict && dict.words[tag] ? <TagWordDetails word={dict.words[tag]} onClick={onClick?.(tag)} /> : null}
-          <span
-            id={i}
-            className={'tagSpan' + (isWord && !isValid(tag) ? ' notValid' : '')}
-            contentEditable={!isReadOnly}
-            suppressContentEditableWarning={true}
-            onKeyDown={handleKeyDown}
-            onBlur={handleChange}
-            onInput={handleChange_01}
-          >
-            {isWord && dict && dict.words[tag] ? dict.words[tag].entry : tag}
-          </span>
-        </div>
-      ))}
-    </div>
-  </div>
-}
-
-function LargeForm({ name, title_h, title_c, content, updateData, isMultiline = true }) {
-  const { title, text } = content;
-  const getData = (name_hc, title, value) => {
-    if (name_hc === `${name}_h`) {
-      const newContent = { ...content, title: value };
-      updateData(name, title, newContent);
-    } else if (name_hc === `${name}_c`) {
-      const newContent = { ...content, text: value };
-      updateData(name, title, newContent);
-    }
-  }
-  const buttons = [
-    {
-      label: "上へ",
-      onClick: () => { updateData(name, title, content, ["up"]) }
-    }, {
-      label: "下へ",
-      onClick: () => { updateData(name, title, content, ["down"]) }
-    }, {
-      label: "削除",
-      onClick: () => { updateData(name, title, content, ["delete"]) }
-    }
-  ]
-  return (
-    <div>
-      <BasicForm name={`${name}_h`} title={title_h} value={title} buttons={buttons} updateData={getData} />
-      <BasicForm name={`${name}_c`} title={title_c} value={text} isMultiline={isMultiline} updateData={getData} />
-    </div>
-  );
-}
-
-function LargeListForm({ name, title, title_h, title_c, contents, edited = false, updateData, isMultiline = true }) {
-  const addList = () => {
-    const newContents = [...contents, { title: "", text: "" }];
-    updateData(name, title, newContents);
-  }
-  const getData = (index) => (name, title, value, commandList) => {
-    const newContents = [...contents];
-    newContents[index] = value;
-    if (commandList && commandList.length > 0) {
-      for (const command of commandList) {
-        if (command === "up") {
-          if (index > 0) {
-            const tmp = newContents[index - 1];
-            newContents[index - 1] = newContents[index];
-            newContents[index] = tmp;
-          }
-        } else if (command === "down") {
-          if (index < newContents.length - 1) {
-            const tmp = newContents[index + 1];
-            newContents[index + 1] = newContents[index];
-            newContents[index] = tmp;
-          }
-        } else if (command === "delete") {
-          newContents.splice(index, 1);
-        }
-      }
-    }
-    updateData(name, title, newContents);
-  }
-  return (
-    <div className="largeListForm">
-      <div className='formHeader listHeader'>
-        <p className={edited ? "edited" : ""}>{title}</p>
-        <button onClick={addList} >追加</button>
-      </div>
-      <div className='innerLargeListForm'>
-        {contents.map((content, i) =>
-          <LargeForm key={i} name={name} title_h={title_h} title_c={title_c} content={content} updateData={getData(i)} isMultiline={isMultiline} />
-        )}
-      </div>
-    </div>
-  );
-}
-
-function MenuBar({ menuItems }) {
-  return (
-    <div className="menuBar">
-      {menuItems.map((item, i) => (
-        <button key={i} onClick={item.onClick}>
-          {item.title}
-        </button>
-      ))}
-    </div>
-  );
-}
-
-function RenderInfo({ word, dict, updateData, editedSet }) {
-  const getData = (name, title, value) => {
-    const newWord = { ...word, [name]: value };
-    const newSet = new Set([...editedSet, name]);
-    updateData({ word: newWord, editedAttrSet: newSet, commandList: [] });
-  }
-
-  const handleTagClick = (id) => () => {
-    updateData({ word: word, editedAttrSet: editedSet, commandList: [["tree_display", id]] });
-  }
-
+  // 詳細メニューバー
   const menuItems = [
-    {
-      title: "保存",
-      onClick: () => {
-        if (reconcileCovers(word, dict)) {
-          updateData({ word: word, editedAttrSet: editedSet, commandList: ["save"] });
-        }
-      }
-    }, {
-      title: "追加",
-      onClick: () => {
-        updateData({ word: word, editedAttrSet: editedSet, commandList: ["add"] });
-      }
-    }, {
-      title: "削除",
-      onClick: () => {
-        updateData({ word: word, editedAttrSet: editedSet, commandList: ["delete"] });
-      }
-    }
+    { title: '追加', onClick: handleAdd },
+    { title: '削除', onClick: handleDelete }
   ];
 
   return (
     <div className="renderInfo">
-      <MenuBar menuItems={menuItems} />
-      <div className='infoContainer'>
-        <BasicForm name="id" title="ID" value={word.id} isReadOnly={true} />
-        <BasicForm name="entry" title="綴り" value={word.entry} updateData={getData} edited={editedSet.has("entry")} />
-        <BasicForm name="translations" title="翻訳" value={word.translations} isList={true} isMultiline={true} updateData={getData} edited={editedSet.has("translations")} />
-        <BasicForm name="simple_translations" title="簡易的な翻訳" value={word.simple_translations} isList={true} isMultiline={true} updateData={getData} edited={editedSet.has("simple_translations")} />
+      <MenuBar items={menuItems} />
+      <div className="infoContainer">
+        <BasicForm name="id" title="ID" value={word.id} isReadOnly />
+        <BasicForm name="entry" title="綴り" value={word.entry} edited={editedSet.has('entry')} onChange={handleChange} />
+        <BasicForm
+          name="translations"
+          title="翻訳"
+          value={word.translations}
+          edited={editedSet.has('translations')}
+          isList
+          isMultiline
+          onChange={handleChange}
+        />
+        <BasicForm
+          name="simple_translations"
+          title="簡易的な翻訳"
+          value={word.simple_translations}
+          edited={editedSet.has('simple_translations')}
+          isList
+          isMultiline
+          onChange={handleChange}
+        />
         <TagForm
-          name="uppper_covers"
+          name="upper_covers"
           title="上位語"
           tags={word.upper_covers}
-          isWord={true}
+          edited={editedSet.has('upper_covers')}
+          isWord
           dict={dict}
-          onClick={handleTagClick}
-          updateData={getData}
-          edited={editedSet.has("upper_covers")}
+          onChange={handleChange}
+          onClick={(id) => dispatch({ type: 'SET_FOCUS', payload: id })}
         />
         <TagForm
           name="lower_covers"
           title="下位語"
           tags={word.lower_covers}
-          isWord={true}
+          edited={editedSet.has('lower_covers')}
+          isWord
           dict={dict}
-          onClick={handleTagClick}
-          updateData={getData}
-          edited={editedSet.has("lower_covers")}
+          onChange={handleChange}
+          onClick={(id) => dispatch({ type: 'SET_FOCUS', payload: id })}
+          isReadOnly
         />
-        <TagForm name="arguments" title="引数" tags={word.arguments} isList={true} isWord={true} dict={dict} onClick={handleTagClick} updateData={getData} edited={editedSet.has("arguments")} />
-        <TagForm name="tags" title="タグ" tags={word.tags} updateData={getData} edited={editedSet.has("tags")} />
-        <LargeListForm name="contents" title="内容" title_h="見出し" title_c="内容" contents={word.contents} updateData={getData} edited={editedSet.has("contents")} isMultiline={true} />
-        <LargeListForm name="variations" title="変化形" title_h="種類" title_c="変化形" contents={word.variations} updateData={getData} edited={editedSet.has("variations")} isMultiline={false} />
+        <TagForm
+          name="arguments"
+          title="引数"
+          tags={word.arguments}
+          edited={editedSet.has('arguments')}
+          isWord
+          dict={dict}
+          onChange={handleChange}
+          onClick={(id) => dispatch({ type: 'SET_FOCUS', payload: id })}
+        />
+        <TagForm
+          name="tags"
+          title="タグ"
+          tags={word.tags}
+          edited={editedSet.has('tags')}
+          onChange={handleChange}
+        />
+        <LargeListForm
+          name="contents"
+          title="内容"
+          title_h="見出し"
+          title_c="内容"
+          contents={word.contents}
+          edited={editedSet.has('contents')}
+          onChange={handleChange}
+        />
+        <LargeListForm
+          name="variations"
+          title="変化形"
+          title_h="種類"
+          title_c="変化形"
+          contents={word.variations}
+          edited={editedSet.has('variations')}
+          onChange={handleChange}
+        />
       </div>
     </div>
   );
 }
-
-export { BasicForm, RenderInfo };

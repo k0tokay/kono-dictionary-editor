@@ -1,71 +1,80 @@
-// import { useEffect, useState } from 'react';
-import "./TreeView.scss";
+import React from 'react';
+import { useDictState, useDictDispatch } from '../../store/DictionaryContext';
+import './TreeView.scss';
 
-function parentList(dict, id) {
-  const parentRec = (id) => {
-    const word = dict.words[id];
-    if (!word) {
-      return [];
-    }
-    if (word.parent == null) {
-      return [id];
-    }
-    return [id, ...parentRec(word.parent)];
-  }
-  return parentRec(id);
-};
+/** 再帰で「自分→祖先」をたどる関数 */
+export function ancestorList(dict, id, seen = new Set()) {
+  if (seen.has(id)) return [];
+  seen.add(id);
+  const word = dict.words[id];
+  const parents = word.upper_covers || [];
+  // 自分 + すべての祖先
+  return [id, ...parents.flatMap(pid => ancestorList(dict, pid, seen))];
+}
 
-function WordItem({ word, dict, showDetails, editedSet, isOpenSet, updateData, focusId }) {
-  const isOpen = isOpenSet.has(word.id);
-  const { id, entry, lower_covers } = word;
-  const hasChildren = lower_covers.length > 0;
+/** 単一ノード */
+function WordItem({ id }) {
+  const { words, openSet, focusId, editedSet } = useDictState();
+  const dispatch = useDictDispatch();
+  const word = words[id];
+  const children = word.lower_covers || [];
+  const isOpen = openSet.includes(id);
+  const hasChildren = children.length > 0;
 
-  const upward = (editedSet) => {
-    const editedWordSet = new Set(Object.keys(editedSet).map(Number));
-    const allParents = [];
-    editedWordSet.forEach(id => {
-      allParents.push(id, ...parentList(dict, id));
-    });
-    return new Set(allParents);
-  };
+  // editedSet が Context にない場合は空 Set で
+  const editedIds = editedSet || new Set();
+  // 編集のあった単語の祖先すべてを集める
+  const highlights = new Set();
+  editedIds.forEach(eid =>
+    ancestorList(words, eid).forEach(aid => highlights.add(aid))
+  );
 
   const handleClick = () => {
-    // setIsOpen(!isOpen);
-    updateData({ word, isOpen: !isOpen });
-    showDetails(word);
+    dispatch({ type: 'TOGGLE_OPEN', payload: id });
+    dispatch({ type: 'SET_FOCUS', payload: id });
   };
 
   return (
     <li>
       <span
-        className={`wordItemMain ${isOpen ? "open" : ""} ${hasChildren ? "hasChildren" : ""} ${focusId === word.id ? "focus" : ""} ${upward(editedSet).has(word.id) ? "edited" : ""}`}
+        className={[
+          'wordItemMain',
+          isOpen && 'open',
+          hasChildren && 'hasChildren',
+          focusId === id && 'focus',
+          highlights.has(id) && 'edited'
+        ].filter(Boolean).join(' ')}
         onClick={handleClick}
       >
         <span className="id">{id}</span>
-        <span className="entry">{entry}</span>
+        <span className="entry">{word.entry}</span>
       </span>
+
       {isOpen && hasChildren && (
         <ul className="wordItemChildren">
-          {lower_covers.map(i => (
-            <WordItem key={i} word={dict.words[i]} dict={dict} showDetails={showDetails} editedSet={editedSet} isOpenSet={isOpenSet} updateData={updateData} focusId={focusId} />
-          ))}
+          {children.map(childId =>
+            <WordItem key={childId} id={childId} />
+          )}
         </ul>
       )}
     </li>
   );
 }
 
-function WordTree({ dict, updateData, editedSet, showDetails, isOpenSet, focusId }) {
-  const categoryIndices = dict.words
-    .map((word, i) => (word && word.category === "カテゴリ" ? i : -1))
-    .filter(i => i !== -1);
-  return <div className="wordTree">
-    <ul>
-      {categoryIndices.map(i => (
-        <WordItem key={i} word={dict.words[i]} dict={dict} showDetails={showDetails} editedSet={editedSet} isOpenSet={isOpenSet} updateData={updateData} focusId={focusId} />
-      ))}
-    </ul>
-  </div>
-}
+/** カテゴリルート配下を表示 */
+export function WordTree() {
+  const { words } = useDictState();
 
-export { parentList, WordTree };
+  // 「カテゴリ」ラベルをルートとみなすノードID一覧
+  const roots = words
+    .map((w, i) => (w && w.category === 'カテゴリ' ? i : -1))
+    .filter(i => i !== -1);
+
+  return (
+    <div className="wordTree">
+      <ul>
+        {roots.map(id => <WordItem key={id} id={id} />)}
+      </ul>
+    </div>
+  );
+}

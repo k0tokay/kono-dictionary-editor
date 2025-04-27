@@ -12,6 +12,24 @@ export function hasPath(start, target, dict, seen = new Set()) {
     return false;
 }
 
+export function createBlankWord(parentId, parentCategory, nextId) {
+    const category = parentCategory === 'カテゴリ' ? parentCategory : parentCategory;
+    return {
+        id: nextId,
+        entry: '',
+        translations: [],
+        simple_translations: [],
+        category,
+        upper_covers: [parentId],
+        lower_covers: [],
+        arguments: [],
+        tags: [],
+        contents: [],
+        variations: [],
+        is_function: false
+    };
+}
+
 /**
  * word.upper_covers / word.lower_covers を見て
  * 双方向リンクを張り直し、かつサイクル検出を行う
@@ -52,6 +70,7 @@ export function reconcileCovers(word, dict) {
 
     return true;
 }
+
 
 export function search(dict, id, entry, translations) {
     if (Number(id) && dict.words[id]) {
