@@ -1,42 +1,7 @@
 // src/store/DictionaryContext.jsx
 import React, { createContext, useReducer, useContext } from 'react';
 import initialData from '../data/konomeno-v5.json';
-// import { reconcileCovers } from './reconcile';  // 従来の整合性関数
-
-function reconcileCovers(word, dict) {
-    // 既存の双方向リンクを一旦すべて外す
-    ['upper_covers', 'lower_covers'].forEach(key => {
-        const opp = key === 'upper_covers' ? 'lower_covers' : 'upper_covers';
-        dict.words[word.id][key].forEach(id => {
-            dict.words[id][opp] = dict.words[id][opp].filter(x => x !== word.id);
-        });
-        dict.words[word.id][key] = [];
-    });
-
-    // 新しい上位リンクを張る前にサイクル検査
-    for (const pid of word.upper_covers) {
-        // もし自→親 の経路が既にあれば、親→自 を追加するとループになる
-        if (hasPath(word.id, pid, dict)) {
-            alert(`循環検出: ${pid} を上位語に追加できません`);
-            return false;
-        }
-        // 問題なければ双方向リンクをセット
-        dict.words[word.id].upper_covers.push(pid);
-        dict.words[pid].lower_covers.push(word.id);
-    }
-
-    // 同様に下位リンクも張る（通常はこちらは親追加で十分ですが保険として）
-    for (const cid of word.lower_covers) {
-        if (hasPath(cid, word.id, dict)) {
-            alert(`循環検出: ${cid} を下位語に追加できません`);
-            return false;
-        }
-        dict.words[word.id].lower_covers.push(cid);
-        dict.words[cid].upper_covers.push(word.id);
-    }
-
-    return true;
-}
+import { reconcileCovers } from '../utils/utils.js';
 
 const DictionaryStateCtx = createContext();
 const DictionaryDispatchCtx = createContext();

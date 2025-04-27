@@ -1,11 +1,12 @@
 import { useState, useEffect, useCallback } from 'react';
-import initialData from './data/konomeno-v5.json';
+import initialData from '../../data/konomeno-v5.json';
 import './App.scss';
-import './index.scss';
-import { parentList, WordTree } from './TreeView';
-import { RenderInfo } from './DetailFrame';
-import { RightClickMenu } from './Basic';
-import { SearchFrame, EmptyFrame, WordDeleteFrame } from './OtherFrames';
+import '../../styles/index.scss';
+import { parentList, WordTree } from '../TreeView/TreeView';
+import { RenderInfo } from '../DetailFrame/DetailFrame';
+import { RightClickMenu } from '../ContextMenu/ContextMenu';
+import { SearchFrame, EmptyFrame, WordDeleteFrame } from '../OtherFrames/OtherFrames';
+import { reconcileCovers } from '../../utils/utils';
 
 const rec = (n, f) => {
   if (n === 0) {

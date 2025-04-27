@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { search } from './Basic';
+import { search } from '../../utils/utils.js';
 import './DetailFrame.scss';
+import { reconcileCovers } from '../../utils/utils';
 
 const punctuations = ['，', ',', '、'];
 const puncRegex = new RegExp(`[${punctuations.join('')}]`)

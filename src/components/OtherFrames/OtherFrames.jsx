@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { search } from './Basic';
-import { BasicForm } from './DetailFrame';
+import { search } from '../../utils/utils.js';
+import { BasicForm } from '../DetailFrame/DetailFrame';
 import './OtherFrames.scss';
 
 function SearchesultTag({ word, updateData }) {
