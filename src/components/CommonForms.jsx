@@ -1,3 +1,11 @@
+import { use } from 'react';
+import { useDictState, useDictDispatch } from '../store/DictionaryContext';
+import { checkIntegrity } from '../utils/utils.js';
+
+const punctuations = ['，', ',', '、'];
+const splitPunc = (text) =>
+    text.split(new RegExp(`[${punctuations.join('')}]`))
+        .map(x => x.trim()); //.filter(x => x !== "") をつけると編集時に最後に,がつけられない
 
 export function BasicForm({ name, title, value, edited, onChange,
     isReadOnly = false, isList = false, isMultiline = false, buttons = [] }) {
@@ -53,17 +61,26 @@ export function TagWordDetails({ word, onClick }) {
 
 export function TagForm({ name, title, tags, onChange, onClick, edited,
     isList = true, isWord = false, dict = null, isReadOnly = false }) {
+    const dispatch = useDictDispatch();
+    const state = useDictState();
     const tagList = isList ? tags : (tags != null ? [tags] : []);
     const handleBlur = (e) => {
         const i = Number(e.target.id);
         const newTag = e.target.textContent;
-        const newTags = tagList.map((t, j) => j === i ? newTag : t);
+        const newTags = tagList.map((t, j) => (j === i && isValid(newTag)) ? newTag : t).filter(t => t !== "");
         onChange(name, isList ? newTags : newTags[0] || null);
     };
+
     const addTag = () => {
         const newTags = [...tagList, ""];
         onChange(name, isList ? newTags : newTags[0]);
     };
+
+    const isValid = (wordId) => {
+        if (!isWord) return true;
+        const num = Number(wordId);
+        return Number.isInteger(num) && num >= 0 && dict && dict.words[num];
+    }
 
     return (
         <div className="tagForm">
@@ -79,7 +96,7 @@ export function TagForm({ name, title, tags, onChange, onClick, edited,
                         )}
                         <span
                             id={i}
-                            className={'tagSpan'}
+                            className={'tagSpan' + (isWord && !isValid(tag) ? ' notValid' : '')}
                             contentEditable={!isReadOnly}
                             suppressContentEditableWarning
                             onBlur={handleBlur}

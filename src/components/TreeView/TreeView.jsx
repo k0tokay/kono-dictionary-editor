@@ -2,23 +2,13 @@ import React from 'react';
 import { useDictState, useDictDispatch } from '../../store/DictionaryContext';
 import './TreeView.scss';
 
-/** 再帰で「自分→祖先」をたどる関数 */
-export function ancestorList(dict, id, seen = new Set()) {
-  if (seen.has(id)) return [];
-  seen.add(id);
-  const word = dict.words[id];
-  const parents = word.upper_covers || [];
-  // 自分 + すべての祖先
-  return [id, ...parents.flatMap(pid => ancestorList(dict, pid, seen))];
-}
-
 /** 単一ノード */
 function WordItem({ id }) {
   const { words, openSet, focusId, editedSet } = useDictState();
   const dispatch = useDictDispatch();
   const word = words[id];
   const children = word.lower_covers || [];
-  const isOpen = openSet.includes(id);
+  const isOpen = openSet.has(id);
   const hasChildren = children.length > 0;
 
   // editedSet が Context にない場合は空 Set で
@@ -28,7 +18,6 @@ function WordItem({ id }) {
   editedIds.forEach(eid =>
     ancestorList(words, eid).forEach(aid => highlights.add(aid))
   );
-
   const handleClick = () => {
     dispatch({ type: 'TOGGLE_OPEN', payload: id });
     dispatch({ type: 'SET_FOCUS', payload: id });

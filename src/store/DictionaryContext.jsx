@@ -1,7 +1,8 @@
 // src/store/DictionaryContext.jsx
 import React, { createContext, useReducer, useContext } from 'react';
 import initialData from '../data/konomeno-v5.json';
-import { reconcileCovers, hasPath, createBlankWord } from '../utils/utils.js';
+import { reconcileCovers, hasPath, createBlankWord, checkIntegrity } from '../utils/utils.js';
+import { ancestorList } from '../utils/utils.js';
 
 const DictionaryStateCtx = createContext();
 const DictionaryDispatchCtx = createContext();
@@ -18,19 +19,10 @@ const getFirstRootId = (words) => {
 function dictionaryReducer(state, action) {
     switch (action.type) {
         case 'UPDATE_FIELD': {
-            const { id, field, value } = action.payload;
-            const word = { ...state.words[id], [field]: value };
-            // 整合性チェック
-            if (field === 'upper_covers' || field === 'lower_covers') {
-                const ok = reconcileCovers(word, { ...state, words: [...state.words.slice(0, id), word, ...state.words.slice(id + 1)] });
-                if (!ok) return state;  // 変更を破棄
-            }
-            const words = state.words.slice();
-            words[id] = word;
-            return { ...state, words };
+            return updateField(state, action.payload);
         }
-        // ───────────────────────────
         case 'ADD_WORD': {
+            return addWord(state, action.payload);
             const parentId = action.payload;
             const parent = state.words[parentId];
             if (!parent) return state;
@@ -102,7 +94,15 @@ function dictionaryReducer(state, action) {
             const set = new Set(state.openSet);
             if (set.has(action.payload)) set.delete(action.payload);
             else set.add(action.payload);
-            return { ...state, openSet: Array.from(set) };
+            return { ...state, openSet: set };
+        }
+        case 'OPEN_WORD': {
+            const id = action.payload;
+            const set = new Set(state.openSet);
+            ancestorList(state.words, id).forEach(aid => {
+                set.add(aid);
+            });
+            return { ...state, openSet: set };
         }
         case 'SET_FOCUS': {
             return { ...state, focusId: action.payload };
@@ -115,7 +115,7 @@ function dictionaryReducer(state, action) {
 export function DictionaryProvider({ children }) {
     const [state, dispatch] = useReducer(dictionaryReducer, {
         words: initialData.words,
-        openSet: [],
+        openSet: new Set(),
         focusId: 6, // alkono // getFirstRootId(initialData.words)
         editedSet: new Set(),
         // …その他 state…
@@ -131,3 +131,42 @@ export function DictionaryProvider({ children }) {
 
 export const useDictState = () => useContext(DictionaryStateCtx);
 export const useDictDispatch = () => useContext(DictionaryDispatchCtx);
+
+
+function updateField(state, { id, field, value }) {
+    const word = state.words[id];
+    if (!word) return state;
+
+    const newWords = structuredClone(state.words);    // deepcopyしないと更新が反映されない
+    newWords[id] = {
+        ...word,
+        [field]: structuredClone(value)
+    };
+
+    const isValid = checkIntegrity(newWords);
+    if (!isValid) {
+        // もし不整合があったら、元の状態に戻す
+        return state;
+    } else {
+        // もし不整合がなければ、wordsを更新する
+        return { ...state, words: newWords };
+    }
+}
+
+function addWord(state, parentId) {
+    const parent = state.words[parentId];
+    if (!parent) return state;
+
+    const newWord = createBlankWord(parentId, parent.category, state.words.length);
+    const words = [...state.words, newWord];
+
+    // 親 → 子 (lower_covers) を更新
+    words[parentId] = {
+        ...parent,
+        lower_covers: [...parent.lower_covers, newWord.id]
+    };
+
+    checkIntegrity(words);
+    return { ...state, words, focusId: newWord.id };
+}
+

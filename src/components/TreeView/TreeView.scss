@@ -20,7 +20,7 @@ $tree-line-width: 2px;
     bottom: 0;
     left: 5px;
     width: $tree-line-width;
-    background: rgba($fg-main, 0.1);
+    background: rgba($fg-main, 0.2);
   }
 }
 .wordItemMain {
@@ -50,7 +50,7 @@ $tree-line-width: 2px;
     left: 0;
     width: 12px;
     height: $tree-line-width;
-    background: rgba($fg-main, 0.1);
+    background: rgba($fg-main, 0.2);
   }
   &.hasChildren::before {
     color: $muted;
@@ -70,6 +70,9 @@ $tree-line-width: 2px;
     color: #fff;
     .id {
       color: color.adjust($accent-color, $lightness: 40%);
+    }
+    &::before {
+      background: rgba($fg-main, 0.4);
     }
   }
 }

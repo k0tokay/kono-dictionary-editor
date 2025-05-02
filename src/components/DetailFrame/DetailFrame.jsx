@@ -5,12 +5,6 @@ import { search } from '../../utils/utils.js';
 import { BasicForm, TagForm, LargeListForm, MenuBar } from '../CommonForms';
 import './DetailFrame.scss';
 
-const punctuations = ['，', ',', '、'];
-const splitPunc = (text) =>
-  text.split(new RegExp(`[${punctuations.join('')}]`))
-    .map(x => x.trim())
-    .filter(x => x !== "");
-
 // ──────────────────────────────────────────
 // DetailFrame 本体
 // ──────────────────────────────────────────
@@ -20,7 +14,6 @@ export default function DetailFrame() {
   const dispatch = useDictDispatch();
   const word = words[focusId];
   const dict = { words };
-  // console.log("DetailFrame", focusId, word, dict);
 
   // フィールド更新
   const handleChange = (field, value) => {
@@ -28,7 +21,10 @@ export default function DetailFrame() {
   };
 
   // 追加／削除はすべて context reducer へ
-  const handleAdd = () => dispatch({ type: 'ADD_WORD', payload: focusId });
+  const handleAdd = () => {
+    dispatch({ type: 'ADD_WORD', payload: focusId });
+    dispatch({ type: 'OPEN_WORD', payload: focusId });
+  };
   const handleDelete = () => dispatch({ type: 'DELETE_WORD', payload: { id: focusId, moveTo: null } });
 
   // 詳細メニューバー
@@ -80,7 +76,6 @@ export default function DetailFrame() {
           dict={dict}
           onChange={handleChange}
           onClick={(id) => dispatch({ type: 'SET_FOCUS', payload: id })}
-          isReadOnly
         />
         <TagForm
           name="arguments"

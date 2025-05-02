@@ -112,3 +112,74 @@ export function search(dict, id, entry, translations) {
     }
     return result;
 }
+
+/** 再帰で「自分→祖先」をたどる関数 */
+export function ancestorList(words, id, seen = new Set()) {
+    if (seen.has(id)) return [];
+    seen.add(id);
+    const word = words[id];
+    const parents = word.upper_covers || [];
+    // 自分 + すべての祖先
+    return [id, ...parents.flatMap(pid => ancestorList(words, pid, seen))];
+}
+
+export function addEdge(dict, id, targetId) {
+    const word = dict.words[id];
+    const targetWord = dict.words[targetId];
+
+    if (word && targetWord) {
+        // 上位語に追加
+        word.upper_covers.push(targetId);
+        // 下位語に追加
+        targetWord.lower_covers.push(id);
+    }
+}
+
+export function removeEdge(dict, id, targetId) {
+    const word = dict.words[id];
+    const targetWord = dict.words[targetId];
+
+    if (word && targetWord) {
+        // 上位語から削除
+        word.upper_covers = word.upper_covers.filter(x => x !== targetId);
+        // 下位語から削除
+        targetWord.lower_covers = targetWord.lower_covers.filter(x => x !== id);
+    }
+}
+
+function hasNoCycle(words) {
+    const N = words.length;
+
+    // 深さ優先探索で start に戻る経路があるかチェック
+    function dfs(start, cur, visited) {
+        if (visited.has(cur)) return true;     // 一度来たノードは無視
+        visited.add(cur);
+
+        for (const nxt of words[cur]?.lower_covers || []) {
+            if (nxt === start) {
+                // start に戻ってきた → 循環検出
+                return false;
+            }
+            if (!dfs(start, nxt, visited)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // 全要素についてチェック
+    for (let i = 0; i < N; i++) {
+        if (!dfs(i, i, new Set())) {
+            return false;
+        }
+    }
+    return true;
+}
+
+export function checkIntegrity(words) {
+    const isValid1 = hasNoCycle(words);
+    if (!isValid1) {
+        alert('循環検出: 上位語と下位語の関係が循環しています');
+    }
+    return isValid1;
+}
