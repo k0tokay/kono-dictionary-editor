@@ -110,6 +110,7 @@ function updateCovers(state, { id, field, editingIndex }) {
     newWords[tag] = target;
     if (hasNoCycle({ words: newWords })) {
         // もし循環していなければ、更新を反映
+        checkIntegrity({ words: newWords });
         return { ...state, words: newWords };
     } else {
         // 循環している場合はそのtagを削除

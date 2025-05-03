@@ -10789,7 +10789,7 @@
     },
     {
       "id": 482,
-      "entry": "A",
+      "entry": "a",
       "category": "音列",
       "lower_covers": [
         405,
@@ -10809,7 +10809,7 @@
     },
     {
       "id": 483,
-      "entry": "B",
+      "entry": "b",
       "category": "音列",
       "lower_covers": [
         408,
@@ -10829,7 +10829,7 @@
     },
     {
       "id": 484,
-      "entry": "C",
+      "entry": "c",
       "category": "音列",
       "lower_covers": [
         411,
@@ -10849,7 +10849,7 @@
     },
     {
       "id": 485,
-      "entry": "D",
+      "entry": "d",
       "category": "音列",
       "lower_covers": [
         416,
@@ -10868,7 +10868,7 @@
     },
     {
       "id": 486,
-      "entry": "F",
+      "entry": "f",
       "category": "音列",
       "lower_covers": [
         418,
@@ -10906,7 +10906,7 @@
     },
     {
       "id": 488,
-      "entry": "FL",
+      "entry": "fl",
       "category": "音列",
       "lower_covers": [
         420
@@ -10924,7 +10924,7 @@
     },
     {
       "id": 489,
-      "entry": "H",
+      "entry": "h",
       "category": "音列",
       "lower_covers": [
         422
@@ -10942,7 +10942,7 @@
     },
     {
       "id": 490,
-      "entry": "J",
+      "entry": "j",
       "category": "音列",
       "lower_covers": [
         424,
@@ -10962,7 +10962,7 @@
     },
     {
       "id": 491,
-      "entry": "K",
+      "entry": "k",
       "category": "音列",
       "lower_covers": [
         427,
@@ -10984,7 +10984,7 @@
     },
     {
       "id": 492,
-      "entry": "KH",
+      "entry": "kh",
       "category": "音列",
       "lower_covers": [
         432
@@ -11002,7 +11002,7 @@
     },
     {
       "id": 493,
-      "entry": "KL",
+      "entry": "kl",
       "category": "音列",
       "lower_covers": [
         434,
@@ -11021,7 +11021,7 @@
     },
     {
       "id": 494,
-      "entry": "L",
+      "entry": "l",
       "category": "音列",
       "lower_covers": [
         440,
@@ -11060,7 +11060,7 @@
     },
     {
       "id": 496,
-      "entry": "M",
+      "entry": "m",
       "category": "音列",
       "lower_covers": [
         448,
@@ -11083,7 +11083,7 @@
     },
     {
       "id": 497,
-      "entry": "N",
+      "entry": "n",
       "category": "音列",
       "lower_covers": [
         457,
@@ -11122,7 +11122,7 @@
     },
     {
       "id": 499,
-      "entry": "P",
+      "entry": "p",
       "category": "音列",
       "lower_covers": [
         500,
@@ -11159,7 +11159,7 @@
     },
     {
       "id": 501,
-      "entry": "S",
+      "entry": "s",
       "category": "音列",
       "lower_covers": [
         467,
@@ -11180,7 +11180,7 @@
     },
     {
       "id": 502,
-      "entry": "ST",
+      "entry": "st",
       "category": "音列",
       "lower_covers": [
         503,
@@ -11235,7 +11235,7 @@
     },
     {
       "id": 505,
-      "entry": "T",
+      "entry": "t",
       "category": "音列",
       "lower_covers": [
         476,

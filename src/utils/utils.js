@@ -69,18 +69,6 @@ export function ancestorList(words, id, seen = new Set()) {
 }
 
 /**
- * s が t の部分列 (subsequence) かを判定
- */
-export function isSubsequence(s, t) {
-    let i = 0, j = 0;
-    while (i < s.length && j < t.length) {
-        if (s[i] === t[j]) i++;
-        j++;
-    }
-    return i === s.length;
-}
-
-/**
  * dict.words[start] → ... → dict.words[target] の経路があるか
  */
 export function hasPath(start, target, dict, seen = new Set()) {
@@ -125,24 +113,28 @@ export function hasNoCycle(dict) {
 }
 
 /**
- * 被覆関係がすべて最短であるかチェック
+ * 「被覆エッジ」がすべて Hasse 図の最短エッジかチェック
+ * x.upper_covers に y が含まれるとき、間に z がいないか調べる
  * @returns true: 全て最短, false: 冗長リンクあり
  */
 export function allCoversAreMinimal(dict) {
     const { words } = dict;
-
-    for (const w of words) {
-        if (!w) continue;
-        const x = w.id;
-        for (const y of w.upper_covers || []) {
-            // x → y が即時被覆。間に z がいれば冗長
-            for (const z of words) {
-                if (!z) continue;
-                const zid = z.id;
-                if (zid === x || zid === y) continue;
-                // x ≤ z ≤ y の中間要素があればNG
-                if (hasPath(x, zid, dict) && hasPath(zid, y, dict)) {
-                    alert(`非最短リンク検出: ${w.entry}(${x}) — ${words[y].entry}(${y}) の間に ${z.entry}(${zid}) が挟まれています`);
+    for (const xWord of words) {
+        if (!xWord) continue;
+        const x = xWord.id;
+        for (const y of xWord.upper_covers || []) {
+            // x ≤ y が即被覆（親子リンク）なら、間に z がないか
+            for (const zWord of words) {
+                if (!zWord) continue;
+                const z = zWord.id;
+                if (z === x || z === y) continue;
+                // x ≤ z ≤ y を満たす中間要素がいたら冗長
+                if (hasPath(z, x, dict) && hasPath(y, z, dict)) {
+                    alert(
+                        `非最短リンク検出: ` +
+                        `${xWord.entry}(${x}) — ${words[y].entry}(${y}) の間に ` +
+                        `${zWord.entry}(${z}) が挟まれています`
+                    );
                     return false;
                 }
             }
@@ -151,35 +143,35 @@ export function allCoversAreMinimal(dict) {
     return true;
 }
 
+
 /**
- * 冗長な被覆リンクをすべて除去して最短化
+ * 冗長な被覆リンクを除去して最短化する
  */
 export function repairMinimalCovers(dict) {
     const { words } = dict;
-
-    for (const w of words) {
-        if (!w) continue;
-        const x = w.id;
-        const newUppers = [];
-        for (const y of w.upper_covers || []) {
-            let redundant = false;
-            for (const z of words) {
-                if (!z) continue;
-                const zid = z.id;
-                if (zid === x || zid === y) continue;
-                if (hasPath(x, zid, dict) && hasPath(zid, y, dict)) {
-                    redundant = true;
+    for (const xWord of words) {
+        if (!xWord) continue;
+        const x = xWord.id;
+        const goodParents = [];
+        for (const y of xWord.upper_covers || []) {
+            let isRedundant = false;
+            for (const zWord of words) {
+                if (!zWord) continue;
+                const z = zWord.id;
+                if (z === x || z === y) continue;
+                if (hasPath(z, x, dict) && hasPath(y, z, dict)) {
+                    isRedundant = true;
                     break;
                 }
             }
-            if (redundant) {
-                // xがyの下位に残っているので、y側の lower_covers も除去
-                dict.words[y].lower_covers = dict.words[y].lower_covers.filter(id => id !== x);
+            if (isRedundant) {
+                // 冗長と判定された親 y から、自 x を除去
+                words[y].lower_covers = words[y].lower_covers.filter(id => id !== x);
             } else {
-                newUppers.push(y);
+                goodParents.push(y);
             }
         }
-        w.upper_covers = newUppers;
+        xWord.upper_covers = goodParents;
     }
 }
 
@@ -198,7 +190,7 @@ export function repairSubseqCovers(dict) {
         const newUppers = [];
         for (const pid of w.upper_covers || []) {
             const p = words[pid];
-            if (p && isSubsequence(s, p.entry)) {
+            if (p && s.includes(p.entry)) {
                 newUppers.push(pid);
             } else {
                 allValid = false;
@@ -230,7 +222,7 @@ export function checkIntegrity(dict) {
             repairMinimalCovers(dict);
         }
 
-        subseqOk = repairSubseqCovers(dict);
+        // subseqOk = repairSubseqCovers(dict);
     }
 
     return { noCycle, minimalOk, subseqOk };
