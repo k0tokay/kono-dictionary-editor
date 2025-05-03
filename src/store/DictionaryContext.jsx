@@ -1,7 +1,7 @@
 // src/store/DictionaryContext.jsx
 import React, { createContext, useReducer, useContext } from 'react';
 import initialData from '../data/konomeno-v5.json';
-import { reconcileCovers, hasPath, createBlankWord, checkIntegrity } from '../utils/utils.js';
+import { hasPath, createBlankWord, checkIntegrity, hasNoCycle } from '../utils/utils.js';
 import { ancestorList } from '../utils/utils.js';
 
 const DictionaryStateCtx = createContext();
@@ -21,74 +21,14 @@ function dictionaryReducer(state, action) {
         case 'UPDATE_FIELD': {
             return updateField(state, action.payload);
         }
+        case "UPDATE_COVERS": {
+            return updateCovers(state, action.payload);
+        }
         case 'ADD_WORD': {
             return addWord(state, action.payload);
-            const parentId = action.payload;
-            const parent = state.words[parentId];
-            if (!parent) return state;
-
-            const newWord = createBlankWord(parentId, parent.category, state.words.length);
-            const words = [...state.words, newWord];
-
-            // 親 → 子 (lower_covers) を更新
-            words[parentId] = {
-                ...parent,
-                lower_covers: [...parent.lower_covers, newWord.id]
-            };
-
-            return { ...state, words, focusId: newWord.id };
         }
-
-        // ───────────────────────────
         case 'DELETE_WORD': {
-            const { id, moveTo } = action.payload;
-            const victim = state.words[id];
-            if (!victim) return state;
-
-            const words = state.words.slice();
-
-            // 1. 既存リンク解除 (親 ↔ 子)
-            victim.upper_covers.forEach(pid => {
-                words[pid] = {
-                    ...words[pid],
-                    lower_covers: words[pid].lower_covers.filter(x => x !== id)
-                };
-            });
-            victim.lower_covers.forEach(cid => {
-                words[cid] = {
-                    ...words[cid],
-                    upper_covers: words[cid].upper_covers.filter(x => x !== id)
-                };
-            });
-
-            // 2. 子を moveTo に付け替える or 再帰削除
-            if (moveTo != null && moveTo !== '') {
-                victim.lower_covers.forEach(cid => {
-                    if (hasPath(cid, moveTo, { words })) {
-                        // 循環になるのでスキップ
-                        return;
-                    }
-                    words[cid].upper_covers.push(moveTo);
-                    words[moveTo].lower_covers.push(cid);
-                });
-            } else {
-                // 再帰的に null
-                const rmrf = wid => {
-                    words[wid]?.lower_covers.forEach(rmrf);
-                    words[wid] = null;
-                };
-                rmrf(id);
-            }
-
-            // 3. 自分を null
-            words[id] = null;
-
-            // 4. 新しいフォーカス
-            const newFocus = moveTo != null && moveTo !== ''
-                ? moveTo
-                : (victim.upper_covers[0] ?? 0);
-
-            return { ...state, words, focusId: newFocus };
+            return deleteWord(state, action.payload);
         }
         case 'TOGGLE_OPEN': {
             const set = new Set(state.openSet);
@@ -140,27 +80,55 @@ function updateField(state, { id, field, value }) {
     const newWords = structuredClone(state.words);    // deepcopyしないと更新が反映されない
     newWords[id] = {
         ...word,
-        [field]: structuredClone(value)
+        [field]: value
     };
 
-    const isValid = checkIntegrity(newWords);
-    if (!isValid) {
-        // もし不整合があったら、元の状態に戻す
-        return state;
-    } else {
-        // もし不整合がなければ、wordsを更新する
+    return { ...state, words: newWords };
+}
+
+function updateCovers(state, { id, field, editingIndex }) {
+    const word = state.words[id];
+    if (!word) return state;
+
+    const isValidWordTag = (wordId) => {
+        const num = Number(wordId);
+        return Number.isInteger(num) && num >= 0 && state.words[num];
+    }
+
+    const tagList = word[field].filter(t => t !== "" && t !== null && isValidWordTag(t));
+    const invField = field === 'upper_covers' ? 'lower_covers' : 'upper_covers';
+
+    const newWords = structuredClone(state.words);
+    newWords[id][field] = newWords[id][field].filter(t => t !== "");
+    const tag = tagList[editingIndex];
+    if (!tag) {
+        // 編集中のタグが空の場合は何もしない
         return { ...state, words: newWords };
     }
+    const target = state.words[tag];
+    target[invField] = [...target[invField], id];
+    newWords[tag] = target;
+    if (hasNoCycle({ words: newWords })) {
+        // もし循環していなければ、更新を反映
+        return { ...state, words: newWords };
+    } else {
+        // 循環している場合はそのtagを削除
+        newWords[tag][invField] = newWords[tag][invField].filter(t => t !== id);
+        newWords[id][field] = newWords[id][field].filter(t => t !== tag);
+        return { ...state, words: newWords };
+    }
+    // return { ...state, words: newWords };
 }
 
 function addWord(state, parentId) {
     const parent = state.words[parentId];
     if (!parent) return state;
 
-    const newWord = createBlankWord(parentId, parent.category, state.words.length);
+    const category = parent.category === 'カテゴリ' ? parent.entry : parent.category; // 親のカテゴリを引き継ぐ(親がカテゴリの場合は例外処理)
+    const newWord = createBlankWord(parentId, category, state.words.length);
+    console.log(newWord);
     const words = [...state.words, newWord];
-
-    // 親 → 子 (lower_covers) を更新
+    // 親のlower_coversに新しい単語を追加
     words[parentId] = {
         ...parent,
         lower_covers: [...parent.lower_covers, newWord.id]
@@ -168,5 +136,45 @@ function addWord(state, parentId) {
 
     checkIntegrity(words);
     return { ...state, words, focusId: newWord.id };
+}
+
+function deleteWord(state, { id }) {
+    const words = state.words.slice();
+    const victim = words[id];
+    if (!victim) return state;
+
+    // 既存リンク解除 (親 ↔ 子)
+    victim.upper_covers.forEach(pid => {
+        words[pid] = {
+            ...words[pid],
+            lower_covers: words[pid].lower_covers.filter(x => x !== id)
+        };
+    });
+    victim.lower_covers.forEach(cid => {
+        words[cid] = {
+            ...words[cid],
+            upper_covers: words[cid].upper_covers.filter(x => x !== id)
+        };
+    });
+    // 子を親に付け替える
+    victim.lower_covers.forEach(cid => {
+        victim.upper_covers.forEach(pid => {
+            if (hasPath(cid, pid, { words })) {
+                // 循環になるのでスキップ ← あり得るのか？
+                return;
+            }
+            words[cid].upper_covers.push(pid);
+            words[pid].lower_covers.push(cid);
+        });
+    });
+
+    // 自分を null
+    words[id] = null;
+    // 新しいフォーカス
+    const newFocus = victim.upper_covers[0] ?? 0;
+
+    checkIntegrity(words);
+
+    return { ...state, words, focusId: newFocus };
 }
 

@@ -1,17 +1,3 @@
-/**
- * lower_covers 方向に再帰的にたどって
- * start → target の経路があれば true
- */
-export function hasPath(start, target, dict, seen = new Set()) {
-    if (start === target) return true;
-    if (seen.has(start)) return false;
-    seen.add(start);
-    for (const nxt of dict.words[start].lower_covers) {
-        if (hasPath(nxt, target, dict, seen)) return true;
-    }
-    return false;
-}
-
 export function createBlankWord(parentId, parentCategory, nextId) {
     const category = parentCategory === 'カテゴリ' ? parentCategory : parentCategory;
     return {
@@ -28,47 +14,6 @@ export function createBlankWord(parentId, parentCategory, nextId) {
         variations: [],
         is_function: false
     };
-}
-
-/**
- * word.upper_covers / word.lower_covers を見て
- * 双方向リンクを張り直し、かつサイクル検出を行う
- *
- * @param {object} word  編集済みの単語オブジェクト
- * @param {object} dict  辞書データ全体 ( { words: [...] } )
- * @returns {boolean}    サイクルがなければ true、あれば false
- */
-export function reconcileCovers(word, dict) {
-    // 1) 古いリンクを全部はずす
-    ['upper_covers', 'lower_covers'].forEach(key => {
-        const opp = key === 'upper_covers' ? 'lower_covers' : 'upper_covers';
-        dict.words[word.id][key].forEach(id => {
-            dict.words[id][opp] = dict.words[id][opp].filter(x => x !== word.id);
-        });
-        dict.words[word.id][key] = [];
-    });
-
-    // 2) 上位リンクを安全チェック＋追加
-    for (const pid of word.upper_covers) {
-        if (hasPath(word.id, pid, dict)) {
-            alert(`循環検出: ${pid} を上位語に追加できません`);
-            return false;
-        }
-        dict.words[word.id].upper_covers.push(pid);
-        dict.words[pid].lower_covers.push(word.id);
-    }
-
-    // 3) 下位リンクも同様に
-    for (const cid of word.lower_covers) {
-        if (hasPath(cid, word.id, dict)) {
-            alert(`循環検出: ${cid} を下位語に追加できません`);
-            return false;
-        }
-        dict.words[word.id].lower_covers.push(cid);
-        dict.words[cid].upper_covers.push(word.id);
-    }
-
-    return true;
 }
 
 
@@ -123,41 +68,45 @@ export function ancestorList(words, id, seen = new Set()) {
     return [id, ...parents.flatMap(pid => ancestorList(words, pid, seen))];
 }
 
-export function addEdge(dict, id, targetId) {
-    const word = dict.words[id];
-    const targetWord = dict.words[targetId];
-
-    if (word && targetWord) {
-        // 上位語に追加
-        word.upper_covers.push(targetId);
-        // 下位語に追加
-        targetWord.lower_covers.push(id);
+/**
+ * s が t の部分列 (subsequence) かを判定
+ */
+export function isSubsequence(s, t) {
+    let i = 0, j = 0;
+    while (i < s.length && j < t.length) {
+        if (s[i] === t[j]) i++;
+        j++;
     }
+    return i === s.length;
 }
 
-export function removeEdge(dict, id, targetId) {
-    const word = dict.words[id];
-    const targetWord = dict.words[targetId];
-
-    if (word && targetWord) {
-        // 上位語から削除
-        word.upper_covers = word.upper_covers.filter(x => x !== targetId);
-        // 下位語から削除
-        targetWord.lower_covers = targetWord.lower_covers.filter(x => x !== id);
+/**
+ * dict.words[start] → ... → dict.words[target] の経路があるか
+ */
+export function hasPath(start, target, dict, seen = new Set()) {
+    if (start === target) return true;
+    if (seen.has(start)) return false;
+    seen.add(start);
+    for (const nxt of dict.words[start]?.lower_covers || []) {
+        if (hasPath(nxt, target, dict, seen)) return true;
     }
+    return false;
 }
 
-function hasNoCycle(words) {
-    const N = words.length;
+/**
+ * 周回がないか全要素チェック
+ * @returns true: 循環なし, false: 循環あり (見つけたら即 false)
+ */
+export function hasNoCycle(dict) {
+    const { words } = dict;
 
-    // 深さ優先探索で start に戻る経路があるかチェック
     function dfs(start, cur, visited) {
-        if (visited.has(cur)) return true;     // 一度来たノードは無視
+        if (visited.has(cur)) return true;
         visited.add(cur);
-
         for (const nxt of words[cur]?.lower_covers || []) {
             if (nxt === start) {
-                // start に戻ってきた → 循環検出
+                // 循環検出
+                alert(`循環検出: ${words[start].entry}(${start}) と ${words[cur].entry}(${cur}) の間にループがあります`);
                 return false;
             }
             if (!dfs(start, nxt, visited)) {
@@ -167,19 +116,122 @@ function hasNoCycle(words) {
         return true;
     }
 
-    // 全要素についてチェック
-    for (let i = 0; i < N; i++) {
-        if (!dfs(i, i, new Set())) {
+    for (let i = 0; i < words.length; i++) {
+        if (words[i] && !dfs(i, i, new Set())) {
             return false;
         }
     }
     return true;
 }
 
-export function checkIntegrity(words) {
-    const isValid1 = hasNoCycle(words);
-    if (!isValid1) {
-        alert('循環検出: 上位語と下位語の関係が循環しています');
+/**
+ * 被覆関係がすべて最短であるかチェック
+ * @returns true: 全て最短, false: 冗長リンクあり
+ */
+export function allCoversAreMinimal(dict) {
+    const { words } = dict;
+
+    for (const w of words) {
+        if (!w) continue;
+        const x = w.id;
+        for (const y of w.upper_covers || []) {
+            // x → y が即時被覆。間に z がいれば冗長
+            for (const z of words) {
+                if (!z) continue;
+                const zid = z.id;
+                if (zid === x || zid === y) continue;
+                // x ≤ z ≤ y の中間要素があればNG
+                if (hasPath(x, zid, dict) && hasPath(zid, y, dict)) {
+                    alert(`非最短リンク検出: ${w.entry}(${x}) — ${words[y].entry}(${y}) の間に ${z.entry}(${zid}) が挟まれています`);
+                    return false;
+                }
+            }
+        }
     }
-    return isValid1;
+    return true;
+}
+
+/**
+ * 冗長な被覆リンクをすべて除去して最短化
+ */
+export function repairMinimalCovers(dict) {
+    const { words } = dict;
+
+    for (const w of words) {
+        if (!w) continue;
+        const x = w.id;
+        const newUppers = [];
+        for (const y of w.upper_covers || []) {
+            let redundant = false;
+            for (const z of words) {
+                if (!z) continue;
+                const zid = z.id;
+                if (zid === x || zid === y) continue;
+                if (hasPath(x, zid, dict) && hasPath(zid, y, dict)) {
+                    redundant = true;
+                    break;
+                }
+            }
+            if (redundant) {
+                // xがyの下位に残っているので、y側の lower_covers も除去
+                dict.words[y].lower_covers = dict.words[y].lower_covers.filter(id => id !== x);
+            } else {
+                newUppers.push(y);
+            }
+        }
+        w.upper_covers = newUppers;
+    }
+}
+
+/**
+ * 音列カテゴリの順序関係をチェック
+ * @returns true: 全て正しい部分列関係, false: 誤ったリンクあり
+ */
+export function repairSubseqCovers(dict) {
+    let allValid = true;
+    const { words } = dict;
+
+    for (const w of words) {
+        if (!w || w.category !== '音列') continue;
+        const s = w.entry;
+        // 親一覧 (upper_covers) 側を検査
+        const newUppers = [];
+        for (const pid of w.upper_covers || []) {
+            const p = words[pid];
+            if (p && isSubsequence(s, p.entry)) {
+                newUppers.push(pid);
+            } else {
+                allValid = false;
+                // 親側の下位リンクからも除去
+                if (p) p.lower_covers = p.lower_covers.filter(id => id !== w.id);
+            }
+        }
+        w.upper_covers = newUppers;
+    }
+
+    return allValid;
+}
+
+/**
+ * 全体整合性チェック + 必要に応じて自動修正
+ * → 循環検出 → 被覆の最短化 → 音列部分列関係の修正
+ *
+ * @param {{ words: Array } } dict
+ * @returns {{ noCycle: boolean, minimalOk: boolean, subseqOk: boolean }}
+ */
+export function checkIntegrity(dict) {
+    const noCycle = hasNoCycle(dict);
+    let minimalOk = false;
+    let subseqOk = false;
+
+    if (noCycle) {
+        minimalOk = allCoversAreMinimal(dict);
+        if (!minimalOk) {
+            repairMinimalCovers(dict);
+        }
+
+        subseqOk = repairSubseqCovers(dict);
+    }
+
+    return { noCycle, minimalOk, subseqOk };
 }

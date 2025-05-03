@@ -25,7 +25,7 @@ export default function DetailFrame() {
     dispatch({ type: 'ADD_WORD', payload: focusId });
     dispatch({ type: 'OPEN_WORD', payload: focusId });
   };
-  const handleDelete = () => dispatch({ type: 'DELETE_WORD', payload: { id: focusId, moveTo: null } });
+  const handleDelete = () => dispatch({ type: 'DELETE_WORD', payload: { id: focusId } });
 
   // 詳細メニューバー
   const menuItems = [
@@ -58,6 +58,7 @@ export default function DetailFrame() {
           onChange={handleChange}
         />
         <TagForm
+          wordId={focusId}
           name="upper_covers"
           title="上位語"
           tags={word.upper_covers}
@@ -68,6 +69,7 @@ export default function DetailFrame() {
           onClick={(id) => dispatch({ type: 'SET_FOCUS', payload: id })}
         />
         <TagForm
+          wordId={focusId}
           name="lower_covers"
           title="下位語"
           tags={word.lower_covers}

@@ -54,13 +54,15 @@ input:read-only, textarea:read-only {
     display: flex;
     align-items: center;
     flex-wrap: wrap; // 改行
-    max-height: 200px;
+    // max-height: 200px;
+    // overflow-y: auto;
     div {
-      .tagSpan {
+      .tagInput {
         display: inline-block;
-        // background: $bg; // 何色にすべきか
+        border: none;
+        background-color: transparent;
         border-bottom: 1px solid color.adjust($bg, $lightness: 40%);
-        padding: 2px 6px;
+        padding: 4px 6px;
         margin: 2px;
         &:focus {
           outline: none;

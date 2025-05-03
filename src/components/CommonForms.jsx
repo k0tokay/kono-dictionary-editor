@@ -1,6 +1,5 @@
-import { use } from 'react';
 import { useDictState, useDictDispatch } from '../store/DictionaryContext';
-import { checkIntegrity } from '../utils/utils.js';
+import { useState } from 'react';
 
 const punctuations = ['，', ',', '、'];
 const splitPunc = (text) =>
@@ -60,27 +59,43 @@ export function TagWordDetails({ word, onClick }) {
 }
 
 export function TagForm({ name, title, tags, onChange, onClick, edited,
-    isList = true, isWord = false, dict = null, isReadOnly = false }) {
+    wordId = null, isList = true, isWord = false, isReadOnly = false,
+}) {
+    const { words } = useDictState();
     const dispatch = useDictDispatch();
-    const state = useDictState();
-    const tagList = isList ? tags : (tags != null ? [tags] : []);
+    const [editingIndex, setEditingIndex] = useState(null);
+    const tagToList = tags => isList ? tags : (tags != null ? [tags] : []);
+    const tagList = tagToList(tags);
+
+    const displayTag = (tag, i) => {
+        if (isWord && words[tag] && i !== editingIndex) {
+            return words[tag].entry;
+        } else {
+            return tag;
+        }
+    };
+
+    const isValidWordTag = (wordId) => {
+        if (!isWord) return true;
+        const num = Number(wordId);
+        return Number.isInteger(num) && num >= 0 && words[num];
+    }
+
     const handleBlur = (e) => {
-        const i = Number(e.target.id);
-        const newTag = e.target.textContent;
-        const newTags = tagList.map((t, j) => (j === i && isValid(newTag)) ? newTag : t).filter(t => t !== "");
-        onChange(name, isList ? newTags : newTags[0] || null);
+        if (isWord) {
+            dispatch({ type: "UPDATE_COVERS", payload: { id: wordId, field: name, editingIndex: editingIndex } });
+        } else {
+            const newTags = tagList.filter((t, j) => t !== "")
+            onChange(name, isList ? newTags : newTags[0] || null);
+        }
+
+        setEditingIndex(null);
     };
 
     const addTag = () => {
         const newTags = [...tagList, ""];
         onChange(name, isList ? newTags : newTags[0]);
     };
-
-    const isValid = (wordId) => {
-        if (!isWord) return true;
-        const num = Number(wordId);
-        return Number.isInteger(num) && num >= 0 && dict && dict.words[num];
-    }
 
     return (
         <div className="tagForm">
@@ -91,18 +106,24 @@ export function TagForm({ name, title, tags, onChange, onClick, edited,
             <div className="textForm innerTagForm">
                 {tagList.map((tag, i) => (
                     <div key={i}>
-                        {isWord && dict?.words[tag] && (
-                            <TagWordDetails word={dict.words[tag]} onClick={() => onClick(tag)} />
+                        {isWord && words[tag] && (
+                            <TagWordDetails word={words[tag]} onClick={() => onClick(tag)} />
                         )}
-                        <span
-                            id={i}
-                            className={'tagSpan' + (isWord && !isValid(tag) ? ' notValid' : '')}
-                            contentEditable={!isReadOnly}
-                            suppressContentEditableWarning
+                        <input
+                            key={i}
+                            type="text"
+                            className={`tagInput ${!isValidWordTag(tag) ? "notValid" : ""}`}
+                            value={displayTag(tag, i)}
+                            readOnly={isReadOnly}
+                            onFocus={() => setEditingIndex(i)}
+                            onChange={e => {
+                                const newTags = tagList.map((t, j) =>
+                                    j === i ? e.target.value : t
+                                );
+                                onChange(name, isList ? newTags : newTags[0] || null);
+                            }}
                             onBlur={handleBlur}
-                        >
-                            {isWord && dict?.words[tag] ? dict.words[tag].entry : tag}
-                        </span>
+                        />
                     </div>
                 ))}
             </div>
