@@ -1,5 +1,6 @@
 import { useDictState, useDictDispatch } from '../store/DictionaryContext';
 import { useState } from 'react';
+import { isValidWordTag } from '../utils/utils.js';
 
 const punctuations = ['，', ',', '、'];
 const splitPunc = (text) =>
@@ -63,8 +64,10 @@ export function TagForm({ name, title, tags, onChange, onClick, edited, isList =
     const { words, focusId } = useDictState();
     const dispatch = useDictDispatch();
     const [editingIndex, setEditingIndex] = useState(null);
-    const tagToList = tags => isList ? tags : (tags != null ? [tags] : []);
-    const tagList = tagToList(tags);
+    // const tagToList = tags => (isList ? tags : (tags != null ? [tags] : [])).map(t => !isWord || !isValidWordTag(words, t) ? t : Number(t));
+    const tagList = tags;
+    const displayToRaw = (text) => !isWord || !isValidWordTag(words, text) ? text : Number(text);
+    const displayToRawList = (textList) => textList.map(t => displayToRaw(t));
 
     const displayTag = (tag, i) => {
         if (isWord && words[tag] && i !== editingIndex) {
@@ -74,18 +77,12 @@ export function TagForm({ name, title, tags, onChange, onClick, edited, isList =
         }
     };
 
-    const isValidWordTag = (wordId) => {
-        if (!isWord) return true;
-        const num = Number(wordId);
-        return Number.isInteger(num) && num >= 0 && words[num];
-    }
-
     const handleBlur = (e) => {
         if (isWord) {
             dispatch({ type: "UPDATE_COVERS", payload: { id: focusId, field: name, editingIndex: editingIndex } });
         } else {
             const newTags = tagList.filter((t, j) => t !== "")
-            onChange(name, isList ? newTags : newTags[0] || null);
+            onChange(name, displayToRawList(newTags));
         }
 
         setEditingIndex(null);
@@ -93,7 +90,7 @@ export function TagForm({ name, title, tags, onChange, onClick, edited, isList =
 
     const addTag = () => {
         const newTags = [...tagList, ""];
-        onChange(name, isList ? newTags : newTags[0]);
+        onChange(name, displayToRawList(newTags));
     };
 
     return (
@@ -111,7 +108,7 @@ export function TagForm({ name, title, tags, onChange, onClick, edited, isList =
                         <input
                             key={i}
                             type="text"
-                            className={`tagInput ${!isValidWordTag(tag) ? "notValid" : ""}`}
+                            className={`tagInput ${!(!isWord || isValidWordTag(words, tag)) ? "notValid" : ""}`}
                             value={displayTag(tag, i)}
                             readOnly={isReadOnly}
                             onFocus={() => setEditingIndex(i)}
@@ -119,7 +116,7 @@ export function TagForm({ name, title, tags, onChange, onClick, edited, isList =
                                 const newTags = tagList.map((t, j) =>
                                     j === i ? e.target.value : t
                                 );
-                                onChange(name, isList ? newTags : newTags[0] || null);
+                                onChange(name, displayToRawList(newTags));
                             }}
                             onBlur={handleBlur}
                         />

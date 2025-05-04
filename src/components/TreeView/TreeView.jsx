@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDictState, useDictDispatch } from '../../store/DictionaryContext';
+import { isValidWordTag, ancestorList } from '../../utils/utils.js';
 import './TreeView.scss';
 
 /** 単一ノード */
@@ -41,8 +42,9 @@ function WordItem({ id }) {
 
       {isOpen && hasChildren && (
         <ul className="wordItemChildren">
-          {children.map(childId =>
+          {children.map(childId => isValidWordTag(words, childId) ?
             <WordItem key={childId} id={childId} />
+            : null
           )}
         </ul>
       )}

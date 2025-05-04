@@ -2,7 +2,7 @@
 import React, { createContext, useReducer, useContext } from 'react';
 import initialData from '../data/konomeno-v5.json';
 import { hasPath, createBlankWord, checkIntegrity, hasNoCycle } from '../utils/utils.js';
-import { ancestorList } from '../utils/utils.js';
+import { ancestorList, isValidWordTag } from '../utils/utils.js';
 
 const DictionaryStateCtx = createContext();
 const DictionaryDispatchCtx = createContext();
@@ -90,16 +90,22 @@ function updateCovers(state, { id, field, editingIndex }) {
     const word = state.words[id];
     if (!word) return state;
 
-    const isValidWordTag = (wordId) => {
-        const num = Number(wordId);
-        return Number.isInteger(num) && num >= 0 && state.words[num];
-    }
-
-    const tagList = word[field].filter(t => t !== "" && t !== null && isValidWordTag(t));
+    const tagList = word[field].filter(t => t !== "" && t !== null && isValidWordTag(state.words, t));
     const invField = field === 'upper_covers' ? 'lower_covers' : 'upper_covers';
 
     const newWords = structuredClone(state.words);
     newWords[id][field] = newWords[id][field].filter(t => t !== "");
+
+    // ここで削除すると不整合になる可能性がある // tmp
+    for (const w of newWords) {
+        if (!w) continue;
+        for (const t of w[invField]) {
+            if (t === id && !newWords[id][field].includes(w.id)) {
+                // もう片方のリンクを削除
+                w[invField] = w[invField].filter(t => t !== id);
+            }
+        }
+    }
     const tag = tagList[editingIndex];
     if (!tag) {
         // 編集中のタグが空の場合は何もしない

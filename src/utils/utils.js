@@ -232,7 +232,49 @@ export function repairMinimalCovers(dict) {
         }
     }
 }
+export function removeRedundantEdges(dict) {
+    const { words } = dict;
+    let changed = false;
+    let alerted = false;
 
+    // すべての直接エッジ一覧を取得
+    const edges = [];
+    for (const w of words) {
+        if (!w) continue;
+        const x = w.id;
+        for (const y of w.lower_covers || []) {
+            edges.push({ source: x, target: y });
+        }
+    }
+
+    // 各エッジを試しに外して、別経路があるか確認
+    for (const { source, target } of edges) {
+        // 1) 外す
+        words[source].lower_covers = words[source].lower_covers.filter(id => id !== target);
+        words[target].upper_covers = words[target].upper_covers.filter(id => id !== source);
+
+        // 2) alternative path があるか？
+        //    hasPath は「lower_covers をたどって target に到達できるか」
+        const alternative = hasPath(source, target, dict);
+
+        if (!alternative) {
+            // 代替経路が無ければ「真の cover edge」なので復元
+            words[source].lower_covers.push(target);
+            words[target].upper_covers.push(source);
+        } else {
+            // 代替経路があれば冗長エッジ => 削除確定
+            if (!alerted) { // 一度だけアラート
+                alert(
+                    `冗長エッジ削除: ${words[source].entry}(${source}) → ${words[target].entry}(${target})`
+                );
+                alerted = true;
+            }
+            changed = true;
+        }
+    }
+
+    return changed;
+}
 
 /**
  * 音列カテゴリの順序関係をチェック
@@ -250,7 +292,7 @@ export function repairSubseqCovers(dict) {
         for (const pid of w.upper_covers || []) {
             const p = words[pid];
             if (p && s.includes(p.entry)) {
-                newUppers.push(pid);
+                Array.from(new Set(newUppers).add(pid)); // 重複を除いて追加
             } else {
                 allValid = false;
                 // 親側の下位リンクからも除去
@@ -263,27 +305,30 @@ export function repairSubseqCovers(dict) {
     return allValid;
 }
 
-/**
- * 全体整合性チェック + 必要に応じて自動修正
- * → 循環検出 → 被覆の最短化 → 音列部分列関係の修正
- *
- * @param {{ words: Array } } dict
- * @returns {{ noCycle: boolean, minimalOk: boolean, subseqOk: boolean }}
- */
 export function checkIntegrity(dict) {
     const noCycle = hasNoCycle(dict);
     let minimalOk = false;
     let subseqOk = false;
 
-    if (noCycle) {
-        minimalOk = allCoversAreMinimal(dict);
-        console.log("minimalOk", minimalOk);
-        if (!minimalOk) {
-            repairMinimalCovers(dict);
-        }
+    if (noCycle) { // 循環がなければ←それでいいのか？
+        // 冗長エッジを削除できたか?
+        const removed = removeRedundantEdges(dict);
+        console.log('removed:', removed);
 
-        // subseqOk = repairSubseqCovers(dict);
+        // removed===false のとき「最短被覆だった」→ minimalOk=true
+        minimalOk = !removed;
+
+        // （音列の部分文字列チェックなどを入れる場合はここで）
+        // subseqOk = repairSubseqCovers(dict) など
     }
 
     return { noCycle, minimalOk, subseqOk };
+}
+
+export const isValidWordTag = (words, wordId) => {
+    if (wordId === null || wordId === undefined || wordId === "") {
+        return false;
+    }
+    const num = Number(wordId);
+    return Number.isInteger(num) && num >= 0 && words[num] !== null;
 }
