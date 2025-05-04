@@ -2,7 +2,7 @@
 import React from 'react';
 import { useDictState, useDictDispatch } from '../../store/DictionaryContext';
 import { search } from '../../utils/utils.js';
-import { BasicForm, TagForm, LargeListForm, MenuBar } from '../CommonForms';
+import { BasicForm, TagForm, LargeListForm, MenuBar, CheckboxForm } from '../CommonForms';
 import './DetailFrame.scss';
 
 // ──────────────────────────────────────────
@@ -89,6 +89,13 @@ export default function DetailFrame() {
           onChange={handleChange}
           onClick={(id) => dispatch({ type: 'SET_FOCUS', payload: id })}
         />
+        {word.is_function != null ? <CheckboxForm
+          name="is_function"
+          title="関数性"
+          checked={word.is_function}
+          edited={editedSet.has('is_function')}
+          onChange={handleChange}
+        /> : null}
         <TagForm
           name="tags"
           title="タグ"

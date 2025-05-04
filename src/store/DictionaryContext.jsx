@@ -127,7 +127,6 @@ function addWord(state, parentId) {
 
     const category = parent.category === 'カテゴリ' ? parent.entry : parent.category; // 親のカテゴリを引き継ぐ(親がカテゴリの場合は例外処理)
     const newWord = createBlankWord(parentId, category, state.words.length);
-    console.log(newWord);
     const words = [...state.words, newWord];
     // 親のlower_coversに新しい単語を追加
     words[parentId] = {

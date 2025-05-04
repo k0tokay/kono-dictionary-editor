@@ -24,7 +24,7 @@ $form-margin: 12px;
 .formHeader {
   display: flex;
   align-items: center;
-  min-height: 40px;
+  min-height: 49px;
   justify-content: space-between;
   margin-left: $form-margin;
   margin-right: $form-margin;
@@ -39,7 +39,7 @@ input:read-only, textarea:read-only {
   pointer-events: none;
 }
 
-.basicForm, .tagForm, .largeListForm {
+.basicForm, .tagForm, .largeListForm, .checkboxForm {
   @extend .card;
   width: 100%;
   border-right: 1px solid rgba(#fff, 0.05);

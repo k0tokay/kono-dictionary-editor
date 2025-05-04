@@ -58,10 +58,9 @@ export function TagWordDetails({ word, onClick }) {
     );
 }
 
-export function TagForm({ name, title, tags, onChange, onClick, edited,
-    wordId = null, isList = true, isWord = false, isReadOnly = false,
+export function TagForm({ name, title, tags, onChange, onClick, edited, isList = true, isWord = false, isReadOnly = false,
 }) {
-    const { words } = useDictState();
+    const { words, focusId } = useDictState();
     const dispatch = useDictDispatch();
     const [editingIndex, setEditingIndex] = useState(null);
     const tagToList = tags => isList ? tags : (tags != null ? [tags] : []);
@@ -83,7 +82,7 @@ export function TagForm({ name, title, tags, onChange, onClick, edited,
 
     const handleBlur = (e) => {
         if (isWord) {
-            dispatch({ type: "UPDATE_COVERS", payload: { id: wordId, field: name, editingIndex: editingIndex } });
+            dispatch({ type: "UPDATE_COVERS", payload: { id: focusId, field: name, editingIndex: editingIndex } });
         } else {
             const newTags = tagList.filter((t, j) => t !== "")
             onChange(name, isList ? newTags : newTags[0] || null);
@@ -177,6 +176,43 @@ export function MenuBar({ items }) {
     return (
         <div className="menuBar">
             {items.map((it, i) => <button key={i} onClick={it.onClick}>{it.title}</button>)}
+        </div>
+    );
+}
+
+export function CheckboxForm({
+    name,
+    title,
+    checked = false,
+    onChange,
+    disabled = false,
+}) {
+    const { words, focusId } = useDictState();
+    const dispatch = useDictDispatch();
+    const word = words[focusId];
+    const handleChange = (e) => {
+        // あまり良くないがここで整合性チェックしてしまう
+        if (word.lower_covers.length > 0 && e.target.checked) {
+            // 下位語がある場合はチェックできない
+            alert("下位語がある場合はチェックできません");
+            return;
+        }
+        onChange(name, e.target.checked);
+    };
+
+    return (
+        <div className="checkboxForm">
+            <label htmlFor={name} className="formHeader checkboxHeader">
+                <span >{title}</span>
+                <input
+                    type="checkbox"
+                    id={name}
+                    name={name}
+                    checked={checked}
+                    onChange={handleChange}
+                    disabled={disabled}
+                />
+            </label>
         </div>
     );
 }
