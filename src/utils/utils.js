@@ -112,68 +112,127 @@ export function hasNoCycle(dict) {
     return true;
 }
 
-/**
- * 「被覆エッジ」がすべて Hasse 図の最短エッジかチェック
- * x.upper_covers に y が含まれるとき、間に z がいないか調べる
- * @returns true: 全て最短, false: 冗長リンクあり
- */
 export function allCoversAreMinimal(dict) {
     const { words } = dict;
-    for (const xWord of words) {
-        if (!xWord) continue;
-        const x = xWord.id;
-        for (const y of xWord.upper_covers || []) {
-            // x ≤ y が即被覆（親子リンク）なら、間に z がないか
-            for (const zWord of words) {
-                if (!zWord) continue;
-                const z = zWord.id;
-                if (z === x || z === y) continue;
-                // x ≤ z ≤ y を満たす中間要素がいたら冗長
-                if (hasPath(z, x, dict) && hasPath(y, z, dict)) {
-                    alert(
-                        `非最短リンク検出: ` +
-                        `${xWord.entry}(${x}) — ${words[y].entry}(${y}) の間に ` +
-                        `${zWord.entry}(${z}) が挟まれています`
-                    );
-                    return false;
-                }
+
+    // helper – x–y エッジが冗長か?
+    const isRedundant = (x, y, direction) => {
+        for (const zWord of words) {
+            if (!zWord) continue;
+            const z = zWord.id;
+            if (z === x || z === y) continue;
+
+            if (direction === 'upper') {
+                // y ≥ z ≥ x
+                if (hasPath(y, z, dict) && hasPath(z, x, dict)) return true;
+            } else {
+                // x ≥ z ≥ y
+                if (hasPath(x, z, dict) && hasPath(z, y, dict)) return true;
+            }
+        }
+        return false;
+    };
+
+    for (const w of words) {
+        if (!w) continue;
+        const x = w.id;
+
+        // ---- 上位被覆 ----
+        for (const y of w.upper_covers || []) {
+            if (isRedundant(x, y, 'upper')) {
+                alert(
+                    `非最短リンク: ${words[x].entry}(${x}) ←→ ${words[y].entry}(${y}) は冗長です`
+                );
+                return false;
+            }
+        }
+
+        // ---- 下位被覆 ----
+        for (const y of w.lower_covers || []) {
+            if (isRedundant(x, y, 'lower')) {
+                alert(
+                    `非最短リンク: ${words[x].entry}(${x}) ←→ ${words[y].entry}(${y}) は冗長です`
+                );
+                return false;
             }
         }
     }
-    return true;
+    return true;      // すべて即被覆
 }
 
 
-/**
- * 冗長な被覆リンクを除去して最短化する
- */
 export function repairMinimalCovers(dict) {
     const { words } = dict;
-    for (const xWord of words) {
-        if (!xWord) continue;
-        const x = xWord.id;
-        const goodParents = [];
-        for (const y of xWord.upper_covers || []) {
-            let isRedundant = false;
-            for (const zWord of words) {
-                if (!zWord) continue;
-                const z = zWord.id;
-                if (z === x || z === y) continue;
-                if (hasPath(z, x, dict) && hasPath(y, z, dict)) {
-                    isRedundant = true;
-                    break;
-                }
-            }
-            if (isRedundant) {
-                // 冗長と判定された親 y から、自 x を除去
-                words[y].lower_covers = words[y].lower_covers.filter(id => id !== x);
+
+    // x–y エッジが冗長か判定（direction='upper' | 'lower'）
+    const isRedundant = (x, y, direction) => {
+        for (const zWord of words) {
+            if (!zWord) continue;
+            const z = zWord.id;
+            if (z === x || z === y) continue;
+            if (direction === 'upper') {
+                // y ≥ z ≥ x
+                if (hasPath(y, z, dict) && hasPath(z, x, dict)) return true;
             } else {
-                goodParents.push(y);
+                // x ≥ z ≥ y
+                if (hasPath(x, z, dict) && hasPath(z, y, dict)) return true;
             }
         }
-        xWord.upper_covers = goodParents;
+        return false;
+    };
+
+    for (const w of words) {
+        if (!w) continue;
+        const x = w.id;
+
+        // 1) upper_covers を修正
+        {
+            const kept = [];
+            for (const y of w.upper_covers || []) {
+                if (isRedundant(x, y, 'upper')) {
+                    // 冗長と判定 → 親側の lower_covers から x を除去
+                    words[y].lower_covers = (words[y].lower_covers || [])
+                        .filter(id => id !== x);
+                } else {
+                    kept.push(y);
+                }
+            }
+            // 重複を除いてから代入
+            w.upper_covers = Array.from(new Set(kept));
+
+            // 親側の lower_covers も重複排除
+            for (const y of w.upper_covers) {
+                words[y].lower_covers = Array.from(
+                    new Set(words[y].lower_covers || [])
+                );
+            }
+        }
+
+        // 2) lower_covers を修正
+        {
+            const kept = [];
+            for (const y of w.lower_covers || []) {
+                if (isRedundant(x, y, 'lower')) {
+                    // 冗長と判定 → 子側の upper_covers から x を除去
+                    words[y].upper_covers = (words[y].upper_covers || [])
+                        .filter(id => id !== x);
+                } else {
+                    kept.push(y);
+                }
+            }
+            // 重複を除いてから代入
+            w.lower_covers = Array.from(new Set(kept));
+
+            // 子側の upper_covers も重複排除
+            for (const y of w.lower_covers) {
+                words[y].upper_covers = Array.from(
+                    new Set(words[y].upper_covers || [])
+                );
+            }
+        }
     }
 }
+
 
 /**
  * 音列カテゴリの順序関係をチェック
@@ -218,6 +277,7 @@ export function checkIntegrity(dict) {
 
     if (noCycle) {
         minimalOk = allCoversAreMinimal(dict);
+        console.log("minimalOk", minimalOk);
         if (!minimalOk) {
             repairMinimalCovers(dict);
         }

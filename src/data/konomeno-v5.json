@@ -1195,15 +1195,11 @@
       "entry": "bafnol",
       "category": "概念",
       "lower_covers": [
-        50,
-        89,
         169,
         170,
         193,
-        201,
-        207,
         211,
-        324
+        568
       ],
       "upper_covers": [
         47
@@ -1230,7 +1226,7 @@
         323
       ],
       "upper_covers": [
-        49
+        "568"
       ],
       "translations": [
         "人"
@@ -2214,7 +2210,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        49
+        "568"
       ],
       "translations": [
         "猫"
@@ -3923,7 +3919,7 @@
     },
     {
       "id": 169,
-      "entry": "khaniklab",
+      "entry": "klunik",
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
@@ -4637,7 +4633,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        49
+        "568"
       ],
       "translations": [
         "狐"
@@ -4773,7 +4769,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        49
+        "568"
       ],
       "translations": [
         "うさぎ"
@@ -7340,11 +7336,11 @@
     },
     {
       "id": 324,
-      "entry": "wanko",
+      "entry": "habok",
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        49
+        "568"
       ],
       "translations": [
         "犬"
@@ -10067,7 +10063,8 @@
       "entry": "ma",
       "category": "音列",
       "lower_covers": [
-        449
+        449,
+        567
       ],
       "upper_covers": [
         496
@@ -12412,6 +12409,50 @@
       "contents": [],
       "variations": [],
       "is_function": null
+    },
+    {
+      "id": 567,
+      "entry": "mag",
+      "translations": [
+        "乳"
+      ],
+      "simple_translations": [],
+      "category": "音列",
+      "upper_covers": [
+        448
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 568,
+      "entry": "magmay",
+      "translations": [
+        "哺乳類"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        49
+      ],
+      "lower_covers": [
+        324,
+        89,
+        50,
+        201,
+        207
+      ],
+      "arguments": [],
+      "tags": [
+        "T6"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": false
     }
   ]
 }

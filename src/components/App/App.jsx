@@ -74,12 +74,13 @@ export default function App() {
 
   // メニューアクション（必要に応じて増やせる）
   const handleDownload = () => {
-    const blob = new Blob([JSON.stringify({ words })], { type: 'application/json' });
+    const blob = new Blob([JSON.stringify({ words }, null, 2)], { type: 'application/json' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
     a.download = 'dictionary.json';
     a.click();
   };
+
 
   const menuItems = [
     { title: "ダウンロード", onClick: handleDownload },
