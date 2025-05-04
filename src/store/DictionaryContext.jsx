@@ -134,7 +134,7 @@ function addWord(state, parentId) {
         lower_covers: [...parent.lower_covers, newWord.id]
     };
 
-    checkIntegrity(words);
+    checkIntegrity({ words });
     return { ...state, words, focusId: newWord.id };
 }
 
@@ -173,7 +173,7 @@ function deleteWord(state, { id }) {
     // 新しいフォーカス
     const newFocus = victim.upper_covers[0] ?? 0;
 
-    checkIntegrity(words);
+    checkIntegrity({ words });
 
     return { ...state, words, focusId: newFocus };
 }

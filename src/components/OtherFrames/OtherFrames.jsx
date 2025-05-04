@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useDictState, useDictDispatch } from '../../store/DictionaryContext';
+import { search } from '../../utils/utils.js';
 import { BasicForm } from '../CommonForms';
 import './OtherFrames.scss';
 
