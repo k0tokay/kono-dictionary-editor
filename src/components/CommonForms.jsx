@@ -1,6 +1,7 @@
 import { useDictState, useDictDispatch } from '../store/DictionaryContext';
 import { useState } from 'react';
 import { isValidWordTag } from '../utils/utils.js';
+import React from 'react';
 
 const punctuations = ['，', ',', '、'];
 const splitPunc = (text) =>

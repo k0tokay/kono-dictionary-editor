@@ -113,7 +113,8 @@
         295,
         337,
         375,
-        376
+        376,
+        590
       ],
       "upper_covers": [],
       "translations": [],
@@ -635,7 +636,6 @@
       "lower_covers": [
         75,
         76,
-        77,
         78,
         80,
         154,
@@ -650,7 +650,8 @@
         297,
         326,
         508,
-        566
+        566,
+        594
       ],
       "upper_covers": [
         24
@@ -1149,9 +1150,9 @@
       "entry": "halov",
       "category": "概念",
       "lower_covers": [
-        48,
-        49,
-        151
+        569,
+        570,
+        571
       ],
       "upper_covers": [
         22
@@ -1174,9 +1175,15 @@
       "id": 48,
       "entry": "kwaflaim",
       "category": "概念",
-      "lower_covers": [],
+      "lower_covers": [
+        574,
+        575,
+        576,
+        577,
+        578
+      ],
       "upper_covers": [
-        47
+        569
       ],
       "translations": [
         "植物"
@@ -1195,14 +1202,13 @@
       "entry": "bafnol",
       "category": "概念",
       "lower_covers": [
-        169,
-        170,
-        193,
-        211,
-        568
+        572,
+        579,
+        580,
+        581
       ],
       "upper_covers": [
-        47
+        569
       ],
       "translations": [
         "動物"
@@ -1226,7 +1232,7 @@
         323
       ],
       "upper_covers": [
-        "568"
+        568
       ],
       "translations": [
         "人"
@@ -1925,7 +1931,7 @@
         549
       ],
       "upper_covers": [
-        27
+        594
       ],
       "translations": [
         "建物"
@@ -2210,7 +2216,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        "568"
+        568
       ],
       "translations": [
         "猫"
@@ -3500,7 +3506,7 @@
         194
       ],
       "upper_covers": [
-        47
+        569
       ],
       "translations": [
         "きのこ"
@@ -3923,7 +3929,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        49
+        582
       ],
       "translations": [
         "カニ"
@@ -3946,10 +3952,11 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        49
+        588
       ],
       "translations": [
-        "鳥"
+        "鳥",
+        "鳥類"
       ],
       "simple_translations": [
         "鳥"
@@ -4191,7 +4198,8 @@
       "entry": "latones",
       "category": "概念",
       "lower_covers": [
-        182
+        182,
+        599
       ],
       "upper_covers": [
         27
@@ -4472,9 +4480,13 @@
       "id": 193,
       "entry": "lun",
       "category": "概念",
-      "lower_covers": [],
+      "lower_covers": [
+        587,
+        584,
+        589
+      ],
       "upper_covers": [
-        49
+        580
       ],
       "translations": [
         "魚"
@@ -4633,7 +4645,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        "568"
+        568
       ],
       "translations": [
         "狐"
@@ -4769,7 +4781,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        "568"
+        568
       ],
       "translations": [
         "うさぎ"
@@ -4853,11 +4865,11 @@
     },
     {
       "id": 211,
-      "entry": "tcyniklab",
+      "entry": "tcynik",
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        49
+        582
       ],
       "translations": [
         "エビ"
@@ -7336,11 +7348,11 @@
     },
     {
       "id": 324,
-      "entry": "habok",
+      "entry": "wanok",
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        "568"
+        568
       ],
       "translations": [
         "犬"
@@ -12437,19 +12449,651 @@
       "simple_translations": [],
       "category": "概念",
       "upper_covers": [
-        49
+        588
       ],
       "lower_covers": [
         324,
         89,
         50,
         201,
-        207
+        207,
+        600
       ],
       "arguments": [],
       "tags": [
         "T6"
       ],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 569,
+      "entry": "feltoa",
+      "translations": [
+        "真核生物"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        47
+      ],
+      "lower_covers": [
+        49,
+        48,
+        151
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 570,
+      "entry": "paktcin",
+      "translations": [
+        "細菌",
+        "バクテリア"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        47
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 571,
+      "entry": "alcetoa",
+      "translations": [
+        "古細菌",
+        "アーキア"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        47
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 572,
+      "entry": "bafel",
+      "translations": [
+        "虫"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        49
+      ],
+      "lower_covers": [
+        583
+      ],
+      "arguments": [],
+      "tags": [
+        "T3"
+      ],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 573,
+      "entry": "kalon",
+      "translations": [
+        "サメ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        587
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 574,
+      "entry": "salov",
+      "translations": [
+        "草",
+        "芝"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        48
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 575,
+      "entry": "kintol",
+      "translations": [
+        "竹"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        48
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 576,
+      "entry": "kunoja",
+      "translations": [
+        "木"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        48
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 577,
+      "entry": "muit",
+      "translations": [
+        "苔"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        48
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 578,
+      "entry": "sundali",
+      "translations": [
+        "つる植物"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        48
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 579,
+      "entry": "noltemel",
+      "translations": [
+        "軟体動物"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        49
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 580,
+      "entry": "dovsnel",
+      "translations": [
+        "脊椎動物"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        49
+      ],
+      "lower_covers": [
+        193,
+        585
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 581,
+      "entry": "kalnitel",
+      "translations": [
+        "節足動物"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        49
+      ],
+      "lower_covers": [
+        582,
+        583
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 582,
+      "entry": "labkol",
+      "translations": [
+        "甲殻類"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        581
+      ],
+      "lower_covers": [
+        211,
+        169
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 583,
+      "entry": "finstel",
+      "translations": [
+        "昆虫"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        572,
+        581
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 584,
+      "entry": "jolunek",
+      "translations": [
+        "円口類",
+        "無顎類"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        193
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 585,
+      "entry": "glannek",
+      "translations": [
+        "顎口類"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        580
+      ],
+      "lower_covers": [
+        586,
+        587
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 586,
+      "entry": "kostotel",
+      "translations": [
+        "硬骨魚類"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        585
+      ],
+      "lower_covers": [
+        588,
+        589
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 587,
+      "entry": "selolun",
+      "translations": [
+        "軟骨魚類"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        193,
+        585
+      ],
+      "lower_covers": [
+        573
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 588,
+      "entry": "kinoctel",
+      "translations": [
+        "四肢動物"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        586
+      ],
+      "lower_covers": [
+        568,
+        170,
+        591,
+        592
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 589,
+      "entry": "kostolun",
+      "translations": [
+        "硬骨魚類(四肢動物以外)"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        193,
+        586
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 590,
+      "entry": "moi",
+      "translations": [
+        "よっ！",
+        "やほ！",
+        "ちわっす",
+        "やぁ"
+      ],
+      "simple_translations": [],
+      "category": "慣用表現",
+      "upper_covers": [
+        5
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 591,
+      "entry": "sovknel",
+      "translations": [
+        "爬虫類"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        588
+      ],
+      "lower_covers": [
+        593
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 592,
+      "entry": "sfolalel",
+      "translations": [
+        "両生類"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        588
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 593,
+      "entry": "tajanlun",
+      "translations": [
+        "亀"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        591
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [
+        {
+          "title": "語源",
+          "text": "tajan (屋根) + lun (魚)"
+        }
+      ],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 594,
+      "entry": "mostona",
+      "translations": [
+        "広義の建物(建物の部分などを含む)"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        27
+      ],
+      "lower_covers": [
+        77,
+        595
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 595,
+      "entry": "mostonant",
+      "translations": [
+        "建物の部分"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        594
+      ],
+      "lower_covers": [
+        596,
+        597,
+        598
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 596,
+      "entry": "tajanok",
+      "translations": [
+        "屋根"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        595
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 597,
+      "entry": "wainklee",
+      "translations": [
+        "窓"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        595
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 598,
+      "entry": "taknof",
+      "translations": [
+        "ドア"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        595
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 599,
+      "entry": "keltones",
+      "translations": [
+        "計算機",
+        "コンピュータ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        181
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 600,
+      "entry": "moskab",
+      "translations": [
+        "羊"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        568
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
       "contents": [],
       "variations": [],
       "is_function": false
