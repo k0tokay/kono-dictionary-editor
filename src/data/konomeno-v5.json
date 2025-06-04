@@ -1309,8 +1309,7 @@
         52
       ],
       "translations": [
-        "果実",
-        "果物"
+        "果実"
       ],
       "simple_translations": [
         "果実"
@@ -1480,14 +1479,10 @@
       "entry": "laccen",
       "category": "概念",
       "lower_covers": [
-        62,
-        63,
-        64,
         65,
         66,
         67,
-        68,
-        61
+        68
       ],
       "upper_covers": [
         11
@@ -1533,7 +1528,7 @@
         321
       ],
       "upper_covers": [
-        60
+        62
       ],
       "translations": [
         "自然数"
@@ -1553,9 +1548,11 @@
       "id": 62,
       "entry": "stakk",
       "category": "概念",
-      "lower_covers": [],
+      "lower_covers": [
+        61
+      ],
       "upper_covers": [
-        60
+        63
       ],
       "translations": [
         "整数"
@@ -1575,9 +1572,11 @@
       "id": 63,
       "entry": "flakk",
       "category": "概念",
-      "lower_covers": [],
+      "lower_covers": [
+        62
+      ],
       "upper_covers": [
-        60
+        64
       ],
       "translations": [
         "有理数"
@@ -1598,9 +1597,11 @@
       "id": 64,
       "entry": "tolas",
       "category": "概念",
-      "lower_covers": [],
+      "lower_covers": [
+        63
+      ],
       "upper_covers": [
-        60
+        65
       ],
       "translations": [
         "実数"
@@ -1620,7 +1621,9 @@
       "id": 65,
       "entry": "klanlas",
       "category": "概念",
-      "lower_covers": [],
+      "lower_covers": [
+        64
+      ],
       "upper_covers": [
         60
       ],
@@ -3950,7 +3953,11 @@
       "id": 170,
       "entry": "klaafem",
       "category": "概念",
-      "lower_covers": [],
+      "lower_covers": [
+        601,
+        602,
+        603
+      ],
       "upper_covers": [
         588
       ],
@@ -6513,7 +6520,8 @@
       "lower_covers": [
         287,
         288,
-        510
+        510,
+        611
       ],
       "upper_covers": [
         27
@@ -6539,8 +6547,8 @@
       "lower_covers": [
         291,
         292,
-        293,
-        294
+        294,
+        614
       ],
       "upper_covers": [
         286
@@ -6682,7 +6690,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        287
+        614
       ],
       "translations": [
         "ケーキ"
@@ -11322,7 +11330,7 @@
     },
     {
       "id": 510,
-      "entry": "造語待ち",
+      "entry": "造語まち",
       "category": "概念",
       "lower_covers": [
         511,
@@ -12501,7 +12509,9 @@
       "upper_covers": [
         47
       ],
-      "lower_covers": [],
+      "lower_covers": [
+        610
+      ],
       "arguments": [],
       "tags": [],
       "contents": [],
@@ -12669,7 +12679,11 @@
       "upper_covers": [
         49
       ],
-      "lower_covers": [],
+      "lower_covers": [
+        604,
+        605,
+        606
+      ],
       "arguments": [],
       "tags": [],
       "contents": [],
@@ -12751,7 +12765,10 @@
         572,
         581
       ],
-      "lower_covers": [],
+      "lower_covers": [
+        607,
+        608
+      ],
       "arguments": [],
       "tags": [],
       "contents": [],
@@ -12770,7 +12787,9 @@
       "upper_covers": [
         193
       ],
-      "lower_covers": [],
+      "lower_covers": [
+        609
+      ],
       "arguments": [],
       "tags": [],
       "contents": [],
@@ -13084,7 +13103,8 @@
       "id": 600,
       "entry": "moskab",
       "translations": [
-        "羊"
+        "羊",
+        "山羊"
       ],
       "simple_translations": [],
       "category": "概念",
@@ -13097,6 +13117,415 @@
       "contents": [],
       "variations": [],
       "is_function": false
-    }
+    },
+    {
+      "id": 601,
+      "entry": "lopok",
+      "translations": [
+        "はと"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        170
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 602,
+      "entry": "glantce",
+      "translations": [
+        "カラス"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        170
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 603,
+      "entry": "copin",
+      "translations": [
+        "シジュウカラ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        170
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 604,
+      "entry": "pinok",
+      "translations": [
+        "メンダコ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        579
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 605,
+      "entry": "foilapinok",
+      "translations": [
+        "タコ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        579
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [
+        {
+          "title": "語源",
+          "text": "foila (花，傘) + pinok (メンダコ)"
+        }
+      ],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 606,
+      "entry": "sovlpinok",
+      "translations": [
+        "イカ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        579
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [
+        {
+          "title": "語源",
+          "text": "sovl (矢印) + pinok (メンダコ)"
+        }
+      ],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 607,
+      "entry": "mezonel",
+      "translations": [
+        "蜂"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        583
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 608,
+      "entry": "patokfel",
+      "translations": [
+        "バッタ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        583
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 609,
+      "entry": "liiljat",
+      "translations": [
+        "ヤツメウナギ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        584
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 610,
+      "entry": "lafika",
+      "translations": [
+        "乳酸菌"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        570
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 611,
+      "entry": "造語まち",
+      "translations": [
+        "食材"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        286
+      ],
+      "lower_covers": [
+        612,
+        621
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 612,
+      "entry": "solce",
+      "translations": [
+        "野菜"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        611
+      ],
+      "lower_covers": [
+        613
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 613,
+      "entry": "pomdo",
+      "translations": [
+        "イモ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        612
+      ],
+      "lower_covers": [
+        616,
+        617
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 614,
+      "entry": "manom",
+      "translations": [
+        "お菓子"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        287
+      ],
+      "lower_covers": [
+        293,
+        615,
+        618,
+        619,
+        620
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 615,
+      "entry": "pomme",
+      "translations": [
+        "パン"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        614
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 616,
+      "entry": "tcelopomdo",
+      "translations": [
+        "さつまいも"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        613
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 617,
+      "entry": "folpomdo",
+      "translations": [
+        "じゃがいも"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        613
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 618,
+      "entry": "melolask",
+      "translations": [
+        "アイスクリーム"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        614
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 619,
+      "entry": "pomekolon",
+      "translations": [
+        "飴"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        614
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [
+        {
+          "title": "語源",
+          "text": "pome (甘い) + kolon (玉)"
+        }
+      ],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 620,
+      "entry": "folmam",
+      "translations": [
+        "クッキー"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        614
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 621,
+      "entry": "nomelam",
+      "translations": [
+        "果物"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        611
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    null,
+    null
   ]
 }

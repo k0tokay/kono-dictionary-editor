@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDictState, useDictDispatch } from '../../store/DictionaryContext';
-import { isValidWordTag, ancestorList } from '../../utils/utils.js';
+import { isValidWordTag, ancestorList, hasNoCycle } from '../../utils/utils.js';
 import './TreeView.scss';
+import { useState, useEffect } from 'react';
 
 /** 単一ノード */
 function WordItem({ id }) {
@@ -55,6 +56,9 @@ function WordItem({ id }) {
 /** カテゴリルート配下を表示 */
 export function WordTree() {
   const { words } = useDictState();
+  if (!hasNoCycle({ words }, true)) { // 暫定の解決策
+    return null; // 循環がある場合は表示しない
+  }
 
   // 「カテゴリ」ラベルをルートとみなすノードID一覧
   const roots = words

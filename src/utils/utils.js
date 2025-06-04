@@ -85,16 +85,17 @@ export function hasPath(start, target, dict, seen = new Set()) {
  * 周回がないか全要素チェック
  * @returns true: 循環なし, false: 循環あり (見つけたら即 false)
  */
-export function hasNoCycle(dict) {
+export function hasNoCycle(dict, silent = false) {
     const { words } = dict;
-
     function dfs(start, cur, visited) {
         if (visited.has(cur)) return true;
         visited.add(cur);
         for (const nxt of words[cur]?.lower_covers || []) {
             if (nxt === start) {
                 // 循環検出
-                alert(`循環検出: ${words[start].entry}(${start}) と ${words[cur].entry}(${cur}) の間にループがあります`);
+                if (!silent) {
+                    alert(`循環検出: ${words[start].entry}(${start}) と ${words[cur].entry}(${cur}) の間にループがあります`);
+                }
                 return false;
             }
             if (!dfs(start, nxt, visited)) {
@@ -163,6 +164,7 @@ export function allCoversAreMinimal(dict) {
 
 export function repairMinimalCovers(dict) {
     const { words } = dict;
+    console.log('repairMinimalCovers:', words);
 
     // x–y エッジが冗長か判定（direction='upper' | 'lower'）
     const isRedundant = (x, y, direction) => {
