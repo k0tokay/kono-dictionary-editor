@@ -6,7 +6,7 @@ import '../../styles/index.scss';
 import { WordTree } from '../TreeView/TreeView';
 import DetailsFrame from '../DetailFrame/DetailFrame';
 import { SearchFrame, EmptyFrame } from '../OtherFrames/OtherFrames';
-import { useDictState } from '../../store/DictionaryContext';
+import { useDictState, useDictDispatch } from '../../store/DictionaryContext';
 import { usePageState, usePageDispatch } from '../../store/PageContext';
 
 function MenuBar({ items }) {
@@ -33,6 +33,7 @@ function PageTab({ tabs, activeTab, setActiveTab }) {
 
 export default function App() {
   const { words } = useDictState();
+  const dictDispatch = useDictDispatch();
   const { leftWidth, pageTabs } = usePageState();
   const pageDispatch = usePageDispatch();
 
@@ -81,9 +82,39 @@ export default function App() {
     a.click();
   };
 
+  const handleUpload = () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'application/json';
+    input.onchange = (e) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        try {
+          const data = JSON.parse(ev.target.result);
+          if (data.words) {
+            dictDispatch({ type: 'SET_DICTIONARY', payload: { words: data.words } });
+          }
+        } catch {
+          // eslint-disable-next-line no-alert
+          alert('JSONの読み込みに失敗しました');
+        }
+      };
+      reader.readAsText(file);
+    };
+    input.click();
+  };
+
+  const handleSave = () => {
+    localStorage.setItem('dictionary', JSON.stringify({ words }));
+  };
+
 
   const menuItems = [
-    { title: "ダウンロード", onClick: handleDownload },
+    { title: '読み込み', onClick: handleUpload },
+    { title: '保存', onClick: handleSave },
+    { title: 'ダウンロード', onClick: handleDownload },
   ];
 
   // ショートカットキー登録
