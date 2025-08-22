@@ -521,7 +521,9 @@
       "entry": "konkaeno",
       "category": "概念",
       "lower_covers": [
-        47
+        47,
+        641,
+        654
       ],
       "upper_covers": [
         20
@@ -980,11 +982,11 @@
         103,
         118,
         282,
-        283,
-        284,
-        285,
         360,
-        361
+        361,
+        44,
+        219,
+        113
       ],
       "upper_covers": [
         1
@@ -1076,7 +1078,7 @@
       "category": "関係",
       "lower_covers": [],
       "upper_covers": [
-        282
+        40
       ],
       "translations": [
         "助数詞"
@@ -1158,7 +1160,7 @@
         22
       ],
       "translations": [
-        "生物"
+        "(実在する)生物"
       ],
       "simple_translations": [
         "生物"
@@ -1739,19 +1741,16 @@
         161,
         162,
         163,
-        164,
         177,
-        188,
         195,
         196,
         204,
-        209,
         210,
         266,
-        296,
         540,
         543,
-        536
+        536,
+        626
       ],
       "upper_covers": [
         51
@@ -1902,7 +1901,8 @@
       "lower_covers": [
         147,
         178,
-        548
+        548,
+        642
       ],
       "upper_covers": [
         27
@@ -2193,7 +2193,7 @@
       "entry": "cotent",
       "category": "概念",
       "lower_covers": [
-        145
+        651
       ],
       "upper_covers": [
         23
@@ -2734,7 +2734,7 @@
       "category": "関係",
       "lower_covers": [],
       "upper_covers": [
-        284
+        40
       ],
       "translations": [
         "生起物の構成員関係"
@@ -2759,8 +2759,11 @@
       "entry": "liskono",
       "category": "概念",
       "lower_covers": [
-        261,
-        262
+        637,
+        638,
+        639,
+        640,
+        250
       ],
       "upper_covers": [
         227
@@ -3394,7 +3397,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        88
+        651
       ],
       "translations": [
         "レストラン"
@@ -3815,7 +3818,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        70
+        627
       ],
       "translations": [
         "顔"
@@ -4160,7 +4163,9 @@
       "id": 179,
       "entry": "lanois",
       "category": "概念",
-      "lower_covers": [],
+      "lower_covers": [
+        656
+      ],
       "upper_covers": [
         78
       ],
@@ -4376,7 +4381,7 @@
         390
       ],
       "upper_covers": [
-        70
+        627
       ],
       "translations": [
         "耳"
@@ -4832,7 +4837,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        70
+        627
       ],
       "translations": [
         "歯"
@@ -5062,7 +5067,7 @@
         264
       ],
       "upper_covers": [
-        283
+        40
       ],
       "translations": [
         "意味役割",
@@ -5203,11 +5208,23 @@
     },
     {
       "id": 226,
-      "entry": "aitali",
+      "entry": "tastoi",
       "category": "概念",
       "lower_covers": [
-        235,
-        234
+        229,
+        271,
+        240,
+        241,
+        242,
+        243,
+        404,
+        522,
+        563,
+        565,
+        632,
+        258,
+        644,
+        648
       ],
       "upper_covers": [
         227
@@ -5249,7 +5266,7 @@
     },
     {
       "id": 228,
-      "entry": "selenem",
+      "entry": "kisenem",
       "category": "概念",
       "lower_covers": [
         298
@@ -5261,7 +5278,7 @@
         "現象"
       ],
       "simple_translations": [
-        "星空"
+        ""
       ],
       "arguments": [],
       "tags": [
@@ -5277,7 +5294,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        235
+        226
       ],
       "translations": [
         "溶ける",
@@ -5329,70 +5346,15 @@
     null,
     null,
     null,
-    {
-      "id": 234,
-      "entry": "tastoi",
-      "category": "概念",
-      "lower_covers": [
-        236,
-        238,
-        240,
-        241,
-        242,
-        243,
-        404,
-        512,
-        522,
-        563,
-        565
-      ],
-      "upper_covers": [
-        226
-      ],
-      "translations": [
-        "自動詞的行為"
-      ],
-      "simple_translations": [],
-      "arguments": [],
-      "tags": [
-        "T5"
-      ],
-      "contents": [],
-      "variations": [],
-      "is_function": false
-    },
-    {
-      "id": 235,
-      "entry": "danses",
-      "category": "概念",
-      "lower_covers": [
-        246,
-        229,
-        271,
-        250
-      ],
-      "upper_covers": [
-        226
-      ],
-      "translations": [
-        "他動詞的行為"
-      ],
-      "simple_translations": [],
-      "arguments": [],
-      "tags": [
-        "T5"
-      ],
-      "contents": [],
-      "variations": [],
-      "is_function": false
-    },
+    null,
+    null,
     {
       "id": 236,
       "entry": "stay",
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        234
+        644
       ],
       "translations": [
         "歩く"
@@ -5440,7 +5402,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        234
+        644
       ],
       "translations": [
         "走る",
@@ -5487,7 +5449,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        234
+        226
       ],
       "translations": [
         "微笑む"
@@ -5510,7 +5472,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        234
+        226
       ],
       "translations": [
         "笑う"
@@ -5530,7 +5492,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        234
+        226
       ],
       "translations": [
         "泣く"
@@ -5553,7 +5515,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        234
+        226
       ],
       "translations": [
         "吐く"
@@ -5617,7 +5579,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        235
+        648
       ],
       "translations": [
         "殴る"
@@ -5710,7 +5672,7 @@
         251
       ],
       "upper_covers": [
-        235
+        117
       ],
       "translations": [
         "存在変化行為"
@@ -5823,9 +5785,7 @@
       "id": 255,
       "entry": "libaist",
       "category": "概念",
-      "lower_covers": [
-        258
-      ],
+      "lower_covers": [],
       "upper_covers": [
         252
       ],
@@ -5845,9 +5805,7 @@
       "id": 256,
       "entry": "nabaist",
       "category": "概念",
-      "lower_covers": [
-        269
-      ],
+      "lower_covers": [],
       "upper_covers": [
         252
       ],
@@ -5894,7 +5852,7 @@
         305
       ],
       "upper_covers": [
-        255
+        226
       ],
       "translations": [
         "摂取する"
@@ -5967,7 +5925,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        117
+        262
       ],
       "translations": [
         "逃げる"
@@ -5987,9 +5945,11 @@
       "id": 262,
       "entry": "noolja",
       "category": "概念",
-      "lower_covers": [],
+      "lower_covers": [
+        261
+      ],
       "upper_covers": [
-        117
+        637
       ],
       "translations": [
         "行く"
@@ -6133,10 +6093,10 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        256
+        648
       ],
       "translations": [
-        "殺す"
+        "殺す(致命的な危害を加えようとする)"
       ],
       "simple_translations": [
         "殺す"
@@ -6178,7 +6138,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        235
+        226
       ],
       "translations": [
         "凍る"
@@ -6412,13 +6372,12 @@
     },
     {
       "id": 282,
-      "entry": "nato stolite nato",
+      "entry": "sanhanov",
       "category": "関係",
       "lower_covers": [
         29,
         30,
         31,
-        44,
         92,
         99,
         342,
@@ -6429,7 +6388,7 @@
         40
       ],
       "translations": [
-        "nato-nato間の関係"
+        "部分性関係に類似した関係の総称"
       ],
       "simple_translations": [],
       "arguments": [
@@ -6443,76 +6402,9 @@
       "variations": [],
       "is_function": null
     },
-    {
-      "id": 283,
-      "entry": "nato stolite astav",
-      "category": "関係",
-      "lower_covers": [
-        219
-      ],
-      "upper_covers": [
-        40
-      ],
-      "translations": [
-        "nato-astav間の関係"
-      ],
-      "simple_translations": [],
-      "arguments": [
-        12,
-        9
-      ],
-      "tags": [
-        "T5"
-      ],
-      "contents": [],
-      "variations": [],
-      "is_function": null
-    },
-    {
-      "id": 284,
-      "entry": "astav stolite astav",
-      "category": "関係",
-      "lower_covers": [
-        113
-      ],
-      "upper_covers": [
-        40
-      ],
-      "translations": [
-        "astav-astav間の関係"
-      ],
-      "simple_translations": [],
-      "arguments": [
-        9,
-        9
-      ],
-      "tags": [
-        "T5"
-      ],
-      "contents": [],
-      "variations": [],
-      "is_function": null
-    },
-    {
-      "id": 285,
-      "entry": "aicis stolite panhac",
-      "category": "関係",
-      "lower_covers": [],
-      "upper_covers": [
-        40
-      ],
-      "translations": [
-        "aicis-panhac間の関係"
-      ],
-      "simple_translations": [],
-      "arguments": [],
-      "tags": [
-        "T5"
-      ],
-      "contents": [],
-      "variations": [],
-      "is_function": null
-    },
+    null,
+    null,
+    null,
     {
       "id": 286,
       "entry": "labin",
@@ -6521,7 +6413,8 @@
         287,
         288,
         510,
-        611
+        611,
+        653
       ],
       "upper_covers": [
         27
@@ -6758,7 +6651,7 @@
         384
       ],
       "upper_covers": [
-        70
+        627
       ],
       "translations": [
         "頬",
@@ -9074,7 +8967,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        234
+        226
       ],
       "translations": [
         "発表会, 弁論大会"
@@ -11377,7 +11270,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        234
+        644
       ],
       "translations": [
         "潜る"
@@ -11578,7 +11471,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        234
+        226
       ],
       "translations": [
         "会う"
@@ -12364,7 +12257,7 @@
         564
       ],
       "upper_covers": [
-        234
+        226
       ],
       "translations": [
         "作業する"
@@ -12400,7 +12293,7 @@
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
-        234
+        226
       ],
       "translations": [
         "電話する"
@@ -13018,7 +12911,8 @@
       "lower_covers": [
         596,
         597,
-        598
+        598,
+        655
       ],
       "arguments": [],
       "tags": [],
@@ -13526,6 +13420,646 @@
       "is_function": false
     },
     null,
-    null
+    null,
+    {
+      "id": 624,
+      "entry": "kuys",
+      "translations": [
+        "口"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        627
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 625,
+      "entry": "motoc",
+      "translations": [
+        "頭"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        626
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 626,
+      "entry": "motocnant",
+      "translations": [
+        "頭の部分"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        70
+      ],
+      "lower_covers": [
+        625,
+        627,
+        629
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 627,
+      "entry": "kaconant",
+      "translations": [
+        "顔の部分"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        626
+      ],
+      "lower_covers": [
+        164,
+        624,
+        296,
+        209,
+        188,
+        628
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 628,
+      "entry": "menin",
+      "translations": [
+        "鼻"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        627
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 629,
+      "entry": "filmof",
+      "translations": [
+        "ケモミミ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        626
+      ],
+      "lower_covers": [
+        630,
+        631
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 630,
+      "entry": "letofilmof",
+      "translations": [
+        "左ケモミミ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        629
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 631,
+      "entry": "latofilmof",
+      "translations": [
+        "右ケモミミ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        629
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 632,
+      "entry": "waminoi",
+      "translations": [
+        "感じる"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        226
+      ],
+      "lower_covers": [
+        633,
+        634,
+        635,
+        636
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 633,
+      "entry": "kansav",
+      "translations": [
+        "見る"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        632
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 634,
+      "entry": "junoi",
+      "translations": [
+        "触る"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        632
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 635,
+      "entry": "tavinoi",
+      "translations": [
+        "味わう"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        632
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 636,
+      "entry": "sofi",
+      "translations": [
+        "匂いを嗅ぐ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        632
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 637,
+      "entry": "noskono",
+      "translations": [
+        "物理変化"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        117
+      ],
+      "lower_covers": [
+        262
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 638,
+      "entry": "wainskono",
+      "translations": [
+        "状態変化"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        117
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 639,
+      "entry": "kiskono",
+      "translations": [
+        "情報変化"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        117
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 640,
+      "entry": "loskono",
+      "translations": [
+        "抽象変化"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        117
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 641,
+      "entry": "kanon",
+      "translations": [
+        "嘉音"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        22
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": true
+    },
+    {
+      "id": 642,
+      "entry": "poloytces",
+      "translations": [
+        "気球"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        76
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [
+        {
+          "title": "語源",
+          "text": "poloy (風船) + tces (部屋)"
+        }
+      ],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 643,
+      "entry": "khisui",
+      "translations": [
+        "落ちる"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        644
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 644,
+      "entry": "cemai",
+      "translations": [
+        "移動する"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        226
+      ],
+      "lower_covers": [
+        643,
+        236,
+        238,
+        512,
+        645,
+        646,
+        647
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 645,
+      "entry": "taja",
+      "translations": [
+        "登る",
+        "上がる"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        644
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 646,
+      "entry": "flaalja",
+      "translations": [
+        "飛ぶ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        644
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 647,
+      "entry": "laptov",
+      "translations": [
+        "(乗り物に)乗る",
+        "運転する"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        644
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 648,
+      "entry": "gasket",
+      "translations": [
+        "攻撃する"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        226
+      ],
+      "lower_covers": [
+        246,
+        649,
+        269
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 649,
+      "entry": "panzo",
+      "translations": [
+        "撃つ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        648
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 650,
+      "entry": "manomtces",
+      "translations": [
+        "菓子屋"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        651
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 651,
+      "entry": "labintces",
+      "translations": [
+        "食べ物を売っている場所",
+        "スーパー"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        88
+      ],
+      "lower_covers": [
+        145,
+        650,
+        652
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 652,
+      "entry": "lozmitces",
+      "translations": [
+        "薬屋"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        651
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 653,
+      "entry": "lozmipt",
+      "translations": [
+        "薬"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        286
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 654,
+      "entry": "polkee",
+      "translations": [
+        "お化け",
+        "幽霊"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        22
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 655,
+      "entry": "tceskopt",
+      "translations": [
+        "部屋"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        595
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 656,
+      "entry": "belenois",
+      "translations": [
+        "ゴーグル"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        179
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    }
   ]
 }

@@ -32,6 +32,8 @@ function dictionaryReducer(state, action) {
         }
         case 'TOGGLE_OPEN': {
             const set = new Set(state.openSet);
+            // focusがあっている時のみtoggleする
+            if (state.focusId !== action.payload) return state;
             if (set.has(action.payload)) set.delete(action.payload);
             else set.add(action.payload);
             return { ...state, openSet: set };

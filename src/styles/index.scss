@@ -30,6 +30,8 @@ html, body {
   color: $fg-main;
   background: $bg; // 全部bgにする
   font-family: "Inter", "Noto Sans JP", sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
 }
 button {
   background: $bg-elevated;
