@@ -47,16 +47,35 @@ function dictionaryReducer(state, action) {
         case 'SET_FOCUS': {
             return { ...state, focusId: action.payload };
         }
+        case 'SET_DICTIONARY': {
+            const words = action.payload.words;
+            return { ...state, words, openSet: new Set(), focusId: getFirstRootId(words) };
+        }
         default:
             throw new Error(`Unknown action: ${action.type}`);
     }
 }
 
 export function DictionaryProvider({ children }) {
+    let initialWords = initialData.words;
+    if (typeof window !== 'undefined') {
+        try {
+            const stored = localStorage.getItem('dictionary');
+            if (stored) {
+                const parsed = JSON.parse(stored);
+                if (parsed.words) {
+                    initialWords = parsed.words;
+                }
+            }
+        } catch {
+            // ignore parse error and fall back to bundled data
+        }
+    }
+
     const [state, dispatch] = useReducer(dictionaryReducer, {
-        words: initialData.words,
+        words: initialWords,
         openSet: new Set(),
-        focusId: 6, // alkono // getFirstRootId(initialData.words)
+        focusId: getFirstRootId(initialWords),
         editedSet: new Set(),
         // …その他 state…
     });
