@@ -1,3 +1,5 @@
+import { CATEGORY } from '../constants/categories.js';
+
 export function createBlankWord(parentId, parentCategory, nextId) {
     const category = parentCategory === 'カテゴリ' ? parentCategory : parentCategory;
     return {
@@ -287,7 +289,7 @@ export function repairSubseqCovers(dict) {
     const { words } = dict;
 
     for (const w of words) {
-        if (!w || w.category !== '音列') continue;
+        if (!w || w.category !== CATEGORY.PHONEME_SEQ) continue;
         const s = w.entry;
         // 親一覧 (upper_covers) 側を検査
         const newUppers = [];

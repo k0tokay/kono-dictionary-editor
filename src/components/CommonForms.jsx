@@ -60,13 +60,17 @@ export function TagWordDetails({ word, onClick }) {
     );
 }
 
-export function TagForm({ name, title, tags, onChange, onClick, edited, isList = true, isWord = false, isReadOnly = false,
+// wordId: このフォームが編集対象としている単語のID（isWord=true の covers フィールドで使用）
+export function TagForm({ name, title, tags, wordId, onChange, onClick, edited,
+    isWord = false, isReadOnly = false,
 }) {
-    const { words, focusId } = useDictState();
+    const { words } = useDictState();
     const dispatch = useDictDispatch();
     const [editingIndex, setEditingIndex] = useState(null);
-    // const tagToList = tags => (isList ? tags : (tags != null ? [tags] : [])).map(t => !isWord || !isValidWordTag(words, t) ? t : Number(t));
+
     const tagList = tags;
+
+    // 入力文字列をストア保存形式に変換（isWord の場合は有効なIDなら number に）
     const displayToRaw = (text) => !isWord || !isValidWordTag(words, text) ? text : Number(text);
     const displayToRawList = (textList) => textList.map(t => displayToRaw(t));
 
@@ -78,14 +82,14 @@ export function TagForm({ name, title, tags, onChange, onClick, edited, isList =
         }
     };
 
-    const handleBlur = (e) => {
+    const handleBlur = () => {
         if (isWord) {
-            dispatch({ type: "UPDATE_COVERS", payload: { id: focusId, field: name, editingIndex: editingIndex } });
+            const tag = tagList[editingIndex]; // blur 時点のタグ値をそのまま渡す
+            dispatch({ type: "UPDATE_COVERS", payload: { id: wordId, field: name, tag } });
         } else {
-            const newTags = tagList.filter((t, j) => t !== "")
+            const newTags = tagList.filter(t => t !== "");
             onChange(name, displayToRawList(newTags));
         }
-
         setEditingIndex(null);
     };
 
@@ -133,7 +137,7 @@ export function LargeListForm({ name, title, title_h, title_c, contents, edited,
         const updated = [...contents, { title: "", text: "" }];
         onChange(name, updated);
     };
-    const updateItem = (idx) => (field, val) => {
+    const updateItem = (idx) => (_field, val) => {
         const updated = contents.slice();
         updated[idx] = val;
         onChange(name, updated);
@@ -153,7 +157,7 @@ export function LargeListForm({ name, title, title_h, title_c, contents, edited,
                             title={title_h}
                             value={content.title}
                             edited={edited}
-                            onChange={(f, v) => updateItem(i)(name, { ...content, title: v })}
+                            onChange={(_f, v) => updateItem(i)(name, { ...content, title: v })}
                         />
                         <BasicForm
                             name={`${name}_${i}_c`}
@@ -161,7 +165,7 @@ export function LargeListForm({ name, title, title_h, title_c, contents, edited,
                             value={content.text}
                             isMultiline
                             edited={edited}
-                            onChange={(f, v) => updateItem(i)(name, { ...content, text: v })}
+                            onChange={(_f, v) => updateItem(i)(name, { ...content, text: v })}
                         />
                     </React.Fragment>
                 ))}
@@ -178,30 +182,16 @@ export function MenuBar({ items }) {
     );
 }
 
-export function CheckboxForm({
-    name,
-    title,
-    checked = false,
-    onChange,
-    disabled = false,
-}) {
-    const { words, focusId } = useDictState();
-    const dispatch = useDictDispatch();
-    const word = words[focusId];
+// 純粋なUIコンポーネント。ドメインロジックは呼び出し元で行うこと
+export function CheckboxForm({ name, title, checked = false, onChange, disabled = false }) {
     const handleChange = (e) => {
-        // あまり良くないがここで整合性チェックしてしまう
-        if (word.lower_covers.length > 0 && e.target.checked) {
-            // 下位語がある場合はチェックできない
-            alert("下位語がある場合はチェックできません");
-            return;
-        }
         onChange(name, e.target.checked);
     };
 
     return (
         <div className="checkboxForm">
             <label htmlFor={name} className="formHeader checkboxHeader">
-                <span >{title}</span>
+                <span>{title}</span>
                 <input
                     type="checkbox"
                     id={name}

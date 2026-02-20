@@ -1,7 +1,5 @@
 // src/components/DetailFrame/DetailFrame.jsx
-import React from 'react';
 import { useDictState, useDictDispatch } from '../../store/DictionaryContext';
-import { search } from '../../utils/utils.js';
 import { BasicForm, TagForm, LargeListForm, MenuBar, CheckboxForm } from '../CommonForms';
 import './DetailFrame.scss';
 
@@ -13,10 +11,18 @@ export default function DetailFrame() {
   const { words, focusId, editedSet } = useDictState();
   const dispatch = useDictDispatch();
   const word = words[focusId];
-  const dict = { words };
 
   // フィールド更新
   const handleChange = (field, value) => {
+    dispatch({ type: 'UPDATE_FIELD', payload: { id: focusId, field, value } });
+  };
+
+  // is_function は下位語があるとtrueにできないためドメインチェックをここで行う
+  const handleIsFunctionChange = (field, value) => {
+    if (value && word.lower_covers.length > 0) {
+      alert("下位語がある場合はチェックできません"); // eslint-disable-line no-alert
+      return;
+    }
     dispatch({ type: 'UPDATE_FIELD', payload: { id: focusId, field, value } });
   };
 
@@ -64,7 +70,6 @@ export default function DetailFrame() {
           tags={word.upper_covers}
           edited={editedSet.has('upper_covers')}
           isWord
-          dict={dict}
           onChange={handleChange}
           onClick={(id) => dispatch({ type: 'SET_FOCUS', payload: id })}
         />
@@ -75,17 +80,16 @@ export default function DetailFrame() {
           tags={word.lower_covers}
           edited={editedSet.has('lower_covers')}
           isWord
-          dict={dict}
           onChange={handleChange}
           onClick={(id) => dispatch({ type: 'SET_FOCUS', payload: id })}
         />
         <TagForm
+          wordId={focusId}
           name="arguments"
           title="引数"
           tags={word.arguments}
           edited={editedSet.has('arguments')}
           isWord
-          dict={dict}
           onChange={handleChange}
           onClick={(id) => dispatch({ type: 'SET_FOCUS', payload: id })}
         />
@@ -94,7 +98,7 @@ export default function DetailFrame() {
           title="関数性"
           checked={word.is_function}
           edited={editedSet.has('is_function')}
-          onChange={handleChange}
+          onChange={handleIsFunctionChange}
         /> : null}
         <TagForm
           name="tags"

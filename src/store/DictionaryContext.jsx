@@ -3,13 +3,14 @@ import React, { createContext, useReducer, useContext } from 'react';
 import initialData from '../data/konomeno-v5.json';
 import { hasPath, createBlankWord, checkIntegrity, hasNoCycle } from '../utils/utils.js';
 import { ancestorList, isValidWordTag } from '../utils/utils.js';
+import { CATEGORY } from '../constants/categories.js';
 
 const DictionaryStateCtx = createContext();
 const DictionaryDispatchCtx = createContext();
 
 const getFirstRootId = (words) => {
     for (let i = 0; i < words.length; i++) {
-        if (words[i] && words[i].category === 'カテゴリ') {
+        if (words[i] && words[i].category === CATEGORY.ROOT) {
             return i;
         }
     }
@@ -107,52 +108,61 @@ function updateField(state, { id, field, value }) {
     return { ...state, words: newWords };
 }
 
-function updateCovers(state, { id, field, editingIndex }) {
+// payload: { id, field, tag }
+// tag: blur時点で編集していたタグの値（数値IDまたは空文字列など）
+function updateCovers(state, { id, field, tag }) {
     const word = state.words[id];
     if (!word) return state;
 
-    const tagList = word[field].filter(t => t !== "" && t !== null && isValidWordTag(state.words, t));
     const invField = field === 'upper_covers' ? 'lower_covers' : 'upper_covers';
 
     const newWords = structuredClone(state.words);
-    newWords[id][field] = newWords[id][field].filter(t => t !== "");
 
-    // ここで削除すると不整合になる可能性がある // tmp
+    // 空・無効エントリを除去
+    newWords[id][field] = newWords[id][field].filter(
+        t => t !== "" && t !== null && isValidWordTag(state.words, t)
+    );
+
+    // 逆リンクの整合：field から消えた相手側の invField から id を除去
     for (const w of newWords) {
         if (!w) continue;
         for (const t of w[invField]) {
             if (t === id && !newWords[id][field].includes(w.id)) {
-                // もう片方のリンクを削除
-                w[invField] = w[invField].filter(t => t !== id);
+                w[invField] = w[invField].filter(tid => tid !== id);
             }
         }
     }
-    const tag = tagList[editingIndex];
-    if (!tag) {
-        // 編集中のタグが空の場合は何もしない
+
+    // 新しいタグが有効なら逆リンクを追加
+    if (!isValidWordTag(state.words, tag)) {
         return { ...state, words: newWords };
     }
-    const target = state.words[tag];
-    target[invField] = [...target[invField], id];
-    newWords[tag] = target;
+
+    const numTag = Number(tag);
+    // すでにリンク済みなら追加しない（重複防止）
+    if (!newWords[numTag][invField].includes(id)) {
+        newWords[numTag] = {
+            ...newWords[numTag],
+            [invField]: [...newWords[numTag][invField], id]
+        };
+    }
+
     if (hasNoCycle({ words: newWords })) {
-        // もし循環していなければ、更新を反映
         checkIntegrity({ words: newWords });
         return { ...state, words: newWords };
     } else {
-        // 循環している場合はそのtagを削除
-        newWords[tag][invField] = newWords[tag][invField].filter(t => t !== id);
-        newWords[id][field] = newWords[id][field].filter(t => t !== tag);
+        // 循環している場合はこのtagのリンクを除去
+        newWords[numTag][invField] = newWords[numTag][invField].filter(t => t !== id);
+        newWords[id][field] = newWords[id][field].filter(t => t !== numTag);
         return { ...state, words: newWords };
     }
-    // return { ...state, words: newWords };
 }
 
 function addWord(state, parentId) {
     const parent = state.words[parentId];
     if (!parent) return state;
 
-    const category = parent.category === 'カテゴリ' ? parent.entry : parent.category; // 親のカテゴリを引き継ぐ(親がカテゴリの場合は例外処理)
+    const category = parent.category === CATEGORY.ROOT ? parent.entry : parent.category; // 親のカテゴリを引き継ぐ(親がカテゴリの場合は例外処理)
     const newWord = createBlankWord(parentId, category, state.words.length);
     const words = [...state.words, newWord];
     // 親のlower_coversに新しい単語を追加
@@ -204,4 +214,3 @@ function deleteWord(state, { id }) {
 
     return { ...state, words, focusId: newFocus };
 }
-
