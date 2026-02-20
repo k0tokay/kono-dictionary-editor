@@ -36,3 +36,11 @@ tmp*.py
 saimeno-v4-simp.json
 
 **/tmp
+
+CLAUDE.md
+
+**/ref
+
+**/tex
+
+**/documents
