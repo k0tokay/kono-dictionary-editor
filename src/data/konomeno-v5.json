@@ -54,7 +54,8 @@
         334,
         335,
         336,
-        122
+        122,
+        657
       ],
       "upper_covers": [],
       "translations": [],
@@ -136,6 +137,12 @@
         366
       ],
       "upper_covers": [
+        684,
+        684,
+        683,
+        683,
+        682,
+        682,
         0
       ],
       "translations": [
@@ -181,6 +188,8 @@
         13
       ],
       "upper_covers": [
+        658,
+        658,
         279
       ],
       "translations": [
@@ -284,6 +293,8 @@
         15
       ],
       "upper_covers": [
+        663,
+        663,
         8
       ],
       "translations": [
@@ -337,6 +348,7 @@
         17
       ],
       "upper_covers": [
+        664,
         12
       ],
       "translations": [
@@ -382,6 +394,7 @@
         19
       ],
       "upper_covers": [
+        664,
         14
       ],
       "translations": [
@@ -590,7 +603,7 @@
     },
     {
       "id": 25,
-      "entry": "novzmi",
+      "entry": "halonant",
       "category": "概念",
       "lower_covers": [
         51,
@@ -644,7 +657,6 @@
         165,
         175,
         181,
-        205,
         247,
         259,
         270,
@@ -653,7 +665,9 @@
         326,
         508,
         566,
-        594
+        594,
+        675,
+        678
       ],
       "upper_covers": [
         24
@@ -747,31 +761,7 @@
       "variations": [],
       "is_function": null
     },
-    {
-      "id": 31,
-      "entry": "litam",
-      "category": "関係",
-      "lower_covers": [],
-      "upper_covers": [
-        282
-      ],
-      "translations": [
-        "内部関係",
-        "内部-全体関係",
-        "x1はx2の中にある"
-      ],
-      "simple_translations": [],
-      "arguments": [
-        14,
-        16
-      ],
-      "tags": [
-        "T5"
-      ],
-      "contents": [],
-      "variations": [],
-      "is_function": null
-    },
+    null,
     {
       "id": 32,
       "entry": "latent",
@@ -973,12 +963,6 @@
       "lower_covers": [
         45,
         46,
-        54,
-        95,
-        94,
-        96,
-        97,
-        98,
         103,
         118,
         282,
@@ -986,7 +970,16 @@
         361,
         44,
         219,
-        113
+        113,
+        658,
+        662,
+        342,
+        682,
+        683,
+        684,
+        685,
+        686,
+        688
       ],
       "upper_covers": [
         1
@@ -1231,7 +1224,8 @@
       "lower_covers": [
         244,
         322,
-        323
+        323,
+        677
       ],
       "upper_covers": [
         568
@@ -1332,7 +1326,7 @@
         55
       ],
       "upper_covers": [
-        40
+        658
       ],
       "translations": [
         "内在関係",
@@ -2003,7 +1997,7 @@
     },
     {
       "id": 80,
-      "entry": "folka",
+      "entry": "folkana",
       "category": "概念",
       "lower_covers": [
         174,
@@ -2237,33 +2231,7 @@
     },
     null,
     null,
-    {
-      "id": 92,
-      "entry": "koplis",
-      "category": "関係",
-      "lower_covers": [],
-      "upper_covers": [
-        282
-      ],
-      "translations": [
-        "中身-容器関係",
-        "x1はx2の中身である"
-      ],
-      "simple_translations": [
-        "中身",
-        "容器"
-      ],
-      "arguments": [
-        6,
-        80
-      ],
-      "tags": [
-        "T4"
-      ],
-      "contents": [],
-      "variations": [],
-      "is_function": null
-    },
+    null,
     {
       "id": 93,
       "entry": "kanowa",
@@ -2291,7 +2259,7 @@
       "category": "関係",
       "lower_covers": [],
       "upper_covers": [
-        40
+        658
       ],
       "translations": [
         "形容関係",
@@ -2315,7 +2283,7 @@
       "category": "関係",
       "lower_covers": [],
       "upper_covers": [
-        40
+        658
       ],
       "translations": [
         "物-性質関係"
@@ -2338,7 +2306,7 @@
       "category": "関係",
       "lower_covers": [],
       "upper_covers": [
-        40
+        658
       ],
       "translations": [
         "定量的量-性質関係"
@@ -2361,7 +2329,7 @@
       "category": "関係",
       "lower_covers": [],
       "upper_covers": [
-        40
+        658
       ],
       "translations": [
         "定性的量-性質関係"
@@ -2384,7 +2352,7 @@
       "category": "関係",
       "lower_covers": [],
       "upper_covers": [
-        40
+        658
       ],
       "translations": [
         "性質-性質関係"
@@ -2401,31 +2369,7 @@
       "variations": [],
       "is_function": null
     },
-    {
-      "id": 99,
-      "entry": "fetam",
-      "category": "関係",
-      "lower_covers": [],
-      "upper_covers": [
-        282
-      ],
-      "translations": [
-        "間内部関係",
-        "間内部-全体関係",
-        "x1はx2の中にある"
-      ],
-      "simple_translations": [],
-      "arguments": [
-        14,
-        17
-      ],
-      "tags": [
-        "T5"
-      ],
-      "contents": [],
-      "variations": [],
-      "is_function": null
-    },
+    null,
     {
       "id": 100,
       "entry": "haisk",
@@ -4748,7 +4692,7 @@
         206
       ],
       "upper_covers": [
-        27
+        595
       ],
       "translations": [
         "家具"
@@ -5036,7 +4980,7 @@
     },
     {
       "id": 218,
-      "entry": "konhalee",
+      "entry": "halee",
       "category": "概念",
       "lower_covers": [],
       "upper_covers": [
@@ -5224,7 +5168,8 @@
         632,
         258,
         644,
-        648
+        648,
+        679
       ],
       "upper_covers": [
         227
@@ -6377,12 +6322,9 @@
       "lower_covers": [
         29,
         30,
-        31,
-        92,
-        99,
-        342,
         343,
-        344
+        344,
+        663
       ],
       "upper_covers": [
         40
@@ -6441,7 +6383,8 @@
         291,
         292,
         294,
-        614
+        614,
+        689
       ],
       "upper_covers": [
         286
@@ -6466,7 +6409,8 @@
       "category": "概念",
       "lower_covers": [
         289,
-        290
+        290,
+        691
       ],
       "upper_covers": [
         286
@@ -7595,7 +7539,7 @@
       "category": "関係",
       "lower_covers": [],
       "upper_covers": [
-        282
+        40
       ],
       "translations": [
         "x1はx2のようである"
@@ -12912,7 +12856,8 @@
         596,
         597,
         598,
-        655
+        655,
+        205
       ],
       "arguments": [],
       "tags": [],
@@ -13280,7 +13225,9 @@
         615,
         618,
         619,
-        620
+        620,
+        671,
+        672
       ],
       "arguments": [],
       "tags": [],
@@ -13308,7 +13255,7 @@
     },
     {
       "id": 616,
-      "entry": "tcelopomdo",
+      "entry": "calopomdo",
       "translations": [
         "さつまいも"
       ],
@@ -13723,7 +13670,10 @@
       "upper_covers": [
         117
       ],
-      "lower_covers": [],
+      "lower_covers": [
+        680,
+        681
+      ],
       "arguments": [],
       "tags": [],
       "contents": [],
@@ -14036,7 +13986,11 @@
       "upper_covers": [
         595
       ],
-      "lower_covers": [],
+      "lower_covers": [
+        673,
+        674,
+        676
+      ],
       "arguments": [],
       "tags": [],
       "contents": [],
@@ -14060,6 +14014,661 @@
       "contents": [],
       "variations": [],
       "is_function": false
-    }
+    },
+    {
+      "id": 657,
+      "entry": "ena",
+      "translations": [
+        "何の",
+        "疑問詞"
+      ],
+      "simple_translations": [],
+      "category": "パラメータ演算子",
+      "upper_covers": [
+        3
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 658,
+      "entry": "ansana",
+      "translations": [
+        "ansa関連の関係"
+      ],
+      "simple_translations": [],
+      "category": "関係",
+      "upper_covers": [
+        40
+      ],
+      "lower_covers": [
+        54,
+        95,
+        98,
+        97,
+        96,
+        94,
+        659,
+        661
+      ],
+      "arguments": [
+        8,
+        8
+      ],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 659,
+      "entry": "locka",
+      "translations": [
+        "定性的量-物関係"
+      ],
+      "simple_translations": [],
+      "category": "関係",
+      "upper_covers": [
+        658
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    null,
+    {
+      "id": 661,
+      "entry": "lockalof",
+      "translations": [
+        "定性的量-定性的量関係"
+      ],
+      "simple_translations": [],
+      "category": "関係",
+      "upper_covers": [
+        658
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 662,
+      "entry": "milun",
+      "translations": [
+        "x1の名前はx2である"
+      ],
+      "simple_translations": [],
+      "category": "関係",
+      "upper_covers": [
+        40
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 663,
+      "entry": "litamma",
+      "translations": [
+        "内部関係関連"
+      ],
+      "simple_translations": [],
+      "category": "関係",
+      "upper_covers": [
+        282
+      ],
+      "lower_covers": [
+        664,
+        667,
+        669,
+        670
+      ],
+      "arguments": [
+        12,
+        12
+      ],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 664,
+      "entry": "litam",
+      "translations": [
+        "内部関係"
+      ],
+      "simple_translations": [],
+      "category": "関係",
+      "upper_covers": [
+        663
+      ],
+      "lower_covers": [
+        665,
+        666
+      ],
+      "arguments": [
+        14,
+        16
+      ],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 665,
+      "entry": "khoflitam",
+      "translations": [
+        "空間型内部関係"
+      ],
+      "simple_translations": [],
+      "category": "関係",
+      "upper_covers": [
+        664
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 666,
+      "entry": "tollitam",
+      "translations": [
+        "混在型内部関係"
+      ],
+      "simple_translations": [],
+      "category": "関係",
+      "upper_covers": [
+        664
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 667,
+      "entry": "sovlitam",
+      "translations": [
+        "接触関係"
+      ],
+      "simple_translations": [],
+      "category": "関係",
+      "upper_covers": [
+        663
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    null,
+    {
+      "id": 669,
+      "entry": "fetam",
+      "translations": [
+        "間内部関係"
+      ],
+      "simple_translations": [],
+      "category": "関係",
+      "upper_covers": [
+        663
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 670,
+      "entry": "koplis",
+      "translations": [
+        "中身-容器関係"
+      ],
+      "simple_translations": [],
+      "category": "関係",
+      "upper_covers": [
+        663
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 671,
+      "entry": "malomo",
+      "translations": [
+        "マシュマロ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        614
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 672,
+      "entry": "tcako",
+      "translations": [
+        "チョコレート"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        614
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 673,
+      "entry": "tasttces",
+      "translations": [
+        "作業部屋"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        655
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [
+        {
+          "title": "語源",
+          "text": "tast (作業) + tces (部屋)"
+        }
+      ],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 674,
+      "entry": "plabetces",
+      "translations": [
+        "おもちゃ部屋"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        655
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [
+        {
+          "title": "語源",
+          "text": "plabe (おもちゃ) + tces (部屋)"
+        }
+      ],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 675,
+      "entry": "plappe",
+      "translations": [
+        "おもちゃ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        27
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 676,
+      "entry": "taltotces",
+      "translations": [
+        "寝室"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        655
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [
+        {
+          "title": "語源",
+          "text": "talto (人形) + tces (部屋)"
+        }
+      ],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 677,
+      "entry": "komeda",
+      "translations": [
+        "米田"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        50
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 678,
+      "entry": "nazloft",
+      "translations": [
+        "財布"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        27
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 679,
+      "entry": "pojelii",
+      "translations": [
+        "盗む"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        226
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 680,
+      "entry": "felsai",
+      "translations": [
+        "伝える"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        639
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 681,
+      "entry": "deiz",
+      "translations": [
+        "許可する"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        639
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 682,
+      "entry": "kast",
+      "translations": [
+        "x1とx2は等しい",
+        "相等関係"
+      ],
+      "simple_translations": [],
+      "category": "関係",
+      "upper_covers": [
+        40
+      ],
+      "lower_covers": [],
+      "arguments": [
+        6,
+        6
+      ],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 683,
+      "entry": "skon",
+      "translations": [
+        "集合の包含関係"
+      ],
+      "simple_translations": [],
+      "category": "関係",
+      "upper_covers": [
+        40
+      ],
+      "lower_covers": [],
+      "arguments": [
+        6,
+        6
+      ],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 684,
+      "entry": "litoi",
+      "translations": [
+        "集合の要素関係"
+      ],
+      "simple_translations": [],
+      "category": "関係",
+      "upper_covers": [
+        40
+      ],
+      "lower_covers": [],
+      "arguments": [
+        6,
+        6
+      ],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 685,
+      "entry": "kuisnoli",
+      "translations": [
+        "x2の学年はx1である"
+      ],
+      "simple_translations": [],
+      "category": "関係",
+      "upper_covers": [
+        40
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 686,
+      "entry": "nito",
+      "translations": [
+        "x1はx2において場所である"
+      ],
+      "simple_translations": [],
+      "category": "関係",
+      "upper_covers": [
+        40
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    null,
+    {
+      "id": 688,
+      "entry": "nocto",
+      "translations": [
+        "x1はx2において位置付けられるものである"
+      ],
+      "simple_translations": [],
+      "category": "関係",
+      "upper_covers": [
+        40
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 689,
+      "entry": "meliinoa",
+      "translations": [
+        "飲み物"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        287
+      ],
+      "lower_covers": [
+        690
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 690,
+      "entry": "pacmelee",
+      "translations": [
+        "炭酸飲料"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        689
+      ],
+      "lower_covers": [
+        692
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 691,
+      "entry": "kipsaca",
+      "translations": [
+        "キビ",
+        "トウモロコシ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        288
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 692,
+      "entry": "taymmipt",
+      "translations": [
+        "コーラ"
+      ],
+      "simple_translations": [],
+      "category": "概念",
+      "upper_covers": [
+        690
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    null
   ]
 }

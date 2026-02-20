@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDictState, useDictDispatch } from '../../store/DictionaryContext';
 import { isValidWordTag, ancestorList, hasNoCycle } from '../../utils/utils.js';
+import { CATEGORY } from '../../constants/categories.js';
 import './TreeView.scss';
 import { useState, useEffect } from 'react';
 
@@ -60,9 +61,9 @@ export function WordTree() {
     return null; // 循環がある場合は表示しない
   }
 
-  // 「カテゴリ」ラベルをルートとみなすノードID一覧
+  // ルートカテゴリのノードID一覧
   const roots = words
-    .map((w, i) => (w && w.category === 'カテゴリ' ? i : -1))
+    .map((w, i) => (w && w.category === CATEGORY.ROOT ? i : -1))
     .filter(i => i !== -1);
 
   return (

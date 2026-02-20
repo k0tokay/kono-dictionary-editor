@@ -6,18 +6,9 @@ import '../../styles/index.scss';
 import { WordTree } from '../TreeView/TreeView';
 import DetailsFrame from '../DetailFrame/DetailFrame';
 import { SearchFrame, EmptyFrame } from '../OtherFrames/OtherFrames';
+import { MenuBar } from '../CommonForms';
 import { useDictState, useDictDispatch } from '../../store/DictionaryContext';
 import { usePageState, usePageDispatch } from '../../store/PageContext';
-
-function MenuBar({ items }) {
-  return (
-    <div className="menuBar">
-      {items.map((item, i) => (
-        <button key={i} onClick={item.onClick}>{item.title}</button>
-      ))}
-    </div>
-  );
-}
 
 function PageTab({ tabs, activeTab, setActiveTab }) {
   return (
@@ -50,10 +41,10 @@ export default function App() {
     pageDispatch({ type: 'SET_TAB', payload: { side, tab } });
   };
 
-  const openSearchTab = () => {
+  const openSearchTab = useCallback(() => {
     const side = pageTabs.left.display.includes('検索') ? 'left' : 'right';
     pageDispatch({ type: 'OPEN_TAB', payload: { side, tab: '検索' } });
-  };
+  }, [pageTabs.left.display, pageDispatch]);
 
   // 分割バーの操作
   const handleMouseMove = useCallback((e) => {
@@ -97,8 +88,7 @@ export default function App() {
             dictDispatch({ type: 'SET_DICTIONARY', payload: { words: data.words } });
           }
         } catch {
-          // eslint-disable-next-line no-alert
-          alert('JSONの読み込みに失敗しました');
+          alert('JSONの読み込みに失敗しました'); // eslint-disable-line no-alert
         }
       };
       reader.readAsText(file);
@@ -109,7 +99,6 @@ export default function App() {
   const handleSave = () => {
     localStorage.setItem('dictionary', JSON.stringify({ words }));
   };
-
 
   const menuItems = [
     { title: '読み込み', onClick: handleUpload },
@@ -127,7 +116,7 @@ export default function App() {
     };
     window.addEventListener('keydown', handleShortcut);
     return () => window.removeEventListener('keydown', handleShortcut);
-  }, []);
+  }, [openSearchTab]);
 
   return (
     <div className="window">
