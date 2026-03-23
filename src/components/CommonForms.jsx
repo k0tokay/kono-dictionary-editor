@@ -83,7 +83,7 @@ export function TagForm({ name, title, tags, wordId, onChange, onClick, edited,
     };
 
     const handleBlur = () => {
-        if (isWord) {
+        if (isWord && (name === 'upper_covers' || name === 'lower_covers')) {
             const tag = tagList[editingIndex]; // blur 時点のタグ値をそのまま渡す
             dispatch({ type: "UPDATE_COVERS", payload: { id: wordId, field: name, tag } });
         } else {
