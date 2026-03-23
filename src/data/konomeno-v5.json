@@ -6384,7 +6384,7 @@
     },
     {
       "id": 267,
-      "entry": "造語待ち",
+      "entry": "kaldamon",
       "category": "語彙",
       "lower_covers": [
         268,
@@ -7106,7 +7106,7 @@
     },
     {
       "id": 299,
-      "entry": "造語待ち",
+      "entry": "kafnokt",
       "category": "語彙",
       "lower_covers": [
         300,
@@ -9479,7 +9479,7 @@
     },
     {
       "id": 402,
-      "entry": "造語待ち",
+      "entry": "loinleme",
       "category": "語彙",
       "lower_covers": [
         403
@@ -10739,7 +10739,8 @@
       "lower_covers": [
         458,
         459,
-        721
+        721,
+        751
       ],
       "upper_covers": [
         497
@@ -11799,11 +11800,14 @@
     },
     {
       "id": 510,
-      "entry": "fiksal",
+      "entry": "filimmal",
       "category": "語彙",
       "lower_covers": [
         511,
-        557
+        557,
+        752,
+        753,
+        754
       ],
       "upper_covers": [
         286
@@ -16301,7 +16305,7 @@
     },
     {
       "id": 733,
-      "entry": "大西洋類",
+      "entry": "weldankel",
       "translations": [
         "大西洋類"
       ],
@@ -16346,7 +16350,7 @@
       "id": 735,
       "entry": "glisbavn",
       "translations": [
-        "ウシ"
+        "牛"
       ],
       "simple_translations": [],
       "category": "語彙",
@@ -16402,7 +16406,7 @@
     },
     {
       "id": 738,
-      "entry": "食肉目",
+      "entry": "daiksel",
       "translations": [
         "食肉目"
       ],
@@ -16623,6 +16627,118 @@
       "variations": [],
       "is_function": false
     },
-    null
+    null,
+    {
+      "id": 751,
+      "entry": "naz",
+      "translations": [
+        "結ぶ",
+        "ジッパー"
+      ],
+      "simple_translations": [],
+      "category": "音列",
+      "upper_covers": [
+        457
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 752,
+      "entry": "molocca",
+      "translations": [
+        "砂糖"
+      ],
+      "simple_translations": [],
+      "category": "語彙",
+      "upper_covers": [
+        510
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 753,
+      "entry": "fojon",
+      "translations": [
+        "食用油"
+      ],
+      "simple_translations": [],
+      "category": "語彙",
+      "upper_covers": [
+        510
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 754,
+      "entry": "kyjesel",
+      "translations": [
+        "薬味"
+      ],
+      "simple_translations": [],
+      "category": "語彙",
+      "upper_covers": [
+        510
+      ],
+      "lower_covers": [
+        755,
+        756
+      ],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 755,
+      "entry": "kolwon",
+      "translations": [
+        "ネギ"
+      ],
+      "simple_translations": [],
+      "category": "語彙",
+      "upper_covers": [
+        754
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    },
+    {
+      "id": 756,
+      "entry": "jacis",
+      "translations": [
+        "パクチー"
+      ],
+      "simple_translations": [],
+      "category": "語彙",
+      "upper_covers": [
+        754
+      ],
+      "lower_covers": [],
+      "arguments": [],
+      "tags": [],
+      "contents": [],
+      "variations": [],
+      "is_function": false
+    }
   ]
 }
